@@ -1,0 +1,27 @@
+<view class='result'>
+    
+    <view class='container'   scale="{{scale}}">
+         <view class='team_logo'  style="margin-top:{{(scale<0.55)? '284rpx':'190rpx'}}">
+            <image src="../../images/picker.png"></image>
+        </view>
+        <view class='musice_star ' style="top:{{(scale<0.55)? '38%':'40%'}};left:{{(scale<0.55)? '68%':'68%'}}">
+            <image src="../../images/section/muscie_f.png"></image>
+        </view>
+       <view class='fx_text '>
+            <view class='text_style'>
+                这里是 <text class='team_name'>滴滴滴哒哒哒</text> 组合
+            </view>
+            <view class='text_style mar_bar'>新歌首发，多帮分享扩散，</view>
+            <view class='text_style'>出道请你吃饭！～</view>
+        </view>
+        <view class="create_hb" style="margin-top:{{(scale<0.55)? '100rpx':'30rpx'}}">
+            <image src="../../images/fq_hc.png"></image>
+        </view>
+        <view class="create_fx" style="margin-top:{{(scale<0.55)? '60rpx':'20rpx'}}">
+           <image src="../../images/create_fx.png"></image>
+        </view>
+         <view class='bottom-logo' style="margin-top:{{(scale<0.55)? '50rpx':'20rpx'}}">
+            <image src="../../images/index/index-logo.png "/>
+        </view>
+    </view>
+</view>

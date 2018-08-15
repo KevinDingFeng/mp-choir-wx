@@ -1,0 +1,79 @@
+/* pages/myWriting/myCreate.wxss */
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column ;
+  align-items: flex-start;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 0 33rpx;
+} 
+.myCreate{
+    background-color: #FFED57; 
+    height: 100%;
+}
+.navigation{
+    margin-top: -50rpx;
+    width:100%;
+    display: inline-flex;
+}
+
+.header-top{
+    width:560rpx;
+    height:354rpx;
+    display:inline-block;
+    overflow:hidden;
+}
+.goback{
+    width:40rpx;
+    height:64rpx;
+    overflow:hidden;
+    color: #000;
+    margin-top:222rpx;
+    margin-right: 40rpx;
+}
+.musiclist{
+    margin-top: 27rpx;
+    width: 686rpx;
+    height:800rpx;
+    background-color: #FFC25F;
+    border-radius: 20px
+}
+.music{
+    display: flex;
+    flex-direction: row;
+    padding: 31rpx 40rpx;
+    border-bottom: 1px solid #471d94;
+    font-size: 28rpx;
+}
+.music_name{
+    color: #471d94;
+    width: 37%;
+    padding-top: 11rpx;
+}
+.music_jd{
+    border: 2px solid #000;
+    border-radius: 42%;
+    padding: 4rpx 20rpx;
+    background-color: #fff;
+}
+.music_type{
+    margin-left: 44rpx;
+    padding-top: 7rpx;
+    color: #471d94;
+}
+.music_time{
+    margin-left: 41rpx;
+    padding-top: 7rpx;
+}
+.bottom-logo{
+    width: 100%;
+    text-align: right;
+    margin-top: 42rpx; 
+}
+.bottom-logo>image {
+    width:159rpx;
+    height:54rpx;
+    display:inline-block;
+    overflow:hidden;
+}
