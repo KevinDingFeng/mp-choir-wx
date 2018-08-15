@@ -1,11 +1,20 @@
 //app.js
 App({
   onLaunch: function () {
-    // 展示本地存储能力
-    var logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
-
+    console.log('app onLaunch');
+    this.globalData.ex = true;
+    var sysinfo = wx.getSystemInfoSync();
+    console.log(sysinfo);
+    if (sysinfo) {
+        this.globalData.sysinfo = sysinfo;
+        var width = sysinfo.windowWidth;
+        var height = sysinfo.windowHeight;
+        var px2rpx = 750 / width;
+        this.globalData.width = width * px2rpx + 'rpx';
+        this.globalData.height = height * px2rpx + 'rpx';
+        this.globalData.windowWidth = width;
+        this.globalData.windowHeight = height;
+    }
     // 登录
     wx.login({
       success: res => {
@@ -34,6 +43,19 @@ App({
     })
   },
   globalData: {
-    userInfo: null
-  }
+    userInfo: null,
+    width: '750rpx',
+    height: '1206rpx',
+    //是否已经执行过， 避免index中的onload onshow 执行两次setUpGroup
+    ex: false,
+    selectsinger: null,//音乐相关
+    currentIndex: 0,
+    fullScreen: false,
+    songlist: [],
+    playing: false,
+    innerAudioContext: null
+  },
+onShow: function () {
+   
+}
 })

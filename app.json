@@ -1,9 +1,19 @@
 {
-  "pages":[
+  "pages":[ 
+    "pages/c_musice/c_musice",
+    "pages/user/user",
     "pages/index/index",
+    "pages/Codeshare/Codeshare",
+    "pages/share/share",
+    "pages/result/result",
+    "pages/section/sectionmusice",
+    "pages/choose/choosemusice",
+    "pages/myWriting/myWriting",
+    "pages/myCreate/myCreate",
     "pages/logs/logs"
   ],
   "window":{
+    "navigationStyle": "custom",
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",

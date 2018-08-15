@@ -4,7 +4,7 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
@@ -13,7 +13,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.1.1",
 	"appid": "wxd5d28f91e9c2c730",
-	"projectname": "mp-choir-wx",
+	"projectname": "mphc",
 	"isGameTourist": false,
 	"condition": {
 		"search": {
