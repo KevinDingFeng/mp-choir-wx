@@ -1,0 +1,25 @@
+<!--pages/user/userInfo.wxml-->
+<form bindsubmit="formSubmit" bindreset="formReset">
+  <view class="section">
+    <view class="section__title">为自己的组合起个名字吧</view>
+    <input name="choirName" maxlength="8" value='{{choir.choirName}}' placeholder="输入团名" />
+  </view>
+
+  <view class="section">
+  <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+    <view class="picker">
+      {{choir.pickerValue}} 人
+    </view>
+  </picker>
+</view>
+
+  <image  class="userinfo-avatar" src="{{choir.albumArtPaht}}" mode="cover"></image>
+
+<view>
+  <button type="default"  bindtap="uploadAlbumArt" hover-class="other-button-hover"> 上传专辑封面 </button>
+</view>
+
+  <view class="btn-area">
+    <button formType="submit">成团</button>
+  </view>
+</form>

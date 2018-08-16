@@ -1,0 +1,31 @@
+<view class='result'>
+    <view class='container'   scale="{{scale}}">
+       <view class="navigation" style="margin-top:{{(scale<0.55)? '-42rpx':'-60rpx'}}">
+          <image class='header-top'  src="../../images/home.png"   style="margin-top:{{(scale<0.55)? '216rpx':'216rpx'}}"></image>
+          <image class='fq_bg' src="../../images/section/fq_bg.png" style="margin-top:{{(scale<0.55)? '216rpx':'208rpx'}}"></image>
+        </view>
+        <view class='fx_text '>
+            <view class='text_style'>
+                恭喜 <text class='team_name'>滴滴滴哒哒哒</text> 组合
+            </view>
+            <view class='text_style mar_bar'>新歌出炉！</view>
+            <view class='text_style'>快来听听！</view>
+            <view class='text_style'>分享好友助力出道～～</view>
+        </view>
+        <view class='team_logo'>
+            <image src="../../images/picker.png"></image>
+        </view>
+        <view class='musice_star ' style="top:{{(scale<0.55)? '54%':'63%'}}">
+            <image src="../../images/section/muscie_f.png"></image>
+        </view>
+        <view class="create_hb" style="margin-top:{{(scale<0.55)? '100rpx':'50rpx'}}">
+            <image src="../../images/create_hb.png"></image>
+        </view>
+        <view class="create_fx" style="margin-top:{{(scale<0.55)? '60rpx':'30rpx'}}">
+           <image src="../../images/create_fx.png"></image>
+        </view>
+         <view class='bottom-logo' style="margin-top:{{(scale<0.55)? '50rpx':'30rpx'}}">
+            <image src="../../images/index/index-logo.png "/>
+        </view>
+    </view>
+</view>
