@@ -1,0 +1,27 @@
+<view class='myCreate'>
+    <view class="container">
+        <view class="navigation" style="margin-top:{{(scale<0.55)? '-360rpx':'-300rpx'}}">
+            <image class='goback' src="../../images/return.png" style="margin-top:{{(scale<0.55)? '554rpx':'496rpx'}}"></image>
+            <image class='header-top' src="../../images/myCreate/navigation.png" style="height:{{(scale<0.55)? '700rpx':'650rpx'}}"></image>
+        </view>
+        <view class='musiclist' style="height:{{(scale<0.55)? '1000rpx':'800rpx'}}">
+            <view class='music'>
+                <view class='music_name'>
+                    凉凉
+                </view>
+                <view class='music_jd'>
+                    <text>1</text>/<text>4</text>
+                </view>
+                <view class='music_type'>
+                    未录制
+                </view>
+                <view class='music_time'>
+                    19:58:01
+                </view>
+            </view>
+        </view>
+        <view class='bottom-logo' >
+            <image src="../../images/index/index-logo.png "/>
+        </view>
+    </view>
+</view>

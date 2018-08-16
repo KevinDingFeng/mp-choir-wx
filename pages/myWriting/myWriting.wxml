@@ -1,0 +1,33 @@
+<view class='myWriting'>
+    <view class="container">
+        <view class="navigation" style="margin-top:{{(scale<0.55)? '-300rpx':'-300rpx'}}">
+             <image class='goback' src="../../images/return.png" style="margin-top:{{(scale<0.55)? '466rpx':'550rpx'}}"></image>
+            <image class='header-top' src="../../images/myWriting/navigation.png" style="height:{{(scale<0.55)? '564rpx':'650rpx'}}"></image>
+        </view>
+        <view class='musiclist' style="height:{{(scale<0.55)? '1000rpx':'800rpx'}}">
+            <view class='music'>
+                <view class="music_img">
+                    <image src=" ">
+                    </image>
+                </view>
+                <view class='music_js'>
+                    <text>歌曲名字</text>
+                    <view>
+                        <text>来自:</text>
+                        <text class="music_peo">哪位歌手</text>
+                    </view>
+                </view>
+                <view class="music_nav " bindtap="onChangeShowState">
+                    <image  src="../../images/myWriting/icon_nav.png"></image>
+                </view>
+                 <view class="music_navlist hide{{showView?'show':''}}">
+                    <image src="../../images/myWriting/delete.png" alt="删除"></image>
+                    <image src="../../images/myWriting/share.png" alt="分享"></image>
+                </view>
+            </view>
+        </view>
+        <view class='bottom-logo '>
+            <image src="../../images/index/index-logo.png "/>
+        </view>
+    </view>
+</view>
