@@ -1,5 +1,0 @@
-{
-    "usingComponents": {
-        "progress-bar": "../components/progress/progress"
-    }
-}
