@@ -1,0 +1,41 @@
+<view class='c_musice'>
+    <view class="container" style="{{pageStyle}}">
+        <view class="navigation" style="margin-top:{{(scale<0.55)? '-360rpx':'44rpx'}}">
+            <image class='goback' src="../../images/return.png" style="margin-top:{{(scale<0.55)? '554rpx':''}}"></image>
+            <text class='musice_name'>{{team_name}}</text>
+        </view>
+        <view class="progress-wrapper">
+            <text class="time time-l">{{currentTime}}</text>
+            <view class="progress-bar-wrapper">
+                <progress-bar percent="{{percent}}"></progress-bar>
+            </view>
+            <text class="time time-r">{{duration}}</text>
+        </view>
+        <view class='musice_Lyrics'>
+            <swiper class="middle" style="height: 700rpx" bindchange="changeDot">
+                <swiper-item class="middle-r">
+                    <scroll-view class="lyric-wrapper" scroll-y scroll-into-view="line{{toLineNum}}" scroll-with-animation>
+                        <view v-if="currentLyric">
+                            <view ref="lyricLine" id="line{{index}}" class="text {{currentLineNum == index ? 'current': '' }}" wx:for="{{currentLyric.lines}}">{{item.txt}}
+                            </view>
+                        </view>
+                        <view wx:if="{{!currentLyric}}">
+                            <view class="text current">暂无歌词</view>
+                        </view>
+                    </scroll-view>
+                </swiper-item>
+            </swiper>
+        </view>
+        <view class='musice_btn' wx:if ="{{lz_type}}">
+            <image src='../../images/c_musice/lz.png'></image>
+        </view>
+        <view class='musice_btnlist ' wx:else>
+            <image src='../../images/c_musice/cfu.png'></image>
+            <image class='center_btn' src='../../images/c_musice/bf.png'></image>
+            <image src='../../images/c_musice/success.png'></image>
+        </view>
+        <view class='bottom-logo'>
+            <image src="../../images/index/index-logo.png " />
+        </view>
+    </view>
+</view>
