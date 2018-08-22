@@ -2,8 +2,7 @@
  * 小程序配置文件
  */
 //接口域名
-var host = "192.168.3.3:9090";
-
+var host = "localhost:9090";
 //静态文件域名
 //var data_host = "img.app.meitudata.com";
 
