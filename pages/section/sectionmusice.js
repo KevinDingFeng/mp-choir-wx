@@ -1,4 +1,5 @@
 // pages/section/sectionmusice.js
+var config = require('../../utils/config.js');
 const app = getApp()
 Page({
 
@@ -8,13 +9,48 @@ Page({
   data: {
     pageStyle: `width:${app.globalData.width};height:${app.globalData.height}`,
     scale: app.globalData.windowWidth / app.globalData.windowHeight,
+    baseUrl: config.baseUrl + 'f/',
+    result:[{
+      choir:{
+        albumArtPaht:'',
+        songName: '',
+        singer: '',
+        choirName: '',
+        population: ''
+      }
+    }]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    let that = this;
+    if (options.choirId) {
+      that.setData({
+        choirId: options.choirId
+      })
+
+      wx.request({
+        url: config.baseUrl + 'song_section/get_section_song',//
+        data:{
+          choirId: options.choirId
+        },
+        success: function (res) {
+          console.log(res.data)
+          let resData = res.data;
+          if (resData && resData.success) {
+            let data = resData.data;
+            that.setData({
+              result: data
+            })
+          }
+        },
+        fail: function (e) {
+          console.log(e);
+        }
+      })
+    }
   },
 
   /**
@@ -29,6 +65,23 @@ Page({
    */
   onShow: function () {
   
+  },
+
+  goback:function(){
+    let that = this;
+    wx.navigateTo({
+      url: '../choose/choosemusice?choirId=' + that.data.choirId+'&section=1',
+    })
+  },
+  createAudio: function (event) {
+    //console.log(event)
+    const audioUrl = event.target.dataset.path
+    const backgroundAudioManager = wx.getBackgroundAudioManager()
+
+    // backgroundAudioManager.title = '此时此刻'
+    // backgroundAudioManager.epname = '此时此刻'
+    // backgroundAudioManager.singer = '许巍'
+    backgroundAudioManager.src = audioUrl // 设置了 src 之后会自动播放
   },
 
   /**

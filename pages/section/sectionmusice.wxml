@@ -2,62 +2,40 @@
 <view class='choose'>
     <view class='container'   scale="{{scale}}">
         <view class="navigation" style="margin-top:{{(scale<0.55)? '-42rpx':'-42rpx'}}">
-             <image class='goback' src="../../images/return.png"></image>
+             <image class='goback' src="../../images/return.png" bindtap="goback"></image>
             <image class='header-top'  src="../../images/home.png"   style="margin-top:{{(scale<0.55)? '216rpx':'216rpx'}}"></image>
             <image class='fq_bg' src="../../images/section/fq_bg.png" style="margin-top:{{(scale<0.55)? '216rpx':'208rpx'}}"></image>
         </view>
         <view class='musice_xx'>
             <view class="musice_face">
-                <image src=" "></image>
+                <image src="{{baseUrl+result[0].choir.albumArtPaht}}"></image>
             </view>
             <view class='musice_name'>
                     <view class='musice_top'>
-                        <text class='musice_fame'>脆弱一分钟脆弱一分钟</text>
-                        <view class='musice_peo'>--林宥嘉</view>
+                        <text class='musice_fame'>{{result[0].choir.songName}}</text>
+                        <view class='musice_peo'>--{{result[0].choir.singer}}</view>
                         <view class='musice_team'>
-                            演唱：<text>团名</text>
+                            演唱：<text>{{result[0].choir.choirName}}</text>
                         </view>
                         <view>
-                            人数：<text>4</text>人
+                            人数：<text>{{result[0].choir.population}}</text>人
                         </view>
                     </view>
             </view>
         </view>
         <view class='musice_list' style="min-height:{{(scale<0.55)? '740rpx':'500rpx'}}">
-            <view class='muscie_yc'>
+            <view class='muscie_yc' wx:for="{{result}}" wx:key="*this" wx:for-item="songSection">
                 <view class='musice_type'>
-                    <image src="../../images/section/muscie_f.png"></image>
+                    <image src="../../images/section/muscie_f.png" data-path="{{songSection.path}}" bindtap='createAudio'></image>
                 </view>
-                <view class='muscie_time'>19:55:04</view>
-                <view class='musice_type'>
-                    <image src="../../images/section/empty_y.png"></image>
-                </view>
-                <view class="type_style">
-                     <image src="../../images/section/d_yanc.png"></image>
-                </view>
-            </view>
-            <view class='muscie_yc'>
-                <view class='musice_type'>
-                    <image src="../../images/section/muscie_f.png"></image>
-                </view>
-                <view class='muscie_time'></view>
+                <view class='muscie_time'>{{songSection.duration}}</view>
                 <view class='musice_type'>
                     <image src="../../images/section/empty_y.png"></image>
                 </view>
                 <view class="type_style">
-                     <image src="../../images/section/y_wc.png"></image>
-                </view>
-            </view>
-            <view class='muscie_yc'>
-                <view class='musice_type'>
-                    <image src="../../images/section/muscie_f.png"></image>
-                </view>
-                <view class='muscie_time'>19:55:04</view>
-                <view class='musice_type'>
-                    <image src="../../images/section/empty_y.png"></image>
-                </view>
-                <view class="type_style">
-                    <image src="../../images/section/d_ren.png"></image>
+                     <image src="../../images/section/d_yanc.png" wx:if='{{songSection.status == "NO_CLAIM"}}'></image>
+                     <image src="../../images/section/y_wc.png" wx:if='{{songSection.status == "RECORDED"}}'></image>
+                     <image src="../../images/section/d_ren.png" wx:if='{{songSection.status == "NO_RECORDING"}}'></image>
                 </view>
             </view>
         </view>

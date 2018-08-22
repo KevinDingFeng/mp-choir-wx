@@ -8,10 +8,10 @@
             <view class='cd_name'>为自己的组合取个名字吧</view>
         </view>
         <view class='team_name'>
-            <input  placeholder="点击输入团名" value='{{team_name}}'    bindinput='watchPassWord'></input>
+            <input placeholder="点击输入团名" value='{{choir.choirName}}' maxlength='8' bindinput="bindChoirName"></input>
         </view>
         <view class='team_num'>
-            <view class='select_box' style="margin-top:{{(scale<0.55)? '32rpx':'20rpx'}};">
+            <!-- view class='select_box' style="margin-top:{{(scale<0.55)? '32rpx':'20rpx'}};">
                 <view class='select' catchtap='selectTap'>
                     <input class='select_text'  placeholder='选择团人数'  value="{{selectData[index]}}"></input>
                     <image class='select_img {{show&&"select_img_rotate"}}' src='../../images/user/gobottom.png'></image>
@@ -19,14 +19,21 @@
                 <view class='option_box' style='height:{{show?(selectData.length>5?300:selectData.length*60):0}}rpx;'>
                     <text class='option' style='{{index==selectData.length-1&&"border:0;"}}' wx:for='{{selectData}}'                            wx:key='this' data-index='{{index}}' catchtap='optionTap'>{{item}}</text>
                 </view>
+            </view -->
+            <view >
+                <picker class='select_box' style="margin-top:{{(scale<0.55)? '32rpx':'20rpx'}};" bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+                  <view class="picker">
+                    {{choir.pickerValueText}}
+                  </view>
+                </picker>
             </view>
         </view>
         <view class='team_logo'>
             <view class='br_logo'>
-                <image  class='logo_bg' src='../../images/user/team_logo.png'  bindtap="upload"></image>
+                <image  class='logo_bg' src='{{choir.albumArtPaht}}'  bindtap="uploadAlbumArt"></image>
             </view>
         </view>
-        <view class='create_team' style="margin-top:{{(scale<0.55)? '50rpx':'0rpx'}};" bindtap="create_team">
+        <view class='create_team' style="margin-top:{{(scale<0.55)? '50rpx':'0rpx'}};" bindtap="formSubmit">
             <image  src='../../images/user/create_team.png' style="height:{{(scale<0.55)? '200rpx':'130rpx'}};width:{{(scale<0.55)? '440rpx':'400rpx'}}"></image>
         </view> 
         <view class='bottom-logo'>

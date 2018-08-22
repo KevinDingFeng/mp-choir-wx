@@ -1,4 +1,5 @@
 // pages/user/user.js
+var config = require('../../utils/config.js');
 const app = getApp();
 Page({
 
@@ -13,12 +14,30 @@ Page({
         imgSrc:"",//封面本地路径
         pageStyle: `width:${app.globalData.width};height:${app.globalData.height}`,
         scale: app.globalData.windowWidth / app.globalData.windowHeight,
+
+        array: [2, 3, 4, 5, 6,],
+        index: 0,
+        choir: {//
+          id: "",
+          choirName: "",
+          pickerValueText: '选择团人数',
+          albumArtPaht: "../../images/user/team_logo.png",
+          albumArtPahtFlag:false
+        }
+    },
+    // 点击下拉显示框
+    bindChoirName: function (e) {
+      var this_ = this;
+      this_.setData({
+        'choir.choirName': e.detail.value
+      });
     },
     // 点击下拉显示框
     selectTap() {
-        this.setData({
-            show: !this.data.show,
-            selectData: ['1个', '2个', '3个', '4个', '5个', '6个'],
+        var this_ = this;
+        this_.setData({
+            show: !this_.data.show,
+            selectData: ['2个', '3个', '4个', '5个', '6个'],
         });
     },
     // 点击下拉列表
@@ -29,15 +48,29 @@ Page({
             show: !this.data.show
         });
     },
-    // input监听输入
-    watchPassWord: function (event) {
-        if (event.detail.value.length>"8"){
-            wx.showModal({
-                title: '提示',
-                content: '团队名称不能大于7位',
-            })
-        }
-    },
+  //选择成团人数
+  bindPickerChange: function (e) {
+    var _this = this;
+    _this.setData({
+      index: e.detail.value,
+      'choir.pickerValue': _this.data.array[e.detail.value],
+      'choir.pickerValueText': _this.data.array[e.detail.value] + " 人",
+    })
+  },
+  //上传专辑封面
+  uploadAlbumArt: function () {
+    var _this = this;
+    wx.chooseImage({
+      success: function (res) {
+        var tempFilePaths = res.tempFilePaths
+        _this.setData({
+          'choir.albumArtPaht': tempFilePaths[0],
+          'choir.albumArtPahtFlag': true,
+        })
+
+      }
+    })
+  },
     //上传照片
     upload:function(){
         var _this = this;
@@ -63,6 +96,66 @@ Page({
             url: '../choose/choosemusice',
         })
     },
+
+  //提交表单
+  formSubmit: function (e) {
+    var _this = this;
+    var warn = "";//弹框时提示的内容
+    var flag = true;//判断信息输入是否完整
+    //如果信息填写不完整，弹出输入框
+    
+    var choirName = _this.data.choir.choirName;
+    var population = _this.data.choir.pickerValue;
+    var albumArtPahtFlag = _this.data.choir.albumArtPahtFlag;
+
+    if (!choirName){
+      warn = "请输入团名！";
+    } else if (!population){
+      warn = "请选择团人数！";
+    } else if (!albumArtPahtFlag){
+      warn = "请上传专辑封面！";
+    }else{
+      flag = false;
+    }
+
+    if (flag == true) {
+      wx.showModal({
+        title: '提示',
+        content: warn,
+        showCancel:false
+      })
+      return;
+    }
+    wx.uploadFile({
+      url: config.baseUrl + 'choir/create',
+      filePath: _this.data.choir.albumArtPaht,
+      name: 'albumArtFile',
+      formData: {
+        'id': _this.data.choir.id,
+        'choirName': _this.data.choir.choirName,
+        'population': _this.data.choir.pickerValue
+      },
+      success: function (res) {
+        var resData = JSON.parse(res.data);
+        var data = resData.data;
+        // console.log(data)
+        // _this.setData({
+        //   'choir.id': data.id,
+        //   'choir.choirName': data.choirName,
+        //   'choir.pickerValue': data.population,
+        //   //'choir.albumArtPaht': config.baseUrl + data.albumArtPaht
+        // })
+        
+        wx.navigateTo({
+          url: '../choose/choosemusice?choirId=' + data.id,
+        })
+      },
+      fail: function (e) {
+        console.log(e);
+      },
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */

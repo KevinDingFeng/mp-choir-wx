@@ -1,20 +1,20 @@
 <view class='choose'>
     <view class='container'>
        <view class="navigation" style="margin-top:{{(scale<0.55)? '-226rpx':'-300rpx'}}">
-            <image class='goback'  src="../../images/return.png" style="margin-top:{{(scale<0.55)? '552rpx':'522rpx'}}"></image>
+            <image class='goback'  src="../../images/return.png" style="margin-top:{{(scale<0.55)? '552rpx':'522rpx'}}" bindtap="goback"></image>
             <image class='header-top'  src="../../images/choose/music.png" style="height:{{(scale<0.55)? '700rpx':'650rpx'}}"></image>
         </view>
         <view class="musiclist">
-            <view class='music'>
+            <view class='music' wx:for="{{result}}" wx:key="*this" wx:for-item="music">
                 <view class='music_name'>
-                    <text>脆弱一分钟</text>
-                    <view>--林宥嘉</view>
+                    <text>{{music.title}}</text>
+                    <view>--{{music.artist[0].name}}</view>
                 </view>
                 <view class='s_ting'>
-                    <image src='../../images/choose/s_ting.png'></image>
+                    <image src='../../images/choose/s_ting.png' data-path="{{music.path}}" bindtap='createAudio'></image>
                 </view>
                 <view class='d_chang'>
-                    <image src='../../images/choose/d_chang.png'></image>
+                    <image src='../../images/choose/d_chang.png' data-singer='{{music.artist[0].name}}' data-tsid='{{music.TSID}}' data-songname='{{music.title}}'  bindtap="toSectionMusice"></image>
                 </view>
             </view>
         </view>
