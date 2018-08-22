@@ -128,7 +128,6 @@
     position: absolute;
     top:-5rpx;
     left: 5rpx;
-    display: none;
 }
 .hc_bg{
     position: fixed;
@@ -138,7 +137,6 @@
     left: 0px;
     z-index:999;
     background-color:rgba(0,0,0,0.5);
-    display: none;
 }
 .tc_bg{
     margin: 0 35rpx;

@@ -8,23 +8,23 @@
         </view>
         <view class='musice_xx'>
             <view class="musice_face">
-                <image src="{{baseUrl+result[0].choir.albumArtPaht}}"></image>
+                <image src="{{baseUrl+result.albumArtPaht}}"></image>
             </view>
             <view class='musice_name'>
                     <view class='musice_top'>
-                        <text class='musice_fame'>{{result[0].choir.songName}}</text>
-                        <view class='musice_peo'>--{{result[0].choir.singer}}</view>
+                        <text class='musice_fame'>{{result.songName}}</text>
+                        <view class='musice_peo'>--{{result.singer}}</view>
                         <view class='musice_team'>
-                            演唱：<text>{{result[0].choir.choirName}}</text>
+                            演唱：<text>{{result.choirName}}</text>
                         </view>
                         <view>
-                            人数：<text>{{result[0].choir.population}}</text>人
+                            人数：<text>{{result.population}}</text>人
                         </view>
                     </view>
             </view>
         </view>
         <view class='musice_list' style="min-height:{{(scale<0.55)? '740rpx':'500rpx'}}">
-            <view class='muscie_yc' wx:for="{{result}}" wx:key="*this" wx:for-item="songSection">
+            <view class='muscie_yc' wx:for="{{result.songSection}}" wx:key="*this" wx:for-item="songSection">
                 <view class='musice_type'>
                     <image src="../../images/section/muscie_f.png" data-path="{{songSection.path}}" bindtap='createAudio'></image>
                 </view>
@@ -39,16 +39,23 @@
                 </view>
             </view>
         </view>
-        <view class='btn_fb'>
+        <view class='btn_fb' wx:if="{{sponsor}}">
             <image src="../../images/section/show_f.png"></image>
+            <button open-type="share">发布</button>
+        </view>
+        <view wx:if="{{result.completeNum != result.population}}">
+          <text>{{result.completeNum}}/{{result.population}}合成</text>
+        </view>
+        <view wx:if="{{result.completeNum == result.population}}">
+          <text bindtap='compound'>合成</text>
         </view>
          <view class='bottom-logo'>
-            <text class='cou_peo'>人数不够，点我来凑！</text>
+            <button open-type="share" class='cou_peo' wx:if="{{!sponsor && result.completeNum != result.population}}">人数不够，点我来凑！</button>
             <image src="../../images/index/index-logo.png "/>
         </view>
 
         <!-- 合成 -->
-        <view class='hc_bg'>
+        <view class='hc_bg' wx:if="{{compound}}">
             <view class='tc_bg'>
                 <view class='text_zi'>
                     需要转发一个新群
@@ -58,6 +65,7 @@
                 </view>
                 <view class='tc_btn'>
                     <image src='../../images/section/lj_create.png'></image>
+                    <button open-type="share" data-sharevalue='toResult'>转发</button>
                 </view>
             </view>
         </view>

@@ -24,7 +24,7 @@ Page({
     }
     
     wx.request({
-      url: config.baseUrl + 'choosemusice/get_musice',//
+      url: config.baseUrl + '/choosemusice/get_musice',//
       success: function (res) {
         //console.log(res.data)
         let resData = res.data;
@@ -70,7 +70,7 @@ Page({
     let that = this;
     const dataSet = event.target.dataset;
     wx.request({
-      url: config.baseUrl + 'split/splitSong',//
+      url: config.baseUrl + '/split/splitSong',//
       data: {
         id: that.data.choirId,
         songName: dataSet.songname,

@@ -1,10 +1,10 @@
 //app.js
 App({
   onLaunch: function () {
-    console.log('app onLaunch');
+    //console.log('app onLaunch');
     this.globalData.ex = true;
     var sysinfo = wx.getSystemInfoSync();
-    console.log(sysinfo);
+    //console.log(sysinfo);
     if (sysinfo) {
         this.globalData.sysinfo = sysinfo;
         var width = sysinfo.windowWidth;

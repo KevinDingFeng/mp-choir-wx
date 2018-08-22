@@ -127,7 +127,7 @@ Page({
       return;
     }
     wx.uploadFile({
-      url: config.baseUrl + 'choir/create',
+      url: config.baseUrl + '/choir/create',
       filePath: _this.data.choir.albumArtPaht,
       name: 'albumArtFile',
       formData: {

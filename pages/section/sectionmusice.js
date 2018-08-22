@@ -9,16 +9,16 @@ Page({
   data: {
     pageStyle: `width:${app.globalData.width};height:${app.globalData.height}`,
     scale: app.globalData.windowWidth / app.globalData.windowHeight,
-    baseUrl: config.baseUrl + 'f/',
-    result:[{
-      choir:{
+    baseUrl: config.baseUrl,
+    result:{
         albumArtPaht:'',
         songName: '',
         singer: '',
         choirName: '',
         population: ''
-      }
-    }]
+    },
+    sponsor: false, //发起者标志，默认不是
+    compound: false, //点击合成后弹出的窗口
   },
 
   /**
@@ -32,7 +32,7 @@ Page({
       })
 
       wx.request({
-        url: config.baseUrl + 'song_section/get_section_song',//
+        url: config.baseUrl + '/song_section/get_section_song',//
         data:{
           choirId: options.choirId
         },
@@ -40,6 +40,11 @@ Page({
           console.log(res.data)
           let resData = res.data;
           if (resData && resData.success) {
+            if (resData.extraMessage){
+              that.setData({
+                sponsor: true
+              })
+            }
             let data = resData.data;
             that.setData({
               result: data
@@ -83,6 +88,13 @@ Page({
     // backgroundAudioManager.singer = '许巍'
     backgroundAudioManager.src = audioUrl // 设置了 src 之后会自动播放
   },
+  //合成
+  compound: function() {
+    let that = this;
+    that.setData({
+      compound: true
+    })
+  },
 
   /**
    * 生命周期函数--监听页面隐藏
@@ -115,7 +127,23 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-  
+  onShareAppMessage: function (res) {
+    let that = this;
+    if (res.from === 'button') {
+      // 来自页面内转发按钮
+      //console.log(res.target)
+      if (res.target.dataset.sharevalue){
+        wx.navigateTo({
+          url: '../result/result',
+        })
+      }
+      that.setData({
+        sponsor: false
+      })
+    }
+    return {
+      title: "",
+      path: '/pages/section/sectionmusice'
+    }
   }
 })
