@@ -1,7 +1,7 @@
 <view class='user'>
     <view class="container" style="{{pageStyle}}" >
         <view class="navigation" style="margin-top:{{(scale<0.55)? '50rpx':'-45rpx'}}">
-            <image class='goback' src="../../images/return.png" style="margin-top:{{(scale<0.55)? '158rpx':'240rpx'}}"></image>
+            <image class='goback' src="../../images/return.png" style="margin-top:{{(scale<0.55)? '158rpx':'240rpx'}}" bindtap="goback"></image>
             <image class='header-top' src="../../images/user/dj_user.png"  style="margin-top:{{(scale<0.55)? '-66rpx':'16rpx'}}" ></image>
         </view>
         <view class='user_xx' style="margin-top:{{(scale<0.55)? '40rpx':'20rpx'}}" >
