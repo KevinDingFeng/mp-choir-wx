@@ -30,9 +30,11 @@
             <image src='../../images/c_musice/lz.png'></image>
         </view>
         <view class='musice_btnlist ' wx:else>
-            <image src='../../images/c_musice/cfu.png'></image>
+            <image src='../../images/c_musice/cfu.png' bindtap='startRecode'></image>
+            <image src='../../images/c_musice/cfu.png' bindtap='playRecode'></image>
+            <image src='../../images/c_musice/cfu.png' bindtap='endRecode'></image>
             <image class='center_btn' src='../../images/c_musice/bf.png'></image>
-            <image src='../../images/c_musice/success.png'></image>
+            <image src='../../images/c_musice/success.png' bindtap='finishRecode'></image>
         </view>
         <view class='bottom-logo'>
             <image src="../../images/index/index-logo.png " />

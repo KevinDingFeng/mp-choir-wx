@@ -13,14 +13,19 @@
             <view class='text_style'>分享好友助力出道～～</view>
         </view>
         <view class='team_logo'>
-            <image src="../../images/picker.png"></image>
+            <image src="{{picPath}}" bindtap='alterPic'></image>
         </view>
         <view class='musice_star ' style="top:{{(scale<0.55)? '54%':'63%'}}">
             <image src="../../images/section/muscie_f.png"></image>
         </view>
         <view class="create_hb" style="margin-top:{{(scale<0.55)? '100rpx':'50rpx'}}">
-            <image src="../../images/create_hb.png"></image>
+            <image src="../../images/create_hb.png" bindtap="getHb"></image>
         </view>
+
+        <view hidden='{{canvasHidden}}'>
+            <canvas canvas-id='resultCanvas' style='width:100vw;height:90vh;'></canvas>
+        </view>
+        
         <view class="create_fx" style="margin-top:{{(scale<0.55)? '60rpx':'30rpx'}}">
            <image src="../../images/create_fx.png"></image>
         </view>
