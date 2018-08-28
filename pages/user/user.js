@@ -133,7 +133,8 @@ Page({
       formData: {
         'id': _this.data.choir.id,
         'choirName': _this.data.choir.choirName,
-        'population': _this.data.choir.pickerValue
+        'population': _this.data.choir.pickerValue,
+        'userId': wx.getStorageSync('userId')
       },
       success: function (res) {
         var resData = JSON.parse(res.data);

@@ -32,9 +32,18 @@ Page({
         })
     },
     my_fq: function (e) {
+      console.log(e.detail.errMsg)
+      console.log(e.detail.userInfo)
+      console.log(e.detail.rawData)
+      if (e.detail.errMsg == "getUserInfo:ok"){
+        if (!app.globalData.userInfo) {
+          //获取用户数据
+          app.login();
+        }
         wx.navigateTo({
-            url: '../user/user',
+          url: '../user/user',
         })
+      }
     },
     onLoad: function () {
       console.log(app.globalData)

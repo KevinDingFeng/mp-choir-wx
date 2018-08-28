@@ -4,9 +4,9 @@
         <view class="header-top"style="margin-top:{{(scale<0.55)? '-248rpx':'-62rpx'}}">
             <image src="../../images/index/index-top.png "/>
         </view>
-        <view class='btn-fq ' bindtap="my_fq">
+        <button class='btn-fq ' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="my_fq">
             <image src="../../images/index/index-fq.png "/>
-        </view>
+        </button>
         <view class='btn-my ' bindtap="my_to">
             <image src="../../images/index/index-my.png "/>
         </view>
