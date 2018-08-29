@@ -20,7 +20,7 @@ Page({
     my_to: function (e) {
         var _this = this;
       if (e.detail.errMsg == "getUserInfo:ok") {
-        if (!app.globalData.userInfo) {
+        if (!app.globalData.userInfo || !wx.getStorageSync('userId')) {
           //获取用户数据
           app.login();
         }
@@ -34,7 +34,7 @@ Page({
       // console.log(e.detail.userInfo)
       // console.log(e.detail.rawData)
       if (e.detail.errMsg == "getUserInfo:ok"){
-        if (!app.globalData.userInfo) {
+        if (!app.globalData.userInfo || !wx.getStorageSync('userId')) {
           //获取用户数据
           app.login();
         }

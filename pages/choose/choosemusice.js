@@ -58,12 +58,16 @@ Page({
   createAudio: function (event){
     //console.log(event)
     const audioUrl = event.target.dataset.path
-    const backgroundAudioManager = wx.getBackgroundAudioManager()
 
-    // backgroundAudioManager.title = '此时此刻'
-    // backgroundAudioManager.epname = '此时此刻'
-    // backgroundAudioManager.singer = '许巍'
-    backgroundAudioManager.src = audioUrl // 设置了 src 之后会自动播放
+    // const backgroundAudioManager = wx.getBackgroundAudioManager()
+
+    // // backgroundAudioManager.title = '此时此刻'
+    // // backgroundAudioManager.epname = '此时此刻'
+    // // backgroundAudioManager.singer = '许巍'
+    // backgroundAudioManager.src = audioUrl // 设置了 src 之后会自动播放
+    wx.playBackgroundAudio({
+      dataUrl: audioUrl
+    })
   },
   //点唱
   toSectionMusice: function (event){
