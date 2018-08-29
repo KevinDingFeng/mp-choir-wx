@@ -19,22 +19,20 @@ Page({
     },
     my_to: function (e) {
         var _this = this;
-        //var token = app.globalData.token;
-        //if (token) {
-           // wx.navigateTo({
-               // url: './privity-test/testing/testing',
-           // })
-           // return;
-       // }
-        //app.login();
+      if (e.detail.errMsg == "getUserInfo:ok") {
+        if (!app.globalData.userInfo) {
+          //获取用户数据
+          app.login();
+        }
         wx.navigateTo({
-            url: '../myWriting/myWriting',
+          url: '../myWriting/myWriting',
         })
+      }
     },
     my_fq: function (e) {
-      console.log(e.detail.errMsg)
-      console.log(e.detail.userInfo)
-      console.log(e.detail.rawData)
+      // console.log(e.detail.errMsg)
+      // console.log(e.detail.userInfo)
+      // console.log(e.detail.rawData)
       if (e.detail.errMsg == "getUserInfo:ok"){
         if (!app.globalData.userInfo) {
           //获取用户数据

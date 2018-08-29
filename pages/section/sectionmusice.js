@@ -19,6 +19,7 @@ Page({
     },
     sponsor: false, //发起者标志，默认不是
     compound: false, //点击合成后弹出的窗口
+    loginUserId: wx.getStorageSync('userId')
   },
 
   /**
@@ -87,6 +88,48 @@ Page({
     // backgroundAudioManager.epname = '此时此刻'
     // backgroundAudioManager.singer = '许巍'
     backgroundAudioManager.src = audioUrl // 设置了 src 之后会自动播放
+  },
+  //认领歌曲
+  claim: function (event) {
+    //console.log(event)
+    let that = this;
+    const id = event.target.dataset.id
+    wx.request({
+      url: config.baseUrl + '/song_section/claim',//
+      data: {
+        id: id,
+        userId: that.data.loginUserId
+      },
+      success: function (res) {
+        //console.log(res.data)
+        let resData = res.data;
+        if (resData && resData.errorCode == 0) {
+          var result = that.data.result;
+          var songSections = result.songSection;
+          for (var i = 0; i < songSections.length; i++){
+            if (songSections[i].id == id){
+              songSections[i].userId = that.data.loginUserId;
+              songSections[i].status = "NO_RECORDING";
+            }
+          }
+          that.setData({
+            result: result
+          })
+          console.log(that.data.result)
+        }
+      },
+      fail: function (e) {
+        console.log(e);
+      }
+    })
+  },
+  //演唱
+  sing: function (event){
+    let that = this;
+    const id = event.target.dataset.id
+    wx.navigateTo({
+      url: '../c_musice/c_musice?id=' + id,
+    })
   },
   //合成
   compound: function() {

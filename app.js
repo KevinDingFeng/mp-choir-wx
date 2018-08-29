@@ -63,7 +63,7 @@ App({
                   if (res.data.errorCode != 0) {
                     _this.globalData.token = null;
                     wx.clearStorageSync("accessToken");
-                    _this.login();
+                   // _this.login();
                   }
                 }
               })

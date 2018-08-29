@@ -7,9 +7,9 @@
         <button class='btn-fq ' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="my_fq">
             <image src="../../images/index/index-fq.png "/>
         </button>
-        <view class='btn-my ' bindtap="my_to">
+        <button class='btn-my ' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="my_to">
             <image src="../../images/index/index-my.png "/>
-        </view>
+        </button>
         <view class='bottom-logo' >
             <image src="../../images/index/index-logo.png "/>
         </view>

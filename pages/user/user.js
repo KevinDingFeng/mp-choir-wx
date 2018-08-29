@@ -140,13 +140,13 @@ Page({
         var resData = JSON.parse(res.data);
         var data = resData.data;
         // console.log(data)
-        // _this.setData({
-        //   'choir.id': data.id,
-        //   'choir.choirName': data.choirName,
-        //   'choir.pickerValue': data.population,
-        //   //'choir.albumArtPaht': config.baseUrl + data.albumArtPaht
-        // })
-        
+        _this.setData({
+          'choir.id': data.id,
+          // 'choir.choirName': data.choirName,
+          // 'choir.pickerValue': data.population,
+          //'choir.albumArtPaht': config.baseUrl + data.albumArtPaht
+        })
+
         wx.navigateTo({
           url: '../choose/choosemusice?choirId=' + data.id,
         })

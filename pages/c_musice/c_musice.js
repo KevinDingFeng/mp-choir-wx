@@ -1,5 +1,6 @@
 // pages/c_musice/c_musice.js
 const app = getApp();
+var config = require('../../utils/config.js');
 const song = require('../../utils/song.js')
 const Lyric = require('../../utils/lyric.js')
 const util = require('../../utils/util.js')
@@ -32,6 +33,17 @@ Page({
     recodePath: null,
     isRecode: false,
     sectionId: null
+  },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    let that = this;
+    if (options.id) {
+      that.setData({
+        sectionId: options.id
+      })
+    }
   },
   onShow: function() {
     this._init()
@@ -102,9 +114,9 @@ Page({
   finishRecode: function() {
     var s = this;
     console.log("进入完成");
-    var sectionId = 1;
+    var sectionId = s.data.sectionId;
     setTimeout(function() {
-      var urls = "http://192.168.3.22:9090/song_section/" +
+      var urls = config.baseUrl + "/song_section/" +
         sectionId + "/upload";
       // console.log(s.data.recodePath);
       wx.uploadFile({
