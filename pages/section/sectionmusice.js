@@ -186,7 +186,7 @@ Page({
     }
     return {
       title: "",
-      path: '/pages/section/sectionmusice'
+      path: '/pages/section/sectionmusice?choirId=' + that.data.choirId
     }
   }
 })
