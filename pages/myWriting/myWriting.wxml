@@ -1,20 +1,20 @@
 <view class='myWriting'>
     <view class="container">
         <view class="navigation" style="margin-top:{{(scale<0.55)? '-300rpx':'-300rpx'}}">
-             <image class='goback' src="../../images/return.png" style="margin-top:{{(scale<0.55)? '466rpx':'550rpx'}}"></image>
-            <image class='header-top' src="../../images/myWriting/navigation.png" style="height:{{(scale<0.55)? '564rpx':'650rpx'}}"></image>
+             <image class='goback' src="../../images/return.png" style="margin-top:{{(scale<0.55)? '466rpx':'550rpx'}}" bindtap="goBack"></image>
+            <image class='header-top' src="../../images/myWriting/navigation.png" style="height:{{(scale<0.55)? '564rpx':'650rpx'}}" bindtap="goMyCreate"></image>
         </view>
         <view class='musiclist' style="height:{{(scale<0.55)? '1000rpx':'800rpx'}}">
-            <view class='music'>
+            <view class='music' wx:for="{{choirList}}">
                 <view class="music_img">
-                    <image src=" ">
+                    <image src="{{pathPrefix}}/f/{{item.albumArtPaht}}">
                     </image>
                 </view>
                 <view class='music_js'>
-                    <text>歌曲名字</text>
+                    <text data-choir='{{item.id}}' bindtap='goResult'>{{item.songName}}</text>
                     <view>
                         <text>来自:</text>
-                        <text class="music_peo">哪位歌手</text>
+                        <text class="music_peo">{{item.choirName}}</text>
                     </view>
                 </view>
                 <view class="music_nav " bindtap="onChangeShowState">

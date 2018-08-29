@@ -114,7 +114,8 @@ Page({
   finishRecode: function() {
     var s = this;
     console.log("进入完成");
-    var sectionId = s.data.sectionId;
+    // var sectionId = s.data.sectionId;
+    var sectionId=1;
     setTimeout(function() {
       var urls = config.baseUrl + "/song_section/" +
         sectionId + "/upload";

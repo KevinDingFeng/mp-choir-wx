@@ -1,5 +1,9 @@
 // pages/myWriting/myCreate.js
 const app = getApp();
+var config = require('../../utils/config.js');
+const song = require('../../utils/song.js')
+const Lyric = require('../../utils/lyric.js')
+const util = require('../../utils/util.js')
 Page({
 
   /**
@@ -8,13 +12,24 @@ Page({
   data: {
     pageStyle: `width:${app.globalData.width};height:${app.globalData.height}`,
     scale: app.globalData.windowWidth / app.globalData.windowHeight,
+    loginUserId: wx.getStorageSync('userId'),
+    sectionList:null,
+    pathPrefix: config.baseUrl
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    var s = this;
+    wx.request({
+      url: config.baseUrl + '/song_section/my_song_section?userId=' + s.data.loginUserId,
+      success: function (res) {
+        s.setData({
+          sectionList: res.data.data
+        });
+      }
+    });
   },
 
   /**
@@ -64,5 +79,17 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+
+  goMyWritting:function(){
+    wx.navigateBack({
+      delta:1
+    });
+  },
+
+  goBack:function(){
+    wx.navigateBack({
+      delta:1
+    })
   }
 })

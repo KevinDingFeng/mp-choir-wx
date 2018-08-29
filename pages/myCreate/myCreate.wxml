@@ -1,19 +1,22 @@
 <view class='myCreate'>
     <view class="container">
         <view class="navigation" style="margin-top:{{(scale<0.55)? '-360rpx':'-300rpx'}}">
-            <image class='goback' src="../../images/return.png" style="margin-top:{{(scale<0.55)? '554rpx':'496rpx'}}"></image>
-            <image class='header-top' src="../../images/myCreate/navigation.png" style="height:{{(scale<0.55)? '700rpx':'650rpx'}}"></image>
+            <image class='goback' src="../../images/return.png" style="margin-top:{{(scale<0.55)? '554rpx':'496rpx'}}" bindtap="goBack"></image>
+            <image class='header-top' src="../../images/myCreate/navigation.png" style="height:{{(scale<0.55)? '700rpx':'650rpx'}}" bindtap="goMyWritting"></image>
         </view>
         <view class='musiclist' style="height:{{(scale<0.55)? '1000rpx':'800rpx'}}">
-            <view class='music'>
+            <view class='music' wx:for="{{sectionList}}">
                 <view class='music_name'>
-                    凉凉
+                    {{item.choir.songName}}
                 </view>
                 <view class='music_jd'>
-                    <text>1</text>/<text>4</text>
+                    <text>{{item.sort}}</text>/<text>{{item.choir.population}}</text>
                 </view>
-                <view class='music_type'>
+                <view class='music_type' wx:if="{{item.status == 'NO_RECORDING'}}">
                     未录制
+                </view>
+                <view class='music_type' wx:else>
+                    已录制
                 </view>
                 <view class='music_time'>
                     19:58:01
