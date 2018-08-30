@@ -18,8 +18,8 @@
                 <view class='music_type' wx:else>
                     已录制
                 </view>
-                <view class='music_time'>
-                    19:58:01
+                <view class='music_time' wx:if="{{item.status == 'NO_RECORDING'}}">
+                    {{item.iMinute}}:{{item.iSec}}:{{item.iMs}}
                 </view>
             </view>
         </view>

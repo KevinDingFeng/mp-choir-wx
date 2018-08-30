@@ -28,7 +28,43 @@ function randomNum(minNum, maxNum) {
   }
 }
 
+//补零
+function addZero(i) {
+  if (i < 10) {
+    i = "0" + i;
+  } return i;
+}
+
+function updateTime(oDateEnd) {
+  var pastDate = new Date(oDateEnd)
+  var oDateNow = new Date();
+  var iRemain = 0;
+  var iDay = 0;
+  var iHour = 0;
+  var iMin = 0;
+  var iSec = 0;
+  var iMs = 0;
+  iRemain = (pastDate.getTime() - oDateNow.getTime());
+  if (iRemain <= 0) {
+    //iRemain = 0;
+    return 0;
+  }
+  iDay = parseInt(iRemain / 86400000);
+  iRemain %= 86400000;
+  iHour = parseInt(iRemain / 3600000);
+  iRemain %= 3600000;
+  iMin = parseInt(iRemain / 60000);
+  iRemain %= 60000;
+  iSec = parseInt(iRemain/1000);
+  iRemain %= 1000;
+  iMs = parseInt(iRemain)
+
+  //return addZero(iDay) + "天" + addZero(iHour) + ":" + addZero(iMin) + ":" + addZero(iSec);
+  return { 'iDay': iDay, 'iHour': addZero(iHour), 'iMin': addZero(iMin), "iSec": addZero(iSec), "iMs": addZero(iMs)}
+}
+
 module.exports = {
   formatTime: formatTime,
-  randomNum: randomNum
+  randomNum: randomNum,
+  updateTime: updateTime
 }
