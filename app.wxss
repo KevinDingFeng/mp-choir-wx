@@ -3,3 +3,9 @@
 page{
     height:100%;
 }
+.ds_b{
+display: block;
+}
+.ds_n{
+display:none;
+}

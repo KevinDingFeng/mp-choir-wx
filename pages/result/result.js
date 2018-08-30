@@ -15,7 +15,7 @@ Page({
       hbImagePath:null,
       canvasHidden:true,
       picPath:'../../images/picker.png',
-      choir:null
+      song:null
   },
 
   /**
@@ -28,7 +28,7 @@ Page({
       url: config.baseUrl + '/syn_songs/' + options.choirId +'/detail_by_choir',
       success:function(res){
         s.setData({
-          choir:res.data.data.choir
+          song:res.data.data
         });
       }
     });

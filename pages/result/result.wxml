@@ -6,14 +6,14 @@
         </view>
         <view class='fx_text '>
             <view class='text_style'>
-                恭喜 <text class='team_name'>{{choir.choirName}}</text> 组合
+                恭喜 <text class='team_name'>{{song.choir.choirName}}</text> 组合
             </view>
             <view class='text_style mar_bar'>新歌出炉！</view>
             <view class='text_style'>快来听听！</view>
             <view class='text_style'>分享好友助力出道～～</view>
         </view>
         <view class='team_logo'>
-            <image src="{{picPath}}" bindtap='alterPic'></image>
+            <image src="{{song.choir.albumArtPaht}}" bindtap='alterPic'></image>
         </view>
         <view class='musice_star ' style="top:{{(scale<0.55)? '54%':'63%'}}">
             <image src="../../images/section/muscie_f.png"></image>
