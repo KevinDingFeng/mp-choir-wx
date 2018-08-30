@@ -82,12 +82,12 @@ Page({
   createAudio: function (event) {
     //console.log(event)
     const audioUrl = event.target.dataset.path
-    const backgroundAudioManager = wx.getBackgroundAudioManager()
-
-    // backgroundAudioManager.title = '此时此刻'
-    // backgroundAudioManager.epname = '此时此刻'
-    // backgroundAudioManager.singer = '许巍'
-    backgroundAudioManager.src = audioUrl // 设置了 src 之后会自动播放
+    
+    wx.playBackgroundAudio({
+      dataUrl: audioUrl,
+      //title: this.data.currentSong.name,
+      //coverImgUrl: this.data.currentSong.image
+    })
   },
   //认领歌曲
   claim: function (event) {
