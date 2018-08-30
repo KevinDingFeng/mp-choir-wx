@@ -6,7 +6,7 @@
         </view>
         <view class='fx_text '>
             <view class='text_style'>
-                恭喜 <text class='team_name'>滴滴滴哒哒哒</text> 组合
+                恭喜 <text class='team_name'>{{choir.choirName}}</text> 组合
             </view>
             <view class='text_style mar_bar'>新歌出炉！</view>
             <view class='text_style'>快来听听！</view>

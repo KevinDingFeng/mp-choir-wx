@@ -12,6 +12,7 @@ Page({
       scale: app.globalData.windowWidth / app.globalData.windowHeight,
       loginUserId: wx.getStorageSync('userId'),
       choirList: null,
+      synSongList:null,
       pathPrefix: config.baseUrl
     },
     onLoad: function () {
@@ -22,10 +23,10 @@ Page({
         // })
       var s = this;
       wx.request({
-        url: config.baseUrl + '/song_section/my_writting?userId=' + s.data.loginUserId,
+        url: config.baseUrl + '/syn_songs/my_songs?userId=' + s.data.loginUserId,
         success: function (res) {
           s.setData({
-            choirList: res.data.data
+            synSongList: res.data.data
           });
         }
       });

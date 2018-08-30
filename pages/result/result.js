@@ -1,5 +1,9 @@
 // pages/result/result.js
 const app = getApp()
+var config = require('../../utils/config.js');
+const song = require('../../utils/song.js')
+const Lyric = require('../../utils/lyric.js')
+const util = require('../../utils/util.js')
 Page({
 
   /**
@@ -10,14 +14,24 @@ Page({
       scale: app.globalData.windowWidth / app.globalData.windowHeight,
       hbImagePath:null,
       canvasHidden:true,
-      picPath:'../../images/picker.png'
+      picPath:'../../images/picker.png',
+      choir:null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    var s = this;
+    console.log(options);
+    wx.request({
+      url: config.baseUrl + '/syn_songs/' + options.choirId +'/detail_by_choir',
+      success:function(res){
+        s.setData({
+          choir:res.data.data.choir
+        });
+      }
+    });
   },
 
   /**

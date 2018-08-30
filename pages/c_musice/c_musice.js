@@ -32,7 +32,8 @@ Page({
     percent: "",
     recodePath: null,
     isRecode: false,
-    sectionId: null
+    sectionId: null,
+    backgroundMusic:null
   },
   /**
    * 生命周期函数--监听页面加载
@@ -44,6 +45,14 @@ Page({
         sectionId: options.id
       })
     }
+    wx.request({
+      url: config.baseUrl + '/background_music/get_background_music?name=' + options.songName + '&population=' + options.population+'&sort='+options.sort,
+      success:function(res){
+        that.setData({
+          backgroundMusic:res.data.data
+        })
+      }
+    })
   },
   onShow: function() {
     this._init()

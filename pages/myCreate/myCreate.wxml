@@ -6,7 +6,7 @@
         </view>
         <view class='musiclist' style="height:{{(scale<0.55)? '1000rpx':'800rpx'}}">
             <view class='music' wx:for="{{sectionList}}">
-                <view class='music_name'>
+                <view class='music_name' data-songName='{{item.choir.songName}}' data-population='{{item.choir.population}}' data-sort='{{item.sort}}' bindtap='goMusic'>
                     {{item.choir.songName}}
                 </view>
                 <view class='music_jd'>

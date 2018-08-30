@@ -91,5 +91,11 @@ Page({
     wx.navigateBack({
       delta:1
     })
+  },
+
+  goMusic: function (event){
+    wx.navigateTo({
+      url: '/pages/c_musice/c_musice?songName=' + event.currentTarget.dataset.songname + '&population=' + event.currentTarget.dataset.population + '&sort=' + event.currentTarget.dataset.sort,
+    });
   }
 })
