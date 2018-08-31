@@ -25,7 +25,10 @@
 .btn-fq{
     margin-top: 241rpx;
     margin-bottom:46rpx;
+    border: none;
+    background-color: #FFED57; 
 }
+
 .btn-fq>image {
     width:550rpx;
     height:155rpx;
@@ -45,6 +48,11 @@
 }
 .btn-my{
     margin-bottom: 50rpx;
+    border:none;
+    background-color: #FFED57; 
+}
+button::after{
+    border:none;
 }
 .btn-my>image {
     width:400rpx;
