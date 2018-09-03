@@ -126,9 +126,11 @@ Page({
   //演唱
   sing: function (event){
     let that = this;
-    const id = event.target.dataset.id
+    const name = event.target.dataset.name;
+    const population = event.target.dataset.population;
+    const sort = event.target.dataset.sort;
     wx.navigateTo({
-      url: '../c_musice/c_musice?id=' + id,
+      url: '../c_musice/c_musice?name=' + name + "&population=" + population + "&sort=" + sort,
     })
   },
   //合成

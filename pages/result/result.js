@@ -91,7 +91,7 @@ Page({
     var s = this;
     var id = 1;
     wx.request({
-      url: 'http://192.168.3.37:9090/syn_songs/' + id + '/wxacode',
+      url: config.baseUrl + '/syn_songs/' + id + '/wxacode',
       success: function (res) {
         wx.getImageInfo({
           src: res.data.data,

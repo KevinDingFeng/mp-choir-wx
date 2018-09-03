@@ -60,14 +60,16 @@
                   </view>
                   <view class="music_navlist hide{{showView?'show':''}}">
                       <image src="../../images/myWriting/delete.png" alt="删除" data-id='{{item.id}}' bindtap='removedSong'></image>
-                      <image src="../../images/myWriting/share.png" alt="分享"></image>
+                      <button open-type="share" >
+                        <image src="../../images/myWriting/share.png" alt="分享"></image>
+                      </button>
                   </view>
               </view>
         </view>
         <!-- 正在创作 -->
         <view wx:if="{{ds_type == false}}" class='musiclist ds_b' style="height:{{(scale<0.55)? '1000rpx':'800rpx'}}">
             <view class='music' wx:for="{{sectionList}}">
-                <view class='music_name' data-songName='{{item.choir.songName}}' data-population='{{item.choir.population}}' data-sort='{{item.sort}}' bindtap='goMusic'>
+                <view class='music_name' data-choirid='{{item.choir.id}}' bindtap='goMusic'>
                     {{item.choir.songName}}
                 </view>
                 <view class='music_jd'>
@@ -79,8 +81,8 @@
                 <view class='music_type' wx:else>
                     已录制
                 </view>
-                <view class='music_time'>
-                    19:58:01
+                <view class='music_time' wx:if="{{item.status == 'NO_RECORDING'}}">
+                    {{item.iMinute}}:{{item.iSec}}:{{item.iMs}}
                 </view>
             </view>
         </view>

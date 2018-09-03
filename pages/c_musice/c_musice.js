@@ -46,16 +46,25 @@ Page({
       })
     }
     wx.request({
-      url: config.baseUrl + '/background_music/get_background_music?name=' + options.songName + '&population=' + options.population+'&sort='+options.sort,
+      url: config.baseUrl + '/background_music/get_background_music?name=' + options.name + '&population=' + options.population+'&sort='+options.sort,
       success:function(res){
+        let currentSong = {
+          "duration": 232
+        }
+        let duration = currentSong.duration;
+
         that.setData({
-          backgroundMusic:res.data.data
+          backgroundMusic:res.data.data,
+          currentSong: currentSong,
+          duration: that._formatTime(res.data.data.uration)
         })
+        that._createAudio(res.data.data.musicPath)
+        that.getLyricAction(res.data.data.lyric);
       }
     })
   },
   onShow: function() {
-    this._init()
+    //this._init()
   },
   //初始化
   _init: function() {
@@ -198,6 +207,8 @@ Page({
   // 获取播放地址
   _getPlayUrl: function(songmidid) {
     const _this = this
+
+
     wx.request({
       url: `https://c.y.qq.com/base/fcgi-bin/fcg_music_express_mobile3.fcg?g_tk=5381&inCharset=utf-8&outCharset=utf-8&notice=0&format=jsonp&hostUin=0&loginUin=0&platform=yqq&needNewCode=0&cid=205361747&uin=0&filename=C400${songmidid}.m4a&guid=3913883408&songmid=${songmidid}&callback=callback`,
       data: {
@@ -234,9 +245,9 @@ Page({
   // 创建播放器
   _createAudio: function(playUrl) {
     wx.playBackgroundAudio({
-      dataUrl: playUrl,
-      title: this.data.currentSong.name,
-      coverImgUrl: this.data.currentSong.image
+      dataUrl: config.baseUrl +"/f/"+ playUrl,
+      // title: this.data.currentSong.name,
+      // coverImgUrl: this.data.currentSong.image
     })
     // 监听音乐播放。
     wx.onBackgroundAudioPlay(() => {
@@ -305,6 +316,20 @@ Page({
       }
     })
   },
+  // 获取处理歌词
+  getLyricAction: function (lyric) {
+    if (lyric) {
+      const currentLyric = new Lyric(lyric)
+      this.setData({
+        currentLyric: currentLyric
+      })
+    } else {
+      this.setData({
+        currentLyric: null,
+        currentText: ''
+      })
+    }
+  },
   // 去掉歌词中的转义字符
   _normalizeLyric: function(lyric) {
     return lyric.replace(/&#58;/g, ':').replace(/&#10;/g, '\n').replace(/&#46;/g, '.').replace(/&#32;/g, ' ').replace(/&#45;/g, '-').replace(/&#40;/g, '(').replace(/&#41;/g, ')')
@@ -358,6 +383,8 @@ Page({
     return num
   },
 
-
+  goback:function(){
+    wx.navigateBack({ changed: true });
+  }
 
 })

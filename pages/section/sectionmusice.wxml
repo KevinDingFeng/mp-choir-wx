@@ -34,7 +34,7 @@
                 </view>
                 <view class="type_style">
                      <image src="../../images/section/d_yanc.png" wx:if='{{songSection.userId != loginUserId && songSection.status == "NO_RECORDING"}}'></image>
-                     <image src="../../images/section/d_yanc.png" wx:if='{{songSection.userId == loginUserId && songSection.status == "NO_RECORDING"}}' data-id="{{songSection.id}}" bindtap='sing'></image>
+                     <image src="../../images/section/d_yanc.png" wx:if='{{songSection.userId == loginUserId && songSection.status == "NO_RECORDING"}}' data-sort="{{songSection.sort}}" data-name="{{result.songName}}" data-population='{{result.population}}' bindtap='sing'></image>
                      <image src="../../images/section/y_wc.png" wx:if='{{songSection.status == "RECORDED"}}'></image>
                      <image src="../../images/section/d_ren.png" wx:if='{{songSection.status == "NO_CLAIM"}}' data-id="{{songSection.id}}" bindtap='claim'></image>
                 </view>

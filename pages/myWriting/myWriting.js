@@ -4,6 +4,7 @@ var config = require('../../utils/config.js');
 const song = require('../../utils/song.js')
 const Lyric = require('../../utils/lyric.js')
 const util = require('../../utils/util.js')
+var timer;
 Page({
     data: {
         logs: [],
@@ -35,9 +36,24 @@ Page({
       wx.request({
         url: config.baseUrl + '/song_section/my_song_section?userId=' + s.data.loginUserId,
         success: function (res) {
-          s.setData({
-            sectionList: res.data.data
-          });
+          var sectionList = res.data.data;
+          //console.log(sectionList)
+          timer = setInterval(function () {
+            for (var i = 0; i < sectionList.length; i++) {
+              var section = sectionList[i];
+              console.log(section)
+              var djs = util.updateTime(section.pastTime);
+              if (djs == 0) {
+                sectionList.splice(section, 1);
+              }
+              section["iMinute"] = djs.iMin;
+              section["iSec"] = djs.iSec;
+              section["iMs"] = (djs.iMs + '').substr(0, 2);
+            }
+            s.setData({
+              sectionList: sectionList
+            });
+          }, 1000);
         }
       });
     },
@@ -107,8 +123,43 @@ Page({
     },
 
   goMusic: function (event) {
+    // wx.navigateTo({
+    //   url: '/pages/c_musice/c_musice?songName=' + event.currentTarget.dataset.songname + '&population=' + event.currentTarget.dataset.population + '&sort=' + event.currentTarget.dataset.sort,
+    // });
     wx.navigateTo({
-      url: '/pages/c_musice/c_musice?songName=' + event.currentTarget.dataset.songname + '&population=' + event.currentTarget.dataset.population + '&sort=' + event.currentTarget.dataset.sort,
-    });
+      url: '../section/sectionmusice?choirId=' + event.currentTarget.dataset.choirid,
+    })
+  },
+
+  onHide: function () {
+    clearInterval(timer);
+  },
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function (){
+    clearInterval(timer);
+  },
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function (res) {
+    let that = this;
+    if (res.from === 'button') {
+      // 来自页面内转发按钮
+      //console.log(res.target)
+      if (res.target.dataset.sharevalue) {
+        wx.navigateTo({
+          url: '../result/result',
+        })
+      }
+      that.setData({
+        sponsor: false
+      })
+    }
+    return {
+      title: "",
+      path: '/pages/section/sectionmusice?choirId=' + that.data.choirId
+    }
   }
 })

@@ -1,7 +1,7 @@
 <view class='c_musice'>
     <view class="container" style="{{pageStyle}}">
         <view class="navigation" style="margin-top:{{(scale<0.55)? '-360rpx':'44rpx'}}">
-            <image class='goback' src="../../images/return.png" style="margin-top:{{(scale<0.55)? '554rpx':''}}"></image>
+            <image class='goback' src="../../images/return.png" style="margin-top:{{(scale<0.55)? '554rpx':''}}" bindtap="goback"></image>
             <text class='musice_name'>{{team_name}}</text>
         </view>
         <view class="progress-wrapper">
