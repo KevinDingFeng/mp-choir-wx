@@ -14,7 +14,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    lz_type: false,
+    lz_type: true,
     pageStyle: `width:${app.globalData.width};height:${app.globalData.height}`,
     scale: app.globalData.windowWidth / app.globalData.windowHeight,
     playurl: '',
@@ -33,7 +33,11 @@ Page({
     recodePath: null,
     isRecode: false,
     sectionId: null,
-    backgroundMusic:null
+    backgroundMusic: null,
+
+
+    timer: '',//定时器名字
+    countDownNum: '5'//倒计时初始值
   },
   /**
    * 生命周期函数--监听页面加载
@@ -42,32 +46,63 @@ Page({
     let that = this;
     if (options.id) {
       that.setData({
-        sectionId: options.id
+        sectionId: options.id,
+        choirId: options.choirid
       })
     }
     wx.request({
-      url: config.baseUrl + '/background_music/get_background_music?name=' + options.name + '&population=' + options.population+'&sort='+options.sort,
-      success:function(res){
+      url: config.baseUrl + '/background_music/get_background_music?name=' + options.name + '&population=' + options.population + '&sort=' + options.sort,
+      success: function (res) {
         let currentSong = {
-          "duration": 232
+          "duration": res.data.data.uration
         }
-        let duration = currentSong.duration;
+        let duration = res.data.data.uration;
 
         that.setData({
           backgroundMusic:res.data.data,
           currentSong: currentSong,
-          duration: that._formatTime(res.data.data.uration)
+          duration: that._formatTime(res.data.data.uration),
+          musicPath:res.data.data.musicPath,
+          lyric: res.data.data.lyric
         })
-        that._createAudio(res.data.data.musicPath)
-        that.getLyricAction(res.data.data.lyric);
+        // that._createAudio(res.data.data.musicPath)
+        // that.getLyricAction(res.data.data.lyric);
       }
     })
   },
-  onShow: function() {
+  //录制
+  makeRecord: function () {
+    let that = this;
+    let countDownNum = that.data.countDownNum;//获取倒计时初始值
+    //如果将定时器设置在外面，那么用户就看不到countDownNum的数值动态变化，所以要把定时器存进data里面
+    that.setData({
+      timer: setInterval(function () {//这里把setInterval赋值给变量名为timer的变量
+        //每隔一秒countDownNum就减一，实现同步
+        countDownNum--;
+        //然后把countDownNum存进data，好让用户知道时间在倒计着
+        that.setData({
+          countDownNum: countDownNum
+        })
+        //在倒计时还未到0时，这中间可以做其他的事情，按项目需求来
+        if (countDownNum == 0) {
+          //这里特别要注意，计时器是始终一直在走的，如果你的时间为0，那么就要关掉定时器！不然相当耗性能
+          //因为timer是存在data里面的，所以在关掉时，也要在data里取出后再关闭
+          clearInterval(that.data.timer);
+          //关闭定时器之后，可作其他处理codes go here
+          //播放背景音乐
+          console.log(that.data.musicPath)
+          that._createAudio(that.data.musicPath);
+          that.getLyricAction(that.data.lyric);
+          
+        }
+      }, 1000)
+    })
+  },
+  onShow: function () {
     //this._init()
   },
   //初始化
-  _init: function() {
+  _init: function () {
     let mid = "0003JXVx2PhDxM"
     let currentSong = {
       "album": "卡路里",
@@ -90,21 +125,23 @@ Page({
     this._getLyric(currentSong)
   },
 
-  startRecode: function() {
-    const recorderManager = wx.getRecorderManager();
-    const options = {
-      duration: 600000,
-      sampleRate: 44100,
-      numberOfChannels: 1,
-      encodeBitRate: 192000,
-      format: 'mp3'
-    };
-    var s = this;
-    console.log("start");
-    recorderManager.start(options);
+  startRecode: function () {
+    var that = this;
+    that._createAudio(that.data.musicPath);
+    that.getLyricAction(that.data.lyric);
+    // const recorderManager = wx.getRecorderManager();
+    // const options = {
+    //   duration: that.data.currentSong.duration * 1000,
+    //   sampleRate: 44100,
+    //   numberOfChannels: 1,
+    //   encodeBitRate: 192000,
+    //   format: 'mp3'
+    // };
+    // console.log("start");
+    // recorderManager.start(options);
   },
 
-  endRecode: function() { //结束录音 
+  endRecode: function () { //结束录音 
     const recorderManager = wx.getRecorderManager();
     var s = this;
     recorderManager.onStop((res) => {
@@ -120,7 +157,7 @@ Page({
     wx.showToast();
   },
 
-  playRecode: function() {
+  playRecode: function () {
     const innerAudioContext = wx.createInnerAudioContext();
     innerAudioContext.onError((res) => {
       // 播放音频失败的回调
@@ -129,12 +166,12 @@ Page({
     innerAudioContext.play()
   },
 
-  finishRecode: function() {
+  finishRecode: function () {
     var s = this;
     console.log("进入完成");
     // var sectionId = s.data.sectionId;
-    var sectionId=1;
-    setTimeout(function() {
+    var sectionId = s.data.sectionId;
+    setTimeout(function () {
       var urls = config.baseUrl + "/song_section/" +
         sectionId + "/upload";
       // console.log(s.data.recodePath);
@@ -142,11 +179,17 @@ Page({
         url: urls,
         filePath: s.data.recodePath,
         name: 'audioFile',
+        formData: {
+          choirId: s.data.choirId
+        },
         header: {
           'content-type': 'multipart/form-data'
         },
-        success: function(res) {
+        success: function (res) {
           console.log(res.data);
+          wx.navigateTo({
+            url: '../section/sectionmusice?choirId=' + s.data.choirId,
+          })
           // var str = res.data;
           // var data = JSON.parse(str);
           // if (data.states == 1) {
@@ -168,14 +211,14 @@ Page({
           console.log("成功");
           wx.hideToast();
         },
-        fail: function(res) {
+        fail: function (res) {
           console.log("失败");
           console.log(res);
           wx.showModal({
             title: '提示',
             content: "网络请求失败，请确保网络是否正常",
             showCancel: false,
-            success: function(res) {
+            success: function (res) {
 
             }
           });
@@ -186,10 +229,10 @@ Page({
   },
 
   // 获取背景播放音乐的songmidid
-  _getBackPlayfileName: function() {
+  _getBackPlayfileName: function () {
     return new Promise((resolve, reject) => {
       wx.getBackgroundAudioPlayerState({
-        success: function(res) {
+        success: function (res) {
           var dataUrl = res.dataUrl
           let ret = dataUrl && dataUrl.split('?')[0].split('/')[3]
           resolve({
@@ -197,7 +240,7 @@ Page({
             res
           })
         },
-        fail: function(e) {
+        fail: function (e) {
           let ret = false
           reject(ret)
         }
@@ -205,7 +248,7 @@ Page({
     })
   },
   // 获取播放地址
-  _getPlayUrl: function(songmidid) {
+  _getPlayUrl: function (songmidid) {
     const _this = this
 
 
@@ -228,7 +271,7 @@ Page({
         songmid: songmidid,
         callback: 'callback',
       },
-      success: function(res) {
+      success: function (res) {
         var res1 = res.data.replace("callback(", "")
         var res2 = JSON.parse(res1.substring(0, res1.length - 1))
         const playUrl = `http://dl.stream.qqmusic.qq.com/${res2.data.items[0].filename}?vkey=${res2.data.items[0].vkey}&guid=3913883408&uin=0&fromtag=66`
@@ -243,9 +286,10 @@ Page({
     })
   },
   // 创建播放器
-  _createAudio: function(playUrl) {
+  _createAudio: function (playUrl) {
+    let that = this;
     wx.playBackgroundAudio({
-      dataUrl: config.baseUrl +"/f/"+ playUrl,
+      dataUrl: config.baseUrl + "/f/" + playUrl,
       // title: this.data.currentSong.name,
       // coverImgUrl: this.data.currentSong.image
     })
@@ -265,11 +309,19 @@ Page({
     })
     // 监听音乐停止。
     wx.onBackgroundAudioStop(() => {
-      if (this.data.playMod === SINGLE_CYCLE_MOD) {
-        this._init()
-        return
-      }
-      this.next()
+      
+      //结束录音
+      that.setData({
+        lz_type: false
+      })
+      //停止录音
+      that.endRecode();
+
+      // if (this.data.playMod === SINGLE_CYCLE_MOD) {
+      //   this._init()
+      //   return
+      // }
+      // this.next()
     })
     // 监听播放拿取播放进度
     const manage = wx.getBackgroundAudioManager()
@@ -283,9 +335,22 @@ Page({
         this.handleLyric(currentTime * 1000)
       }
     })
+
+    //开始录音
+    //that.startRecode();
+    const recorderManager = wx.getRecorderManager();
+    const options = {
+      duration: that.data.currentSong.duration * 1000,
+      sampleRate: 44100,
+      numberOfChannels: 1,
+      encodeBitRate: 192000,
+      format: 'mp3'
+    };
+    console.log("start");
+    recorderManager.start(options);
   },
   // 获取歌词
-  _getLyric: function(currentSong) {
+  _getLyric: function (currentSong) {
     const _this = this
     this._getBackPlayfileName().then((res) => {
       const nowMid = res.ret.split('.')[0].replace('C400', '')
@@ -300,7 +365,7 @@ Page({
     })
   },
   // 获取处理歌词
-  _getLyricAction: function(currentSong) {
+  _getLyricAction: function (currentSong) {
     song.getLyric(currentSong.mid).then((res) => {
       if (res.data.showapi_res_body.ret_code == 0) {
         const lyric = this._normalizeLyric(res.data.showapi_res_body.lyric)
@@ -331,15 +396,15 @@ Page({
     }
   },
   // 去掉歌词中的转义字符
-  _normalizeLyric: function(lyric) {
+  _normalizeLyric: function (lyric) {
     return lyric.replace(/&#58;/g, ':').replace(/&#10;/g, '\n').replace(/&#46;/g, '.').replace(/&#32;/g, ' ').replace(/&#45;/g, '-').replace(/&#40;/g, '(').replace(/&#41;/g, ')')
   },
   // 歌词滚动回调函数
-  handleLyric: function(currentTime) {
+  handleLyric: function (currentTime) {
     let lines = [{
-        time: 0,
-        txt: ''
-      }],
+      time: 0,
+      txt: ''
+    }],
       lyric = this.data.currentLyric,
       lineNum
     lines = lines.concat(lyric.lines)
@@ -367,7 +432,7 @@ Page({
       })
     }
   },
-  _formatTime: function(interval) {
+  _formatTime: function (interval) {
     interval = interval | 0
     const minute = interval / 60 | 0
     const second = this._pad(interval % 60)
@@ -383,7 +448,7 @@ Page({
     return num
   },
 
-  goback:function(){
+  goback: function () {
     wx.navigateBack({ changed: true });
   }
 

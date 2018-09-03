@@ -126,11 +126,13 @@ Page({
   //演唱
   sing: function (event){
     let that = this;
+    const id = event.target.dataset.id;
     const name = event.target.dataset.name;
     const population = event.target.dataset.population;
     const sort = event.target.dataset.sort;
+    const choirid = event.target.dataset.choirid;
     wx.navigateTo({
-      url: '../c_musice/c_musice?name=' + name + "&population=" + population + "&sort=" + sort,
+      url: '../c_musice/c_musice?name=' + name + "&population=" + population + "&sort=" + sort + "&id=" + id + "&choirid=" + choirid,
     })
   },
   //合成
@@ -178,8 +180,23 @@ Page({
       // 来自页面内转发按钮
       //console.log(res.target)
       if (res.target.dataset.sharevalue){
-        wx.navigateTo({
-          url: '../result/result',
+        wx.request({
+          url: config.baseUrl + '/syn_songs/compound',//
+          data: {
+            choirId: that.data.choirId
+          },
+          success: function (res) {
+            console.log(res.data)
+            let resData = res.data;
+            if (resData && resData.success) {
+                wx.navigateTo({
+                  url: '../result/result?choirId=' + that.data.choirId,
+                })
+            }
+          },
+          fail: function (e) {
+            console.log(e);
+          }
         })
       }
       that.setData({
