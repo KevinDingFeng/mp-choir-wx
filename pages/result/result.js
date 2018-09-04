@@ -28,7 +28,8 @@ Page({
       url: config.baseUrl + '/syn_songs/' + options.choirId +'/detail_by_choir',
       success:function(res){
         s.setData({
-          song:res.data.data
+          song:res.data.data,
+          picPath: config.baseUrl + "/f/" + res.data.data.choir.albumArtPaht
         });
       }
     });
@@ -144,6 +145,11 @@ Page({
           picPath: res.tempFilePaths[0]
         });
       },
+    })
+  },
+  goHome: function(){
+    wx.navigateTo({
+      url: '../index/index',
     })
   }
 })

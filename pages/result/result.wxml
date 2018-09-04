@@ -1,7 +1,7 @@
 <view class='result'>
     <view class='container'   scale="{{scale}}">
        <view class="navigation" style="margin-top:{{(scale<0.55)? '-42rpx':'-60rpx'}}">
-          <image class='header-top'  src="../../images/home.png"   style="margin-top:{{(scale<0.55)? '216rpx':'216rpx'}}"></image>
+          <image class='header-top'  src="../../images/home.png"   style="margin-top:{{(scale<0.55)? '216rpx':'216rpx'}}" bindtap="goHome"></image>
           <image class='fq_bg' src="../../images/section/fq_bg.png" style="margin-top:{{(scale<0.55)? '216rpx':'208rpx'}}"></image>
         </view>
         <view class='fx_text '>
@@ -13,7 +13,7 @@
             <view class='text_style'>分享好友助力出道～～</view>
         </view>
         <view class='team_logo'>
-            <image src="{{song.choir.albumArtPaht}}" bindtap='alterPic'></image>
+            <image src="{{picPath}}" bindtap='alterPic'></image>
         </view>
         <view class='musice_star ' style="top:{{(scale<0.55)? '54%':'63%'}}">
             <image src="../../images/section/muscie_f.png"></image>
