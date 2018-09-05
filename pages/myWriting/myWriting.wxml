@@ -49,7 +49,7 @@
                       </image>
                   </view>
                   <view class='music_js'>
-                      <text data-choir='{{item.id}}' bindtap='goResult'>{{item.choir.songName}}</text>
+                      <text data-choir='{{item.choir.id}}' bindtap='goResult'>{{item.choir.songName}}</text>
                       <view>
                           <text>来自:</text>
                           <text class="music_peo">{{item.choir.choirName}}</text>
