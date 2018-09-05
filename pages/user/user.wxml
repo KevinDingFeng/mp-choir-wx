@@ -22,7 +22,7 @@
             </view -->
             <view >
                 <picker class='select_box' style="margin-top:{{(scale<0.55)? '32rpx':'20rpx'}};" bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
-                  <view class="picker">
+                  <view class="picker pick_tys">
                     {{choir.pickerValueText}}
                   </view>
                 </picker>

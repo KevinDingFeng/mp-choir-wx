@@ -49,7 +49,7 @@
     text-align: center;
     border: 1px solid #471d94;
     border-radius: 20rpx;
-    padding: 20rpx 0;
+    padding: 10rpx 0;
     font-size: 33rpx;
     
     background-color: #471d94;
@@ -165,4 +165,8 @@
     height:50rpx;
     display:inline-block;
     overflow:hidden;
+}
+.pick_tys{
+    font-size:33rpx;
+    padding:5rpx 0;
 }

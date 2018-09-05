@@ -61,6 +61,7 @@
 .music_img>image{
     width: 150rpx;
 	height: 150rpx;
+    border-radius: 5px;
 }
 .music > .music_js{
     font-size: 34rpx;
@@ -89,8 +90,9 @@
     padding: 17rpx 42rpx;
     top:128rpx;
     right:35rpx;
+    
 }
-.music_navlist>image{
+.music_navlist image{
     width: 60rpx;
 	height: 73rpx;
     margin-right: 56rpx;
@@ -108,4 +110,18 @@
     height:54rpx;
     display:inline-block;
     overflow:hidden;
+}
+.btn_sty{
+    outline:none;
+    border:none;
+    list-style: none;
+    background-color: #6144D8;
+    display: inline-block;
+    padding: 0;
+    line-height: 0;
+    text-align:right;
+    width: 60rpx;
+}
+button::after{
+    border:none;
 }
