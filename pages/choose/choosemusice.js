@@ -72,6 +72,7 @@ Page({
   //点唱
   toSectionMusice: function (event){
     let that = this;
+    wx.stopBackgroundAudio();//停止播放
     const dataSet = event.target.dataset;
     wx.request({
       url: config.baseUrl + '/split/splitSong',//
