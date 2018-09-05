@@ -84,6 +84,11 @@
     width: 100%;
     text-align: center;
     margin-top: 20rpx;
+    background-color: #FFED57;
+    border: none;
+}
+button::after{
+    border: none;
 }
 .create_fx>image{
     width: 400rpx;

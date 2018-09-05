@@ -21,9 +21,11 @@
         <view class="create_hb" style="margin-top:{{(scale<0.55)? '100rpx':'50rpx'}}">
             <image src="../../images/create_hb.png" bindtap="getHb"></image>
         </view>
-        <view class="create_fx" style="margin-top:{{(scale<0.55)? '60rpx':'30rpx'}}">
-           <image src="../../images/create_fx.png"></image>
-        </view>
+        
+        <button open-type='share' class="create_fx" style="margin-top:{{(scale<0.55)? '60rpx':'30rpx'}}">
+            <image src="../../images/create_fx.png" bindtap="share"></image>
+        </button>
+    
          <view class='bottom-logo' style="margin-top:{{(scale<0.55)? '50rpx':'30rpx'}}">
             <image src="../../images/index/index-logo.png "/>
         </view>
@@ -31,7 +33,7 @@
     <view class='cc_sty' hidden='{{canvasHidden}}'  style='{{pageStyle}}'>
         <canvas class='canvs_sty' canvas-id='resultCanvas' style='{{pageStyle}}'></canvas>
         <view class='but_sty1'>
-            <button class='cc_but'>保存到手机</button>
+            <button class='cc_but' bindtap='save_phone'>保存到手机</button>
             <button class='cc_but' bindtap='fh_back'>返回</button>
         </view>
         

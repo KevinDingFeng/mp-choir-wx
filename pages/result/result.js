@@ -15,7 +15,8 @@ Page({
         hbImagePath: null,
         canvasHidden: true,
         picPath: '../../images/picker.png',
-        song: null
+        song: null,
+        imagePath:null
     },
 
     /**
@@ -81,7 +82,7 @@ Page({
      * 用户点击右上角分享
      */
     onShareAppMessage: function () {
-
+        debugger
     },
 
     getHb: function () {
@@ -101,79 +102,80 @@ Page({
 
     },
     createNewImg:function(){
-        const context = wx.createCanvasContext('resultCanvas');
-        let _this = this;
-        context.setFillStyle("#fff");
-        var path = "../../images/cc.png";
-        var path1 = "../../images/c_bor.png";
-        var path2 = "../../images/share_text.png";
-        var path3 = "../../images/er_code.png";
-        var _code = "../../images/two_code.png";
-        let name = "1111";// _this.data.song.choir.choirName
-        let musice_name = "2222";// _this.data.song.choir.choirName
+        var _this = this;
+        var name = _this.data.song.choir.choirName; 
+        var musice_name = _this.data.song.choir.songName;
         var tou = _this.data.picPath;//头像图片
-        context.drawImage(path, 0, 0, 330, 500);
-        context.drawImage(path1, 15, 40, 330, 200);
-        context.drawImage(tou, 112, 62, 140, 120);
-        context.drawImage(path2, 80, 215, 200, 250);
-        context.drawImage(path3, 240, 410, 90, 80);
-        context.drawImage(_code, 260, 415, 60, 65);
-        //绘制名字
-        context.setFontSize(24);
-        context.setFillStyle('#fff');
-        context.setTextAlign('center');
-        context.fillText(name, 150, 270);
-        //绘制歌名
-        context.setFontSize(24);
-        context.setFillStyle('#fff');
-        context.setTextAlign('center');
-        context.fillText(musice_name, 180, 350);
-        context.stroke();
-        context.draw();
-        var id = 1;
         wx.request({
             url: config.baseUrl + '/syn_songs/1/wxacode',
             success: function (res) {
-                debugger
-                // wx.getImageInfo({
-                //     src: res.data.data,
-                //     success: function (res) {
-                //         debugger
-                //         console.log("开始导出图片");
-                //         ctx.drawImage(res.path, 0, 0, 150, 100);
-                //         console.log("绘制完成");
-                //         // ctx.draw(true, setTimeout(function () {
-                //         //     console.log("开始导出");
-                //         //     wx.canvasToTempFilePath({
-                //         //         x: 0,
-                //         //         y: 0,
-                //         //         width: 150,
-                //         //         height: 100,
-                //         //         destWidth: 100,
-                //         //         destHeight: 100,
-                //         //         canvasId: 'resultCanvas',
-                //         //         success: function (res) {
-                //         //             console.log(res.tempFilePath);
-                //         //             wx.saveImageToPhotosAlbum({
-                //         //                 filePath: res.tempFilePath,
-                //         //                 success: function (res) {
-                //         //                     console.log("保存到相册成功");
-                //         //                     s.setData({
-                //         //                         canvasHidden: true
-                //         //                     });
-                //         //                 }
-                //         //             })
-                //         //         },
-                //         //         fail(res) {
-                //         //             console.log("fail");
-                //         //         }
-                //         //     });
-                //         // }, 100));
-                //     }
-                // });
+                var _code = res.data.data;
+                const context = wx.createCanvasContext('resultCanvas');
+                context.setFillStyle("#fff");
+                var path = "../../images/cc.png";
+                var path1 = "../../images/c_bor.png";
+                var path2 = "../../images/share_text.png";
+                var path3 = "../../images/er_code.png";
+                context.drawImage(path, 0, 0, 330, 500);
+                context.drawImage(path1, 15, 40, 330, 200);
+                context.drawImage(tou, 112, 62, 140, 120);
+                context.drawImage(path2, 80, 215, 200, 250);
+                context.drawImage(path3, 240, 410, 90, 80);
+                context.drawImage(_code, 260, 415, 60, 65);
+                //绘制名字
+                context.setFontSize(24);
+                context.setFillStyle('#fff');
+                context.setTextAlign('center');
+                context.fillText(name, 150, 270);
+                context.stroke();
+                //绘制歌名
+                context.setFontSize(24);
+                context.setFillStyle('#fff');
+                context.setTextAlign('center');
+                context.fillText(musice_name, 180, 350);
+                context.stroke();
+                context.draw();
             }
         });
     },
+    save_phone:function(){//保存手机图片
+        var that = this
+        setTimeout(function () {
+            wx.canvasToTempFilePath({
+                canvasId: 'resultCanvas',
+                success: function (res) {
+                    var tempFilePath = res.tempFilePath;
+                    wx.saveImageToPhotosAlbum({
+                        filePath: tempFilePath,
+                        success(res) {
+                            wx.showModal({
+                                content: '图片已保存到相册，赶紧晒一下吧~',
+                                showCancel: false,
+                                confirmText: '好的',
+                                confirmColor: '#333',
+                                success: function (res) {
+                                    debugger
+                                    if (res.confirm) {
+                                        console.log('用户点击确定');
+                                        /* 该隐藏的隐藏 */
+                                        that.setData({
+                                            canvasHidden: true
+                                        })
+                                    }
+                                }, fail: function (res) {
+                                    console.log(11111)
+                                }
+                            })
+                        }
+                    })
+                },
+                fail: function (res) {
+                    console.log(res);
+                }
+            });
+        }, 200);
+    },
+
     alterPic: function () {
         var s = this;
         wx.chooseImage({

@@ -20,8 +20,8 @@
     margin-bottom: 200rpx;
 }
 .header-top>image {
-    width:700rpx;
-    height:600rpx;
+    width:750rpx;
+    height:770rpx;
     display:inline-block;
     overflow:hidden;
 }
@@ -30,6 +30,7 @@
     /* margin-bottom:46rpx; */
     border: none;
     background-color: #FFED57; 
+    padding-top: 13rpx;
 }
 
 .btn-fq>image {

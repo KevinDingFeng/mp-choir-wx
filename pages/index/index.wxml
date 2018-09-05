@@ -1,7 +1,7 @@
 <!--index.wxml-->
 <view class='index'>
     <view class="container">
-        <view class="header-top"style="margin-top:{{(scale<0.55)? '60rpx':'6rpx'}};margin-bottom:{{(scale<0.55)? '336rpx':'362rpx'}};">
+        <view class="header-top"style="margin-top:{{(scale<0.55)? '60rpx':'6rpx'}};margin-bottom:{{(scale<0.55)? '236rpx':'170rpx'}};">
             <image src="../../images/index/index-top.png "/>
         </view>
         <button class='btn-fq ' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="my_fq">
