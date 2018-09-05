@@ -11,7 +11,7 @@
                     <view>--{{music.artist[0].name}}</view>
                 </view>
                 <view class='s_ting'>
-                    <image src='../../images/choose/s_ting.png' data-path="{{music.path}}" bindtap='createAudio'></image>
+                    <image src='{{"../../images/choose/"+music.bf_img}}'  data-path="{{music.path}}" data-id="{{music.id}}"  data-type="{{music.bf_type}}" bindtap='createAudio'></image>
                 </view>
                 <view class='d_chang'>
                     <image src='../../images/choose/d_chang.png' data-singer='{{music.artist[0].name}}' data-tsid='{{music.TSID}}' data-songname='{{music.title}}'  bindtap="toSectionMusice"></image>

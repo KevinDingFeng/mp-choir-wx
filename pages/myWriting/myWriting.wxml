@@ -34,7 +34,7 @@
 
 <view class='myWriting'>
     <view class="container">
-        <view class="navigation" style="margin-top:{{(scale<0.55)? '-300rpx':'-300rpx'}}">
+        <view class="navigation" style="margin-top:{{(scale<0.55)? '-300rpx':'-284rpx'}}">
             <image class='goback' src="../../images/return.png" style="margin-top:{{(scale<0.55)? '466rpx':'550rpx'}}" bindtap="goBack"></image>
             <image class='header-top' src="{{(ds_type== true)?'../../images/myWriting/my_w.png':'../../images/myWriting/my_ww.png'}}"  
             style="height:{{(scale<0.55)? '564rpx':'650rpx'}};margin-top:{{(ds_type== true)?'0':'-32rpx'}};" bindtap="goMyCreate"></image>
@@ -60,7 +60,7 @@
                   </view>
                   <view class="music_navlist hide{{showView?'show':''}}">
                       <image src="../../images/myWriting/delete.png" alt="删除" data-id='{{item.id}}' bindtap='removedSong'></image>
-                      <button open-type="share" >
+                      <button class='btn_sty' open-type="share" >
                         <image src="../../images/myWriting/share.png" alt="分享"></image>
                       </button>
                   </view>

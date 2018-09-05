@@ -92,7 +92,6 @@ Page({
         const audioUrl = event.target.dataset.path
         wx.playBackgroundAudio({
             dataUrl: audioUrl,
-            //title: this.data.currentSong.name,
             //coverImgUrl: this.data.currentSong.image
             // success:function(res){
                 
@@ -116,7 +115,16 @@ Page({
             })
         } else {
             let array = that.data.result;
-            wx.pauseBackgroundAudio()
+            wx.getBackgroundAudioPlayerState({
+                success: function (res) {
+                    var status = res.status
+                    if (status == 1) {
+                        wx.pauseBackgroundAudio()
+                    } else {
+                        wx.playBackgroundAudio()
+                    }
+                }
+            })
             for (var i = 0; i < array.songSection.length; i++) {
                 if (array.songSection[i].id == currId) {
                     array.songSection[i].bf_img = "muscie_f.png";

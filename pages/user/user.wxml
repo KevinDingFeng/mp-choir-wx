@@ -8,7 +8,7 @@
             <view class='cd_name'>为自己的组合取个名字吧</view>
         </view>
         <view class='team_name'>
-            <input placeholder="点击输入团名" value='{{choir.choirName}}' maxlength='8' bindinput="bindChoirName"></input>
+            <input placeholder="点击输入团名" placeholder-style='color: #aba1eb' value='{{choir.choirName}}' maxlength='8' bindinput="bindChoirName"></input>
         </view>
         <view class='team_num'>
             <!-- view class='select_box' style="margin-top:{{(scale<0.55)? '32rpx':'20rpx'}};">

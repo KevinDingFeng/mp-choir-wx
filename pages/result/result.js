@@ -16,7 +16,8 @@ Page({
         canvasHidden: true,
         picPath: '../../images/picker.png',
         song: null,
-        imagePath:null
+        imagePath:null,
+        tempFilePath:null
     },
 
     /**
@@ -75,14 +76,15 @@ Page({
      * 页面上拉触底事件的处理函数
      */
     onReachBottom: function () {
-
+       
     },
 
     /**
      * 用户点击右上角分享
      */
     onShareAppMessage: function () {
-        debugger
+        let _this = this;
+        path: _this.data.tempFilePath;
     },
 
     getHb: function () {
@@ -145,6 +147,9 @@ Page({
                 canvasId: 'resultCanvas',
                 success: function (res) {
                     var tempFilePath = res.tempFilePath;
+                    that.setData({
+                        tempFilePath: tempFilePath
+                    })
                     wx.saveImageToPhotosAlbum({
                         filePath: tempFilePath,
                         success(res) {

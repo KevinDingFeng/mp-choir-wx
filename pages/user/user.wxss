@@ -59,7 +59,7 @@
     color: #aba1eb;
 }
 .team_num {
-    width: 100%;
+    width: 101%;
     text-align: center;
 }
 
