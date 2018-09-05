@@ -98,6 +98,9 @@ Page({
                 
             // }
         })
+      // 监听音乐停止。
+      wx.onBackgroundAudioStop(() => {
+      })
         let currId = event.currentTarget.dataset.id;
         let _type = event.currentTarget.dataset.type;
         if (_type == "1") {

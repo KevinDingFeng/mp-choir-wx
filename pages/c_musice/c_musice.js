@@ -8,6 +8,8 @@ const util = require('../../utils/util.js')
 const SEQUENCE_MODE = 1
 const RANDOM_MOD = 2
 const SINGLE_CYCLE_MOD = 3
+
+var recorderManager = wx.getRecorderManager();
 Page({
 
     /**
@@ -130,20 +132,9 @@ Page({
         var that = this;
         that._createAudio(that.data.musicPath);
         that.getLyricAction(that.data.lyric);
-        // const recorderManager = wx.getRecorderManager();
-        // const options = {
-        //   duration: that.data.currentSong.duration * 1000,
-        //   sampleRate: 44100,
-        //   numberOfChannels: 1,
-        //   encodeBitRate: 192000,
-        //   format: 'mp3'
-        // };
-        // console.log("start");
-        // recorderManager.start(options);
     },
 
     endRecode: function () { //结束录音 
-        const recorderManager = wx.getRecorderManager();
         var s = this;
         recorderManager.onStop((res) => {
             s.setData({
@@ -339,8 +330,7 @@ Page({
 
         //开始录音
         //that.startRecode();
-        const recorderManager = wx.getRecorderManager();
-        const options = {
+        var options = {
             duration: that.data.currentSong.duration * 1000,
             sampleRate: 44100,
             numberOfChannels: 1,
