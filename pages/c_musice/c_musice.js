@@ -10,6 +10,7 @@ const RANDOM_MOD = 2
 const SINGLE_CYCLE_MOD = 3
 
 var recorderManager = wx.getRecorderManager();
+
 Page({
 
     /**
@@ -73,7 +74,7 @@ Page({
     //录制
     makeRecord: function () {
         let that = this;
-        let countDownNum = that.data.countDownNum;//获取倒计时初始值
+        let countDownNum = 5;//获取倒计时初始值
         //如果将定时器设置在外面，那么用户就看不到countDownNum的数值动态变化，所以要把定时器存进data里面
         that.setData({
             timer: setInterval(function () {//这里把setInterval赋值给变量名为timer的变量
@@ -84,7 +85,7 @@ Page({
                     countDownNum: countDownNum
                 })
                 wx.showLoading({
-                    title: '加载中',
+                  title: countDownNum + 1 +"",
                 })
                 //在倒计时还未到0时，这中间可以做其他的事情，按项目需求来
                 if (countDownNum == 0) {
@@ -135,18 +136,7 @@ Page({
     },
 
     endRecode: function () { //结束录音 
-        var s = this;
-        recorderManager.onStop((res) => {
-            s.setData({
-                recodePath: res.tempFilePath,
-                isRecode: true
-            });
-        })
-        var s = this;
-        console.log("end");
         recorderManager.stop();
-
-        wx.showToast();
     },
 
     playRecode: function () {
@@ -301,13 +291,8 @@ Page({
         })
         // 监听音乐停止。
         wx.onBackgroundAudioStop(() => {
-
-            //结束录音
-            that.setData({
-                lz_type: false
-            })
             //停止录音
-            that.endRecode();
+          recorderManager.stop();
 
             // if (this.data.playMod === SINGLE_CYCLE_MOD) {
             //   this._init()
@@ -330,7 +315,8 @@ Page({
 
         //开始录音
         //that.startRecode();
-        var options = {
+      //const recorderManager = wx.getRecorderManager();
+        const options = {
             duration: that.data.currentSong.duration * 1000,
             sampleRate: 44100,
             numberOfChannels: 1,
@@ -339,6 +325,15 @@ Page({
         };
         console.log("start");
         recorderManager.start(options);
+
+      recorderManager.onStop((res) => {
+        that.setData({
+          recodePath: res.tempFilePath,
+          isRecode: true,
+          lz_type: false
+        });
+        wx.showToast();
+      })
     },
     // 获取歌词
     _getLyric: function (currentSong) {
