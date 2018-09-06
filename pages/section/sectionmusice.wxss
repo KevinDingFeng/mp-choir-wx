@@ -1,5 +1,5 @@
 /* pages/section/sectionmusice.wxss */
-@import 'stylesheet.wxss';
+/*@import 'stylesheet.wxss'; */
 .container {
   height: 100%;
   display: flex;

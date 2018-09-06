@@ -3,7 +3,7 @@
     <view class='container'   scale="{{scale}}">
         <view class="navigation" style="margin-top:{{(scale<0.55)? '-42rpx':'-110rpx'}}">
              <image class='goback' src="../../images/return.png" bindtap="goback"></image>
-            <image class='header-top'  src="../../images/home.png"   style="margin-top:{{(scale<0.55)? '216rpx':'216rpx'}}"></image>
+            <image class='header-top'  src="../../images/home.png"   style="margin-top:{{(scale<0.55)? '216rpx':'216rpx'}}" bindtap='gohome'></image>
             <image class='fq_bg' src="../../images/section/fq_bg.png" style="margin-top:{{(scale<0.55)? '216rpx':'208rpx'}}"></image>
         </view>
         <view class='musice_xx'>

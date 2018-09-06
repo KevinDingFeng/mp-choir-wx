@@ -85,6 +85,11 @@ Page({
             url: '../choose/choosemusice?choirId=' + that.data.choirId + '&section=1',
         })
     },
+  gohome: function () {
+    wx.navigateTo({
+      url: '../index/index',
+    })
+  },
     createAudio: function (event) {
         let that = this;
         //console.log(event)
