@@ -8,7 +8,9 @@
   padding: 0 72rpx;
 } 
 .result{
-    background-color: #FFED57; 
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment:fixed;  
     height: 100%;
 }
 .navigation{
@@ -81,11 +83,12 @@
     margin-left: 13rpx;
 }
 .create_fx{
-    width: 100%;
+    width: 80%;
     text-align: center;
     margin-top: 20rpx;
-    background-color: #FFED57;
+    background-color: #FFD16E;
     border: none;
+    padding: 0;
 }
 button::after{
     border: none;

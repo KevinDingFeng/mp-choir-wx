@@ -1,4 +1,4 @@
-<view class='result'>
+<view class='result' style="background-image: url( '{{bj_img}}' )">
     <view class='container'   scale="{{scale}}">
        <view class="navigation" style="margin-top:{{(scale<0.55)? '-42rpx':'-60rpx'}}">
           <image class='header-top'  src="../../images/home.png"   style="margin-top:{{(scale<0.55)? '216rpx':'216rpx'}}" bindtap="goHome"></image>

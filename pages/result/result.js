@@ -17,7 +17,8 @@ Page({
         picPath: '../../images/picker.png',
         song: null,
         imagePath:null,
-        tempFilePath:null
+        tempFilePath:null,
+        bj_img: config.bg_img + "/04bg.png"
     },
 
     /**
