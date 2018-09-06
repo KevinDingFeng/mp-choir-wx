@@ -1,5 +1,5 @@
 <!--pages/section/sectionmusice.wxml-->
-<view class='choose'>
+<view class='choose' >
     <view class='container'   scale="{{scale}}">
         <view class="navigation" style="margin-top:{{(scale<0.55)? '-42rpx':'-110rpx'}}">
              <image class='goback' src="../../images/return.png" bindtap="goback"></image>

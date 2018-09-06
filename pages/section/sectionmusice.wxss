@@ -10,8 +10,11 @@
   padding: 0 33rpx;
 } 
 .choose{
-    background-color: #FFED57; 
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-attachment:fixed;
     height: 100%;
+    overflow: hidden;
 }
 .navigation{
     margin-top: -100rpx;

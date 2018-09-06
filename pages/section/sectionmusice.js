@@ -22,6 +22,7 @@ Page({
     sponsor: false, //发起者标志，默认不是
     compound: false, //点击合成后弹出的窗口
     loginUserId: wx.getStorageSync('userId'),
+    bj_img: config.bg_img + "/02bg.png"
   },
 
   /**

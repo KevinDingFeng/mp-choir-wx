@@ -14,7 +14,7 @@ Page({
         imgSrc:"",//封面本地路径
         pageStyle: `width:${app.globalData.width};height:${app.globalData.height}`,
         scale: app.globalData.windowWidth / app.globalData.windowHeight,
-
+        bj_img: config.bg_img + "/04bg.png",
         array: [2, 3, 4, 5, 6,],
         index: 0,
         choir: {//

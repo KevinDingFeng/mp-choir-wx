@@ -1,7 +1,7 @@
 //index.js
 //获取应用实例
 const app = getApp()
-
+var config = require('../../utils/config.js');
 Page({
     data: {
         motto: 'Hello World',
@@ -10,6 +10,7 @@ Page({
         canIUse: wx.canIUse('button.open-type.getUserInfo'),
         pageStyle: `width:${app.globalData.width};height:${app.globalData.height}`,
         scale: app.globalData.windowWidth / app.globalData.windowHeight,
+        bj_img: config.bg_img +"/01bg.png"
     },
     //事件处理函数
     bindViewTap: function () {

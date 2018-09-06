@@ -38,7 +38,8 @@ Page({
         sectionId: null,
         backgroundMusic: null,
         timer: '',//定时器名字
-        countDownNum: '5'//倒计时初始值
+        countDownNum: '5',//倒计时初始值
+        bj_img: config.bg_img + "/04bg.png"
     },
     /**
      * 生命周期函数--监听页面加载

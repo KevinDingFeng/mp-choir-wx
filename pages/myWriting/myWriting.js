@@ -17,6 +17,7 @@ Page({
       sectionList: null,
       pathPrefix: config.baseUrl,
       ds_type: true,
+      bj_img: config.bg_img + "/02bg.png"
     },
     onLoad: function () {
         // this.setData({

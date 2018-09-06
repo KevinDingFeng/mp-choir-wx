@@ -1,4 +1,4 @@
-<view class='choose'>
+<view class='choose'  style="{{pageStyle}};background-image: url( '{{bj_img}}' )">
     <view class='container'>
        <view class="navigation" style="margin-top:{{(scale<0.55)? '-226rpx':'-300rpx'}}">
             <image class='goback'  src="../../images/return.png" style="margin-top:{{(scale<0.55)? '552rpx':'522rpx'}}" bindtap="goback"></image>

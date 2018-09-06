@@ -10,7 +10,9 @@
 }
 
 .user {
-    background-color: #ffed57;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment:fixed;
     height: 100%;
 }
 
