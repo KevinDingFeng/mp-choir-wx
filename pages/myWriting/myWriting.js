@@ -43,7 +43,7 @@ Page({
             timer = setInterval(function () {
               for (var i = 0; i < sectionList.length; i++) {
                 var section = sectionList[i];
-                console.log(section)
+                //console.log(section)
                 var djs = util.updateTime(section.pastTime);
                 if (djs == 0) {
                   sectionList.splice(section, 1);

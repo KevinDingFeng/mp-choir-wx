@@ -1,6 +1,7 @@
 // pages/section/sectionmusice.js
 var config = require('../../utils/config.js');
 const app = getApp()
+let couPeo = false; 
 Page({
 
     /**
@@ -54,7 +55,19 @@ Page({
                         for (var i = 0; i < data.songSection.length; i++) {
                             data.songSection[i].bf_img = "muscie_f.png";
                             data.songSection[i].bf_type = "1";
+                          if (data.songSection[i].status == "NO_CLAIM") {
+                            couPeo = true;
+                          }
                         }
+                      if (couPeo) {
+                        that.setData({
+                          cou_peo: true
+                        })
+                      } else {
+                        that.setData({
+                          cou_peo: false
+                        })
+                      }
                         that.setData({
                             result: data
                         })
@@ -78,13 +91,16 @@ Page({
     onShow: function() {
         let that = this;
         let array = that.data.result;
-        for (var i = 0; i < array.songSection.length; i++) {
+        if(array.length){
+          for (var i = 0; i < array.songSection.length; i++) {
             array.songSection[i].bf_img = "muscie_f.png";
             array.songSection[i].bf_type = "1";
-        }
-        that.setData({
+          }
+          that.setData({
             result: array
-        })
+          })
+        }
+        
     },
     goback: function() {
         let that = this;
@@ -153,7 +169,7 @@ Page({
                 if (resData && resData.errorCode == 0) {
                     var result = that.data.result;
                     var songSections = result.songSection;
-                    var couPeo = false; 
+                    
                     for (var i = 0; i < songSections.length; i++) {
                         if (songSections[i].id == id) {
                           songSections[i].userId = that.data.loginUserId;
@@ -240,8 +256,6 @@ Page({
      */
     onShareAppMessage: function(res) {
       let that = this;
-      let cou_peo = that.data.cou_peo;
-      if (cou_peo){
         if (res.from === 'button') {
           // 来自页面内转发按钮
           //console.log(res.target)
@@ -271,14 +285,8 @@ Page({
         } else {
           return {
             title: "",
-            path: '/pages/section/sectionmusice?choirId=' + that.data.choirId
+            path: '/pages/index/index'
           }
-        }
-      } else{
-        return {
-          title: "",
-          path: '/pages/index/index'
-        }
-      }  
+        } 
     }
 })

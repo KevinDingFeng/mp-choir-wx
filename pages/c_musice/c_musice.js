@@ -10,7 +10,7 @@ const RANDOM_MOD = 2
 const SINGLE_CYCLE_MOD = 3
 
 var recorderManager = wx.getRecorderManager();
-
+const innerAudioContext = wx.createInnerAudioContext(); 
 Page({
 
     /**
@@ -144,17 +144,20 @@ Page({
     },
 
     playRecode: function () {
-        const innerAudioContext = wx.createInnerAudioContext();
+      //const innerAudioContext = wx.createInnerAudioContext();
+      innerAudioContext.autoplay = true
         innerAudioContext.onError((res) => {
             // 播放音频失败的回调
+            console.log(res)
         })
         innerAudioContext.src = this.data.recodePath; // 这里可以是录音的临时路径
-        innerAudioContext.play()
+        //innerAudioContext.play();
     },
 
     finishRecode: function () {
         var s = this;
         console.log("进入完成");
+      innerAudioContext.stop();//停止播放
         // var sectionId = s.data.sectionId;
         var sectionId = s.data.sectionId;
         setTimeout(function () {
@@ -273,6 +276,7 @@ Page({
     },
     // 创建播放器
     _createAudio: function (playUrl) {
+      innerAudioContext.stop();//停止播放录音
         let that = this;
         wx.playBackgroundAudio({
             dataUrl: config.baseUrl + "/f/" + playUrl,
@@ -440,6 +444,21 @@ Page({
 
     goback: function () {
         wx.navigateBack({ changed: true });
-    }
+    },
+  /**
+       * 生命周期函数--监听页面隐藏
+       */
+  onHide: function () {
+    wx.stopBackgroundAudio();//停止播放
+    innerAudioContext.stop();//停止播放录音
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+    wx.stopBackgroundAudio();//停止播放
+    innerAudioContext.stop();//停止播放录音
+  },
 
 })

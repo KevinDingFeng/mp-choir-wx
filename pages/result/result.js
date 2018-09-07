@@ -32,7 +32,8 @@ Page({
             success: function (res) {
                 s.setData({
                     song: res.data.data,
-                    picPath: config.baseUrl + "/f/" + res.data.data.choir.albumArtPaht
+                    picPath: config.baseUrl + "/f/" + res.data.data.choir.albumArtPaht,
+
                 });
             }
         });
@@ -109,8 +110,9 @@ Page({
         var name = _this.data.song.choir.choirName; 
         var musice_name = _this.data.song.choir.songName;
         var tou = _this.data.picPath;//头像图片
+      const SyntheticSongId = _this.data.song.syntheticSong.id;
         wx.request({
-            url: config.baseUrl + '/syn_songs/1/wxacode',
+          url: config.baseUrl + '/syn_songs/' + SyntheticSongId+'/wxacode',
             success: function (res) {
                 var _code = res.data.data;
                 const context = wx.createCanvasContext('resultCanvas');

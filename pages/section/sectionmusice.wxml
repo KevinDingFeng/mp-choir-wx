@@ -41,15 +41,15 @@
                 </view>
             </view>
         </view>
-        <button open-type="share"  class='btn_fb fb_musice '  wx:if="{{sponsor}}">
+        <button open-type="share"  class='btn_fb fb_musice '  wx:if="{{cou_peo && sponsor && result.completeNum != result.population}}">
             <image src="../../images/section/show_f.png"></image>
         </button>
         <view class='bj_hc'  wx:if="{{!sponsor &&result.completeNum != result.population}}">
           <view class='c_font'>{{result.completeNum}}/{{result.population}}合成</view>
           <button open-type="share" class='cou_peo' wx:if="{{cou_peo && !sponsor && result.completeNum != result.population}}">人数不够，点我来凑！</button>
         </view> 
-        <view wx:if="{{result.completeNum == result.population}}">
-          <text bindtap='compound'>合成</text>
+        <view class='bj_hc' bindtap='compound' wx:if="{{result.completeNum == result.population}}">
+          <view class='c_font'>{{result.completeNum}}/{{result.population}}合成</view>
         </view>
         <view class='bottom-logo'>
             <image src="../../images/index/index-logo.png "/>
