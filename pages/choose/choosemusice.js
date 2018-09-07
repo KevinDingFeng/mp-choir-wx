@@ -61,7 +61,7 @@ Page({
     },
     //试听
     createAudio: function (event) {
-        
+
         const audioUrl = event.target.dataset.path
 
         // const backgroundAudioManager = wx.getBackgroundAudioManager()
@@ -70,20 +70,23 @@ Page({
         // // backgroundAudioManager.epname = '此时此刻'
         // // backgroundAudioManager.singer = '许巍'
         // backgroundAudioManager.src = audioUrl // 设置了 src 之后会自动播放
-        wx.playBackgroundAudio({
-            dataUrl: audioUrl,
-            titel:"1"
-        })
         let that = this;
         //console.log(event)
         let _cc = event.currentTarget.dataset.id;
         let _type = event.currentTarget.dataset.type;
         if (_type == "1") {
+            wx.playBackgroundAudio({
+                dataUrl: audioUrl,
+                titel: "1"
+            })
             let array = that.data.result;
             for (var i = 0; i < array.length; i++) {
                 if (array[i].id == _cc) {
                     array[i].bf_img = "zs_ting.png";
                     array[i].bf_type = "2";
+                } else {
+                    array[i].bf_img = "s_ting.png";
+                    array[i].bf_type = "1";
                 }
             }
             that.setData({
@@ -91,16 +94,7 @@ Page({
             })
         } else {
             let array = that.data.result;
-            wx.getBackgroundAudioPlayerState({
-                success: function (res) {
-                    var status = res.status
-                    if (status == 1) {
-                        wx.pauseBackgroundAudio()
-                    } else {
-                        wx.playBackgroundAudio()
-                    }
-                }
-            })
+            wx.pauseBackgroundAudio();
             for (var i = 0; i < array.length; i++) {
                 if (array[i].id == _cc) {
                     array[i].bf_img = "s_ting.png";

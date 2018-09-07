@@ -96,6 +96,9 @@ Page({
                 if (array.songSection[i].id == currId) {
                     array.songSection[i].bf_img = "muscie_t.png";
                     array.songSection[i].bf_type = "2";
+                }else{
+                    array.songSection[i].bf_img = "muscie_f.png";
+                    array.songSection[i].bf_type = "1";
                 }
             }
             that.setData({
@@ -103,7 +106,7 @@ Page({
             })
         } else {
             let array = that.data.result;
-            wx.pauseBackgroundAudio()
+            wx.pauseBackgroundAudio();
             for (var i = 0; i < array.songSection.length; i++) {
                 // if (array.songSection[i].id == currId) {
                 array.songSection[i].bf_img = "muscie_f.png";
