@@ -45,7 +45,7 @@ Page({
                     console.log(res.data)
                     let resData = res.data;
                     if (resData && resData.success) {
-                        if (resData.extraMessage) {
+                      if (resData.data.users[0].id == that.data.loginUserId) {
                             that.setData({
                                 sponsor: true
                             })
@@ -92,6 +92,11 @@ Page({
             url: '../choose/choosemusice?choirId=' + that.data.choirId + '&section=1',
         })
     },
+  gohome: function () {
+    wx.navigateTo({
+      url: '/pages/index/index',
+    })
+  },
     createAudio: function(event) {
         let that = this;
         let currId = event.currentTarget.dataset.id;

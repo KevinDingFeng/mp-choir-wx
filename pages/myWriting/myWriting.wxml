@@ -39,7 +39,7 @@
                     {{item.choir.songName}}
                 </view>
                 <view class='music_jd'>
-                    <text>{{item.sort}}</text>/<text>{{item.choir.population}}</text>
+                    <text>{{item.choir.completeNum}}</text>/<text>{{item.choir.population}}</text>
                 </view>
                 <view class='music_type' wx:if="{{item.status == 'NO_RECORDING'}}">
                     未录制
