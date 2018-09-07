@@ -22,7 +22,8 @@ Page({
         sponsor: false, //发起者标志，默认不是
         compound: false, //点击合成后弹出的窗口
         loginUserId: wx.getStorageSync('userId'),
-        bj_img: config.bg_img + "/04bg.png"
+        bj_img: config.bg_img + "/04bg.png",
+      cou_peo: true  //人数不够点我来凑
     },
 
     /**
@@ -127,8 +128,9 @@ Page({
         wx.request({
             url: config.baseUrl + '/song_section/claim', //
             data: {
-                id: id,
-                userId: that.data.loginUserId
+              id: id,
+              userId: that.data.loginUserId,
+              avatarUrl: app.globalData.userInfo.avatarUrl
             },
             success: function(res) {
                 //console.log(res.data)
@@ -136,12 +138,27 @@ Page({
                 if (resData && resData.errorCode == 0) {
                     var result = that.data.result;
                     var songSections = result.songSection;
+                    var couPeo = false; 
                     for (var i = 0; i < songSections.length; i++) {
                         if (songSections[i].id == id) {
-                            songSections[i].userId = that.data.loginUserId;
-                            songSections[i].status = "NO_RECORDING";
+                          songSections[i].userId = that.data.loginUserId;
+                          songSections[i].status = "NO_RECORDING";
+                          songSections[i].avatarUrl = app.globalData.userInfo.avatarUrl;
                         }
+                      
+                      if (songSections[i].status =="NO_CLAIM"){
+                        couPeo = true;
+                      }
                     }
+                  if (couPeo){
+                    that.setData({
+                      cou_peo: true
+                    })
+                  }else{
+                    that.setData({
+                      cou_peo: false
+                    })
+                  }
                     that.setData({
                         result: result
                     })
@@ -207,37 +224,46 @@ Page({
      * 用户点击右上角分享
      */
     onShareAppMessage: function(res) {
-        let that = this;
+      let that = this;
+      let cou_peo = that.data.cou_peo;
+      if (cou_peo){
         if (res.from === 'button') {
-            // 来自页面内转发按钮
-            //console.log(res.target)
-            if (res.target.dataset.sharevalue) {
-                wx.request({
-                    url: config.baseUrl + '/syn_songs/compound', //
-                    data: {
-                        choirId: that.data.choirId
-                    },
-                    success: function(res) {
-                        console.log(res.data)
-                        let resData = res.data;
-                        if (resData && resData.success) {
-                            wx.navigateTo({
-                                url: '../result/result?choirId=' + that.data.choirId,
-                            })
-                        }
-                    },
-                    fail: function(e) {
-                        console.log(e);
-                    }
-                })
-            }
-            that.setData({
-                sponsor: false
+          // 来自页面内转发按钮
+          //console.log(res.target)
+          if (res.target.dataset.sharevalue) {
+            wx.request({
+              url: config.baseUrl + '/syn_songs/compound', //
+              data: {
+                choirId: that.data.choirId
+              },
+              success: function (res) {
+                console.log(res.data)
+                let resData = res.data;
+                if (resData && resData.success) {
+                  wx.navigateTo({
+                    url: '../result/result?choirId=' + that.data.choirId,
+                  })
+                }
+              },
+              fail: function (e) {
+                console.log(e);
+              }
             })
-        }
-        return {
+          }
+          that.setData({
+            sponsor: false
+          })
+        } else {
+          return {
             title: "",
             path: '/pages/section/sectionmusice?choirId=' + that.data.choirId
+          }
         }
+      } else{
+        return {
+          title: "",
+          path: '/pages/index/index'
+        }
+      }  
     }
 })
