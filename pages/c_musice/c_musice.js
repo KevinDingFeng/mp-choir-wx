@@ -39,6 +39,7 @@ Page({
         backgroundMusic: null,
         timer: '',//定时器名字
         countDownNum: '5',//倒计时初始值
+        is_show:true,
         bj_img: config.bg_img + "/04bg.png"
     },
     /**
@@ -83,7 +84,8 @@ Page({
                 countDownNum--;
                 //然后把countDownNum存进data，好让用户知道时间在倒计着
                 that.setData({
-                    countDownNum: countDownNum
+                    countDownNum: countDownNum,
+                    is_show:false
                 })
                 wx.showLoading({
                   title: countDownNum + 1 +"",
@@ -101,6 +103,7 @@ Page({
                     that.getLyricAction(that.data.lyric);
                 }
             }, 1000)
+
         })
     },
     onShow: function () {

@@ -57,7 +57,15 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-
+        let that = this;
+        let array = that.data.result;
+        for (var i = 0; i < array.length; i++) {
+            array[i].bf_img = "s_ting.png";
+            array[i].bf_type = "1";
+        }
+        that.setData({
+            result: array
+        })
     },
     //试听
     createAudio: function (event) {
@@ -134,6 +142,7 @@ Page({
         })
     },
     goback: function () {
+        wx.stopBackgroundAudio();//停止播放
         wx.navigateTo({
             url: '../user/user',
         })

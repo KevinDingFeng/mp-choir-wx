@@ -75,7 +75,17 @@ Page({
     /**
      * 生命周期函数--监听页面显示
      */
-    onShow: function() {},
+    onShow: function() {
+        let that = this;
+        let array = that.data.result;
+        for (var i = 0; i < array.songSection.length; i++) {
+            array.songSection[i].bf_img = "muscie_f.png";
+            array.songSection[i].bf_type = "1";
+        }
+        that.setData({
+            result: array
+        })
+    },
     goback: function() {
         let that = this;
         wx.navigateTo({

@@ -41,6 +41,7 @@
     width: 100%;
     text-align: center;
     margin-top: 35rpx;
+    height: 160rpx;
 }
 .musice_btn>image{
     width: 100rpx;
