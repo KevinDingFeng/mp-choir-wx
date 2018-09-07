@@ -62,8 +62,9 @@ App({
                 success: function (res) {
                   if (res.data.errorCode != 0) {
                     _this.globalData.token = null;
-                    wx.clearStorageSync("accessToken");
-                  // _this.registerUser();
+                    //wx.clearStorageSync("accessToken");
+                    wx.removeStorageSync("accessToken");
+                    _this.registerUser();
                   }
                   if (res.data.errorCode == 0) {
                     wx.setStorageSync('userId', res.data.data.userId);
