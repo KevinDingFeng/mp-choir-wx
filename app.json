@@ -9,7 +9,6 @@
     "pages/result/result",
     "pages/section/sectionmusice",
     "pages/myWriting/myWriting",
-    "pages/myCreate/myCreate",
     "pages/logs/logs"
   ],
   "window":{
