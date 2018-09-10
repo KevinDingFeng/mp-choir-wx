@@ -115,6 +115,7 @@ Page({
         })
     },
   gohome: function () {
+    wx.removeStorageSync("myWriting");
     wx.navigateTo({
       url: '/pages/index/index',
     })
