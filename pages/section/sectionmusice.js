@@ -104,6 +104,12 @@ Page({
     },
     goback: function() {
         let that = this;
+      if (wx.getStorageSync('myWriting')){
+        wx.removeStorageSync("myWriting");
+        wx.redirectTo({
+          url: '../myWriting/myWriting',
+        })
+      }
         wx.navigateTo({
             url: '../choose/choosemusice?choirId=' + that.data.choirId + '&section=1',
         })

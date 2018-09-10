@@ -129,7 +129,8 @@ Page({
     // wx.navigateTo({
     //   url: '/pages/c_musice/c_musice?songName=' + event.currentTarget.dataset.songname + '&population=' + event.currentTarget.dataset.population + '&sort=' + event.currentTarget.dataset.sort,
     // });
-    wx.navigateTo({
+    wx.setStorageSync('myWriting', 'myWriting');
+    wx.redirectTo({
       url: '../section/sectionmusice?choirId=' + event.currentTarget.dataset.choirid,
     })
   },
