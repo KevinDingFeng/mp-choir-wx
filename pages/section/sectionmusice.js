@@ -104,11 +104,20 @@ Page({
     },
     goback: function() {
         let that = this;
+      var scene = wx.getStorageSync('scene');
+      if (scene && (scene != 1001 )) {
+        wx.removeStorageSync("scene");
+        wx.redirectTo({
+          url: '../index/index',
+        })
+        return
+      }
       if (wx.getStorageSync('myWriting')){
         wx.removeStorageSync("myWriting");
         wx.redirectTo({
           url: '../myWriting/myWriting',
         })
+        return
       }
         wx.navigateTo({
             url: '../choose/choosemusice?choirId=' + that.data.choirId + '&section=1',
