@@ -1,10 +1,17 @@
 //app.js
 var config = require('./utils/config.js');
 App({
-  onLaunch: function () {
+  onLaunch: function (options) {
     //console.log('app onLaunch');
     var _this = this;
     
+    try {
+      //设置场景信息，在index.js 中使用
+      wx.setStorageSync('scene', options.scene)
+      console.log(options.scene)
+    } catch (e) {
+    }
+
     var sysinfo = wx.getSystemInfoSync();
     //console.log(sysinfo);
     if (sysinfo) {
