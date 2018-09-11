@@ -18,7 +18,9 @@ Page({
         song: null,
         imagePath:null,
         tempFilePath:null,
-        bj_img: config.bg_img + "/04bg.png"
+        bj_img: config.bg_img + "/04bg.png",
+        b_img:"../../images/section/muscie_f.png",
+        b_type:"1"
     },
 
     /**
@@ -41,12 +43,33 @@ Page({
     /**
      * 听取合唱作品
      */
-  createAudio:function(){
+  createAudio:function(event){
     let that = this;
-    wx.playBackgroundAudio({
-      dataUrl: config.baseUrl + "/f/" + that.data.song.syntheticSong.songPath,
-      title: "111"
-    })
+    let _type = event.currentTarget.dataset.type;
+    if (_type =="1"){
+        wx.playBackgroundAudio({
+            dataUrl: config.baseUrl + "/f/" + that.data.song.syntheticSong.songPath,
+            title: "111"
+        })
+        wx.onBackgroundAudioStop(() => {
+            //停止录音
+            that.setData({
+                b_img: "../../images/section/muscie_t.png"
+            })
+        })
+        that.setData({
+            b_img: "../../images/section/muscie_t.png",
+            b_type: "2",
+        })
+    }else{
+        wx.pauseBackgroundAudio();
+        that.setData({
+            b_img: "../../images/section/muscie_f.png",
+            b_type: "1",
+        })
+    }
+    
+   
   },
     /**
      * 生命周期函数--监听页面初次渲染完成

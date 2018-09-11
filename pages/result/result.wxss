@@ -25,7 +25,7 @@
     overflow:hidden;
 }
 .fq_bg{
-    width: 269rpx;
+    width: 300rpx;
 	height:85rpx;
     margin-left: 20rpx;
 }
@@ -37,6 +37,7 @@
     border-radius: 20rpx;
 	border: solid 5px #471d94;
     padding: 13rpx 16rpx;
+    color: #fff;
 }
 .mar_bar{
     margin-top: 30rpx;
@@ -59,7 +60,7 @@
 .team_logo>image{
     width:329rpx;
     height:329rpx;
-    margin-left: 219rpx;
+    margin-left: 216rpx;
     margin-top: 9rpx;
     border-radius: 16rpx;
 }
