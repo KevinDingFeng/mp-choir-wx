@@ -54,7 +54,7 @@ Page({
         wx.onBackgroundAudioStop(() => {
             //停止录音
             that.setData({
-                b_img: "../../images/section/muscie_t.png"
+                b_img: "../../images/section/muscie_f.png"
             })
         })
         that.setData({

@@ -1,9 +1,9 @@
 <!--pages/section/sectionmusice.wxml-->
 <view class='choose' style="background-image: url( '{{bj_img}}' )">
-    <view class='container'   scale="{{scale}}">
+    <view class='container' scale="{{scale}}">
         <view class="navigation" style="margin-top:{{(scale<0.55)? '-42rpx':'-110rpx'}}">
-             <image class='goback' src="../../images/return.png" bindtap="goback"></image>
-            <image class='header-top'  src="../../images/home.png"   style="margin-top:{{(scale<0.55)? '216rpx':'216rpx'}}" bindtap='gohome'></image>
+            <image class='goback' src="../../images/return.png" bindtap="goback"></image>
+            <image class='header-top' src="../../images/home.png" style="margin-top:{{(scale<0.55)? '216rpx':'216rpx'}}" bindtap='gohome'></image>
             <image class='fq_bg' src="../../images/section/fq_bg.png" style="margin-top:{{(scale<0.55)? '216rpx':'208rpx'}}"></image>
         </view>
         <view class='musice_xx'>
@@ -11,22 +11,24 @@
                 <image src="{{baseUrl+result.albumArtPaht}}"></image>
             </view>
             <view class='musice_name'>
-                    <view class='musice_top'>
-                        <text class='musice_fame'>{{result.songName}}</text>
-                        <view class='musice_peo'>--{{result.singer}}</view>
-                        <view class='musice_team'>
-                            演唱：<text>{{result.choirName}}</text>
-                        </view>
-                        <view>
-                            人数：<text>{{result.population}}</text>人
-                        </view>
+                <view class='musice_top'>
+                    <text class='musice_fame'>{{result.songName}}</text>
+                    <view class='musice_peo'>--{{result.singer}}</view>
+                    <view class='musice_team'>
+                        演唱：
+                        <text>{{result.choirName}}</text>
                     </view>
+                    <view>
+                        人数：
+                        <text>{{result.population}}</text>人
+                    </view>
+                </view>
             </view>
         </view>
         <view class='musice_list' style="min-height:{{(scale<0.55)? '740rpx':'500rpx'}}">
-            <view class='muscie_yc' wx:for="{{result.songSection}}" wx:key="id"  wx:for-item="songSection">
+            <view class='muscie_yc' wx:for="{{result.songSection}}" wx:key="id" wx:for-item="songSection">
                 <view class='musice_type'>
-                    <image src="{{'../../images/section/'+songSection.bf_img}}" data-path="{{songSection.path}}" data-id='{{songSection.id}}' data-type="{{songSection.bf_type}}"   bindtap='createAudio'></image>
+                    <image src="{{'../../images/section/'+songSection.bf_img}}" data-path="{{songSection.path}}" data-id='{{songSection.id}}' data-type="{{songSection.bf_type}}" bindtap='createAudio'></image>
                 </view>
                 <view class='muscie_time'>{{songSection.duration}}</view>
                 <view class='musice_type'>
@@ -34,31 +36,32 @@
                     <image src="../../images/section/empty_y.png" wx:else></image>
                 </view>
                 <view class="type_style">
-                     <image src="../../images/section/d_yanc.png" wx:if='{{songSection.userId != loginUserId && songSection.status == "NO_RECORDING"}}'></image>
-                     <image src="../../images/section/d_yanc.png" wx:if='{{songSection.userId == loginUserId && songSection.status == "NO_RECORDING"}}' data-id='{{songSection.id}}' data-sort="{{songSection.sort}}" data-name="{{result.songName}}" data-population='{{result.population}}' data-choirid='{{result.id}}' bindtap='sing'></image>
-                     <image src="../../images/section/y_wc.png" wx:if='{{songSection.status == "RECORDED"}}'></image>
-                     <image src="../../images/section/d_ren.png" wx:if='{{songSection.status == "NO_CLAIM"}}' data-id="{{songSection.id}}" bindtap='claim'></image>
+                    <image src="../../images/section/d_yanc.png" wx:if='{{songSection.userId != loginUserId && songSection.status == "NO_RECORDING"}}'></image>
+                    <image src="../../images/section/d_yanc.png" wx:if='{{songSection.userId == loginUserId && songSection.status == "NO_RECORDING"}}' data-id='{{songSection.id}}' data-sort="{{songSection.sort}}" data-name="{{result.songName}}" data-population='{{result.population}}'
+                        data-choirid='{{result.id}}' bindtap='sing'></image>
+                    <image src="../../images/section/y_wc.png" wx:if='{{songSection.status == "RECORDED"}}'></image>
+                    <image src="../../images/section/d_ren.png" wx:if='{{songSection.status == "NO_CLAIM"}}' data-id="{{songSection.id}}" bindtap='claim'></image>
                 </view>
             </view>
         </view>
-        <view wx:if="{{sponsor && result.completeNum != result.population}}">
-          <button open-type="share"  class='btn_fb fb_musice' wx:if="{{cou_peo}}">
-              <image src="../../images/section/show_f.png"></image>
-          </button>
-          <view class='bj_hc' wx:else>
-          <view class='c_font'>{{result.completeNum}}/{{result.population}}合成</view>
-          <button open-type="share" class='cou_peo' wx:if="{{cou_peo}}">人数不够，点我来凑！</button>
-          </view>
+        <view style='width:100%'  wx:if="{{sponsor && result.completeNum != result.population}}">
+            <button open-type="share" class='btn_fb fb_musice' wx:if="{{cou_peo}}">
+                <image src="../../images/section/show_f.png"></image>
+            </button>
+            <view class='bj_hc' wx:else>
+                <view class='c_font'>{{result.completeNum}}/{{result.population}}合成</view>
+                <button open-type="share" class='cou_peo' wx:if="{{cou_peo}}">人数不够，点我来凑！</button>
+            </view>
         </view>
-        <view class='bj_hc'  wx:if="{{renlingzhe && result.completeNum != result.population}}">
-          <view class='c_font'>{{result.completeNum}}/{{result.population}}合成</view>
-          <button open-type="share" class='cou_peo' wx:if="{{cou_peo}}">人数不够，点我来凑！</button>
-        </view> 
+        <view class='bj_hc' wx:if="{{renlingzhe && result.completeNum != result.population}}">
+            <view class='c_font'>{{result.completeNum}}/{{result.population}}合成</view>
+            <button open-type="share" class='cou_peo' wx:if="{{cou_peo}}">人数不够，点我来凑！</button>
+        </view>
         <view class='bj_hc' bindtap='compound' wx:if="{{result.completeNum == result.population}}">
-          <view class='c_font'>{{result.completeNum}}/{{result.population}}合成</view>
+            <view class='c_font'>{{result.completeNum}}/{{result.population}}合成</view>
         </view>
         <view class='bottom-logo'>
-            <image src="../../images/index/index-logo.png "/>
+            <image src="../../images/index/index-logo.png " />
         </view>
 
         <!-- 合成 -->
@@ -72,7 +75,7 @@
                 </view>
                 <button class='tc_btn' open-type="share" data-sharevalue='toResult'>
                     <image src='../../images/section/lj_create.png'></image>
-                </button >
+                </button>
             </view>
         </view>
     </view>
