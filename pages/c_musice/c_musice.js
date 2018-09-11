@@ -42,7 +42,8 @@ Page({
         is_show:true,
         bj_img: config.bg_img + "/04bg.png",
         b_img:"../../images/c_musice/bf.png",
-        b_type:"1"
+        b_type:"1",
+        buttonFlag :true
     },
     /**
      * 生命周期函数--监听页面加载
@@ -173,6 +174,9 @@ Page({
     finishRecode: function () {
         var s = this;
         console.log("进入完成");
+        s.setData({
+          buttonFlag: false
+        })
       innerAudioContext.stop();//停止播放
         // var sectionId = s.data.sectionId;
         var sectionId = s.data.sectionId;
