@@ -1,7 +1,7 @@
 // pages/section/sectionmusice.js
 var config = require('../../utils/config.js');
 const app = getApp()
-let couPeo = false;
+
 Page({
 
     /**
@@ -44,6 +44,7 @@ Page({
                 },
                 success: function (res) {
                     console.log(res.data)
+                  let couPeo = false;
                     let resData = res.data;
                     if (resData && resData.success) {
                         if (resData.data.users[0].id == that.data.loginUserId) {
@@ -181,6 +182,7 @@ Page({
             },
             success: function (res) {
                 //console.log(res.data)
+              let couPeo = false;
                 let resData = res.data;
                 if (resData && resData.errorCode == 0) {
                     var result = that.data.result;
