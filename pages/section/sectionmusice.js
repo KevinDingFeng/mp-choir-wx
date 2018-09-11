@@ -226,7 +226,7 @@ Page({
         const sort = event.target.dataset.sort;
         const choirid = event.target.dataset.choirid;
         wx.navigateTo({
-            url: '../c_musice/c_musice?name=' + name + "&population=" + population + "&sort=" + sort + "&id=" + id + "&choirid=" + choirid,
+          url: '/pages/c_musice/c_musice?name=' + name + "&population=" + population + "&sort=" + sort + "&id=" + id + "&choirid=" + choirid,
         })
     },
     //合成
