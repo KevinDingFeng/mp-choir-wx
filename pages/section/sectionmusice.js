@@ -269,7 +269,54 @@ Page({
      * 页面相关事件处理函数--监听用户下拉动作
      */
     onPullDownRefresh: function () {
+        let that = this;
+        if (options.choirId) {
+            that.setData({
+                choirId: options.choirId
+            })
 
+            wx.request({
+                url: config.baseUrl + '/song_section/get_section_song', //
+                data: {
+                    choirId: options.choirId
+                },
+                success: function (res) {
+                    console.log(res.data)
+                    let couPeo = false;
+                    let resData = res.data;
+                    if (resData && resData.success) {
+                        if (resData.data.users[0].id == wx.getStorageSync('userId')) {
+                            that.setData({
+                                sponsor: true
+                            })
+                        }
+                        let data = resData.data;
+                        for (var i = 0; i < data.songSection.length; i++) {
+                            data.songSection[i].bf_img = "muscie_f.png";
+                            data.songSection[i].bf_type = "1";
+                            if (data.songSection[i].status == "NO_CLAIM") {
+                                couPeo = true;
+                            }
+                        }
+                        if (couPeo) {
+                            that.setData({
+                                cou_peo: true
+                            })
+                        } else {
+                            that.setData({
+                                cou_peo: false
+                            })
+                        }
+                        that.setData({
+                            result: data
+                        })
+                    }
+                },
+                fail: function (e) {
+                    console.log(e);
+                }
+            })
+        }
     },
 
     /**

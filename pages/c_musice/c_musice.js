@@ -40,7 +40,9 @@ Page({
         timer: '',//定时器名字
         countDownNum: '3',//倒计时初始值
         is_show:true,
-        bj_img: config.bg_img + "/04bg.png"
+        bj_img: config.bg_img + "/04bg.png",
+        b_img:"../../images/c_musice/bf.png",
+        b_type:"1"
     },
     /**
      * 生命周期函数--监听页面加载
@@ -69,7 +71,7 @@ Page({
                     team_name: res.data.data.name
                 })
                 // that._createAudio(res.data.data.musicPath)
-                // that.getLyricAction(res.data.data.lyric);
+                that.getLyricAction(res.data.data.lyric);
             }
         })
     },
@@ -152,6 +154,20 @@ Page({
         })
         innerAudioContext.src = this.data.recodePath; // 这里可以是录音的临时路径
         //innerAudioContext.play();
+        let that = this;
+        if (that.data.b_type == "1"){
+            that.setData({
+                b_img: "../../images/c_musice/zt.png",
+                b_type: "2"
+            })
+        }else{
+            that.setData({
+                b_img: "../../images/c_musice/bf.png",
+                b_type: "1"
+            })
+        }
+       
+       
     },
 
     finishRecode: function () {

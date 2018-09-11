@@ -31,7 +31,7 @@
         </view>
         <view class='musice_btnlist ' wx:else>
             <image src='../../images/c_musice/cfu.png' bindtap='makeRecord'></image>
-            <image class='center_btn' src='../../images/c_musice/bf.png' bindtap='playRecode'></image>
+            <image class='center_btn' src='{{b_img}}' bindtap='playRecode'></image>
             <image src='../../images/c_musice/success.png' bindtap='finishRecode'></image>
         </view>
         <view class='bottom-logo'>
