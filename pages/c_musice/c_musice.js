@@ -60,13 +60,13 @@ Page({
                     "duration": res.data.data.uration
                 }
                 let duration = res.data.data.uration;
-
                 that.setData({
                     backgroundMusic: res.data.data,
                     currentSong: currentSong,
                     duration: that._formatTime(res.data.data.uration),
                     musicPath: res.data.data.musicPath,
-                    lyric: res.data.data.lyric
+                    lyric: res.data.data.lyric,
+                    team_name: res.data.data.name
                 })
                 // that._createAudio(res.data.data.musicPath)
                 // that.getLyricAction(res.data.data.lyric);

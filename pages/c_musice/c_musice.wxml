@@ -5,16 +5,16 @@
             <text class='musice_name'>{{team_name}}</text>
         </view>
         <view class="progress-wrapper">
-            <text class="time time-l">{{currentTime}}</text>
+            <!-- <text class="time time-l">{{currentTime}}</text>
             <view class="progress-bar-wrapper">
                 <progress-bar percent="{{percent}}"></progress-bar>
             </view>
-            <text class="time time-r">{{duration}}</text>
-        </view>
+            <text class="time time-r">{{duration}}</text> -->
+        </view> 
         <view class='musice_Lyrics'>
             <swiper class="middle" style="height: 700rpx" bindchange="changeDot">
                 <swiper-item class="middle-r">
-                    <scroll-view class="lyric-wrapper" scroll-y scroll-into-view="line{{toLineNum}}" scroll-with-animation>
+                    <scroll-view class="lyric-wrapper scroll-y" scroll-y scroll-into-view="line{{toLineNum}}" scroll-with-animation >
                         <view v-if="currentLyric">
                             <view ref="lyricLine" id="line{{index}}" class="text {{currentLineNum == index ? 'current': '' }}" wx:for="{{currentLyric.lines}}">{{item.txt}}
                             </view>
