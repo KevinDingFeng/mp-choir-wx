@@ -11,7 +11,7 @@ Page({
         showView:false,
         pageStyle: `width:${app.globalData.width};height:${app.globalData.height}`,
       scale: app.globalData.windowWidth / app.globalData.windowHeight,
-      loginUserId: wx.getStorageSync('userId'),
+      //loginUserId: wx.getStorageSync('userId'),
       choirList: null,
       synSongList:null,
       sectionList: null,
@@ -27,7 +27,7 @@ Page({
         // })
       var s = this;
       wx.request({
-        url: config.baseUrl + '/syn_songs/my_songs?userId=' + s.data.loginUserId,
+        url: config.baseUrl + '/syn_songs/my_songs?userId=' + wx.getStorageSync('userId'),
         success: function (res) {
           s.setData({
             synSongList: res.data.data
@@ -35,7 +35,7 @@ Page({
         }
       });
       wx.request({
-        url: config.baseUrl + '/song_section/my_song_section?userId=' + s.data.loginUserId,
+        url: config.baseUrl + '/song_section/my_song_section?userId=' + wx.getStorageSync('userId'),
         success: function (res) {
           var sectionList = res.data.data;
           //console.log(sectionList)
@@ -108,7 +108,7 @@ Page({
               url: config.baseUrl + '/syn_songs/remove/' + id,
               success: function (res) {
                 wx.request({
-                  url: config.baseUrl + '/syn_songs/my_songs?userId=' + s.data.loginUserId,
+                  url: config.baseUrl + '/syn_songs/my_songs?userId=' + wx.getStorageSync('userId'),
                   success: function (res) {
                     s.setData({
                       synSongList: res.data.data

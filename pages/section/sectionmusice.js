@@ -22,7 +22,7 @@ Page({
         musice_type: "",
         sponsor: false, //发起者标志，默认不是
         compound: false, //点击合成后弹出的窗口
-        loginUserId: wx.getStorageSync('userId'),
+        //loginUserId: wx.getStorageSync('userId'),
         bj_img: config.bg_img + "/04bg.png",
         cou_peo: true  //人数不够点我来凑
     },
@@ -47,7 +47,7 @@ Page({
                   let couPeo = false;
                     let resData = res.data;
                     if (resData && resData.success) {
-                        if (resData.data.users[0].id == that.data.loginUserId) {
+                      if (resData.data.users[0].id == wx.getStorageSync('userId')) {
                             that.setData({
                                 sponsor: true
                             })
@@ -176,9 +176,9 @@ Page({
         wx.request({
             url: config.baseUrl + '/song_section/claim', //
             data: {
-                id: id,
-                userId: that.data.loginUserId,
-                avatarUrl: app.globalData.userInfo.avatarUrl
+              id: id,
+              userId: wx.getStorageSync('userId'),
+              avatarUrl: app.globalData.userInfo.avatarUrl
             },
             success: function (res) {
                 //console.log(res.data)
@@ -190,9 +190,9 @@ Page({
 
                     for (var i = 0; i < songSections.length; i++) {
                         if (songSections[i].id == id) {
-                            songSections[i].userId = that.data.loginUserId;
-                            songSections[i].status = "NO_RECORDING";
-                            songSections[i].avatarUrl = app.globalData.userInfo.avatarUrl;
+                          songSections[i].userId = wx.getStorageSync('userId');
+                          songSections[i].status = "NO_RECORDING";
+                          songSections[i].avatarUrl = app.globalData.userInfo.avatarUrl;
                         }
 
                         if (songSections[i].status == "NO_CLAIM") {
