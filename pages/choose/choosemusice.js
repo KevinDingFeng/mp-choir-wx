@@ -87,6 +87,20 @@ Page({
                 dataUrl: audioUrl,
                 titel: "1"
             })
+            // 监听音乐停止。
+            wx.onBackgroundAudioStop(() => {
+                //停止录音
+                let array = that.data.result;
+                for (var i = 0; i < array.length; i++) {
+                    if (array[i].id == _cc) {
+                        array[i].bf_img = "s_ting.png";
+                        array[i].bf_type = "1";
+                    } 
+                }
+                that.setData({
+                    result: array
+                })
+            })
             let array = that.data.result;
             for (var i = 0; i < array.length; i++) {
                 if (array[i].id == _cc) {

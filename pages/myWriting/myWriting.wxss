@@ -57,6 +57,7 @@
 	height: 150rpx;
     border: solid 3px #471d94;
     border-radius: 10px;
+    position: relative;
 }
 .music_img>image{
     width: 150rpx;
@@ -124,4 +125,12 @@
 }
 button::after{
     border:none;
+}
+.bimg_sty{
+    position: absolute;
+    width: 50rpx!important;
+    height: 50rpx!important;
+    top:90rpx;
+    left: 94rpx;
+    z-index: 999;
 }

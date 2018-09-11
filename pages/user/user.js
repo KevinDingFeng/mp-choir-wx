@@ -109,11 +109,11 @@ Page({
     var albumArtPahtFlag = _this.data.choir.albumArtPahtFlag;
 
     if (!choirName){
-      warn = "请输入团名！";
+      warn = "请输入你们的团名~";
     } else if (!population){
-      warn = "请选择团人数！";
+      warn = "请选择你们的团人数~";
     } else if (!albumArtPahtFlag){
-      warn = "请上传专辑封面！";
+      warn = "请上传你们的专辑封面~";
     }else{
       flag = false;
     }
