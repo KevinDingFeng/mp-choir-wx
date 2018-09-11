@@ -94,8 +94,10 @@ Page({
      * 用户点击右上角分享
      */
     onShareAppMessage: function () {
-        let _this = this;
-        path: _this.data.tempFilePath;
+      let that = this;
+      wx.navigateTo({
+        url: '/pages/result/result?choirId=' + that.data.song.choir.id,
+      })
     },
 
     getHb: function () {
