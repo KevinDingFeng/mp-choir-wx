@@ -131,7 +131,7 @@ Page({
     // });
     wx.setStorageSync('myWriting', 'myWriting');
     wx.redirectTo({
-      url: '../section/sectionmusice?choirId=' + event.currentTarget.dataset.choirid,
+      url: '/pages/section/sectionmusice?choirId=' + event.currentTarget.dataset.choirid,
     })
   },
 
@@ -154,7 +154,7 @@ Page({
       //console.log(res.target)
       if (res.target.dataset.sharevalue) {
         wx.navigateTo({
-          url: '../result/result',
+          url: '/pages/result/result',
         })
       }
       that.setData({

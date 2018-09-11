@@ -203,7 +203,7 @@ Page({
     },
     goHome: function () {
         wx.navigateTo({
-            url: '../index/index',
+            url: '/pages/index/index',
         })
     }
 })

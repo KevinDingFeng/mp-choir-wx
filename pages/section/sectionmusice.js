@@ -108,19 +108,19 @@ Page({
       if (scene && (scene != 1001 )) {
         wx.removeStorageSync("scene");
         wx.redirectTo({
-          url: '../index/index',
+          url: '/pages/index/index',
         })
         return
       }
       if (wx.getStorageSync('myWriting')){
         wx.removeStorageSync("myWriting");
         wx.redirectTo({
-          url: '../myWriting/myWriting',
+          url: '/pages/myWriting/myWriting',
         })
         return
       }
         wx.navigateTo({
-            url: '../choose/choosemusice?choirId=' + that.data.choirId + '&section=1',
+            url: '/pages/choose/choosemusice?choirId=' + that.data.choirId + '&section=1',
         })
     },
   gohome: function () {
@@ -286,7 +286,7 @@ Page({
                 let resData = res.data;
                 if (resData && resData.success) {
                   wx.navigateTo({
-                    url: '../result/result?choirId=' + that.data.choirId,
+                    url: '/pages/result/result?choirId=' + that.data.choirId,
                   })
                 }
               },

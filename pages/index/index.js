@@ -15,7 +15,7 @@ Page({
     //事件处理函数
     bindViewTap: function () {
         wx.navigateTo({
-            url: '../logs/logs'
+            url: '/pages/logs/logs'
         })
     },
     my_to: function (e) {
@@ -26,7 +26,7 @@ Page({
           app.login();
         }
         wx.navigateTo({
-          url: '../myWriting/myWriting',
+          url: '/pages/myWriting/myWriting',
         })
       }
     },
@@ -40,7 +40,7 @@ Page({
           app.login();
         }
         wx.navigateTo({
-          url: '../user/user',
+          url: '/pages/user/user',
         })
       }
     },

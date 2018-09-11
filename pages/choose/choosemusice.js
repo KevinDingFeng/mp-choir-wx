@@ -132,7 +132,7 @@ Page({
                 let resData = res.data;
                 if (resData && resData.success) {
                     wx.navigateTo({
-                        url: '../section/sectionmusice?choirId=' + that.data.choirId,
+                        url: '/pages/section/sectionmusice?choirId=' + that.data.choirId,
                     })
                 }
             },
@@ -144,7 +144,7 @@ Page({
     goback: function () {
         wx.stopBackgroundAudio();//停止播放
         wx.navigateTo({
-            url: '../user/user',
+            url: '/pages/user/user',
         })
     },
     /**

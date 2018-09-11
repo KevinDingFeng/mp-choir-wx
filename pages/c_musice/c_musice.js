@@ -38,7 +38,7 @@ Page({
         sectionId: null,
         backgroundMusic: null,
         timer: '',//定时器名字
-        countDownNum: '5',//倒计时初始值
+        countDownNum: '3',//倒计时初始值
         is_show:true,
         bj_img: config.bg_img + "/04bg.png"
     },
@@ -76,7 +76,7 @@ Page({
     //录制
     makeRecord: function () {
         let that = this;
-        let countDownNum = 5;//获取倒计时初始值
+        let countDownNum = 3;//获取倒计时初始值
         //如果将定时器设置在外面，那么用户就看不到countDownNum的数值动态变化，所以要把定时器存进data里面
         that.setData({
             timer: setInterval(function () {//这里把setInterval赋值给变量名为timer的变量
@@ -177,7 +177,7 @@ Page({
                 success: function (res) {
                     console.log(res.data);
                     wx.navigateTo({
-                        url: '../section/sectionmusice?choirId=' + s.data.choirId,
+                        url: '/pages/section/sectionmusice?choirId=' + s.data.choirId,
                     })
                     // var str = res.data;
                     // var data = JSON.parse(str);

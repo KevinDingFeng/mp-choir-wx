@@ -93,7 +93,7 @@ Page({
         var team_num = _this.index+1;
         if (_this)
         wx.navigateTo({
-            url: '../choose/choosemusice',
+            url: '/pages/choose/choosemusice',
         })
     },
 
@@ -148,7 +148,7 @@ Page({
         })
 
         wx.navigateTo({
-          url: '../choose/choosemusice?choirId=' + data.id,
+          url: '/pages/choose/choosemusice?choirId=' + data.id,
         })
       },
       fail: function (e) {
@@ -186,7 +186,7 @@ Page({
   },
   goback: function () {
     wx.navigateTo({
-      url: '../index/index',
+      url: '/pages/index/index',
     })
   },
   /**
