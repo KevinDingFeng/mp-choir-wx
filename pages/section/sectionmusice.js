@@ -172,7 +172,7 @@ Page({
         //console.log(event)
         let that = this;
         const id = event.target.dataset.id;
-        wx.stopBackgroundAudio(); //停止播放
+        // wx.stopBackgroundAudio(); //停止播放
         wx.request({
             url: config.baseUrl + '/song_section/claim', //
             data: {
@@ -222,6 +222,16 @@ Page({
     //演唱
     sing: function (event) {
         let that = this;
+        let array = that.data.result;
+        for (var i = 0; i < array.songSection.length; i++) {
+            // if (array.songSection[i].id == currId) {
+            array.songSection[i].bf_img = "muscie_f.png";
+            array.songSection[i].bf_type = "1";
+            // }
+        }
+        that.setData({
+            result: array
+        })
         const id = event.target.dataset.id;
         const name = event.target.dataset.name;
         const population = event.target.dataset.population;

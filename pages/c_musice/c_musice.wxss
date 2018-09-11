@@ -172,6 +172,10 @@ progress-bar .bar-inner {
     width: 90rpx;
 	height: 139rpx;
 }
+.musice_btnlist>image:nth-child(1){
+    width: 110rpx;
+	height: 139rpx;
+}
 .center_btn{
     margin-left: 70rpx;
     margin-right: 55rpx;
