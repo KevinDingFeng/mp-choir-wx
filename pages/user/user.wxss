@@ -157,6 +157,7 @@
     height:125rpx;
     display:inline-block;
     overflow:hidden;
+    z-index: 999;
 }
 .bottom-logo{
     width: 100%;
