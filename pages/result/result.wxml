@@ -16,7 +16,7 @@
             <image src="{{picPath}}" bindtap='alterPic'></image>
         </view>
         <view class='musice_star ' style="top:{{(scale<0.55)? '54%':'63%'}}">
-            <image src="../../images/section/muscie_f.png"></image>
+            <image src="../../images/section/muscie_f.png" bindtap='createAudio'></image>
         </view>
         <view class="create_hb" style="margin-top:{{(scale<0.55)? '100rpx':'50rpx'}}">
             <image src="../../images/create_hb.png" bindtap="getHb"></image>

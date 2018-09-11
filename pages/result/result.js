@@ -38,7 +38,16 @@ Page({
             }
         });
     },
-
+    /**
+     * 听取合唱作品
+     */
+  createAudio:function(){
+    let that = this;
+    wx.playBackgroundAudio({
+      dataUrl: config.baseUrl + "/f/" + that.data.song.syntheticSong.songPath,
+      title: "111"
+    })
+  },
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
@@ -57,14 +66,14 @@ Page({
      * 生命周期函数--监听页面隐藏
      */
     onHide: function () {
-
+      wx.stopBackgroundAudio();//停止播放
     },
 
     /**
      * 生命周期函数--监听页面卸载
      */
     onUnload: function () {
-
+      wx.stopBackgroundAudio();//停止播放
     },
 
     /**
