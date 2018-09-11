@@ -34,7 +34,8 @@ Page({
         let that = this;
         if (options.choirId) {
             that.setData({
-                choirId: options.choirId
+              choirId: options.choirId,
+              loginUserId: wx.getStorageSync('userId')
             })
 
             wx.request({
