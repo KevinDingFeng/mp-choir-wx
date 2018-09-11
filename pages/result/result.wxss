@@ -23,11 +23,13 @@
     height:72rpx;
     display:inline-block;
     overflow:hidden;
+    z-index: 999;
 }
 .fq_bg{
     width: 300rpx;
 	height:85rpx;
     margin-left: 20rpx;
+    z-index: 999;
 }
 .fx_text{
     margin-top: 66rpx;
