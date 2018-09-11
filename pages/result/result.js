@@ -149,29 +149,35 @@ Page({
           url: config.baseUrl + '/syn_songs/' + SyntheticSongId+'/wxacode',
             success: function (res) {
                 var _code = res.data.data;
+                var rpx;
+                wx.getSystemInfo({
+                    success: function (res) {
+                        rpx = res.windowWidth / 375;
+                    },
+                })
                 const context = wx.createCanvasContext('resultCanvas');
                 context.setFillStyle("#fff");
                 var path = "../../images/cc.png";
                 var path1 = "../../images/c_bor.png";
                 var path2 = "../../images/share_text.png";
                 var path3 = "../../images/er_code.png";
-                context.drawImage(path, 0, 0, 330, 500);
-                context.drawImage(path1, 15, 40, 330, 200);
-                context.drawImage(tou, 112, 62, 140, 120);
-                context.drawImage(path2, 80, 215, 200, 250);
-                context.drawImage(path3, 240, 410, 90, 80);
-                context.drawImage(_code, 260, 415, 60, 65);
+                context.drawImage(path, 0, 0, 330*rpx, 500*rpx);
+                context.drawImage(path1, 15 * rpx, 40 * rpx, 330 * rpx, 200 * rpx);
+                context.drawImage(tou, 112 * rpx, 62 * rpx, 140 * rpx, 120 * rpx);
+                context.drawImage(path2, 80 * rpx, 215 * rpx, 200 * rpx, 250 * rpx);
+                context.drawImage(path3, 240 * rpx, 410 * rpx, 90 * rpx, 80 * rpx);
+                context.drawImage(_code, 260 * rpx, 415 * rpx, 60 * rpx, 65 * rpx);
                 //绘制名字
-                context.setFontSize(24);
+                context.setFontSize(24 * rpx);
                 context.setFillStyle('#fff');
                 context.setTextAlign('center');
-                context.fillText(name, 150, 270);
+                context.fillText(name, 150 * rpx, 270 * rpx);
                 context.stroke();
                 //绘制歌名
-                context.setFontSize(24);
+                context.setFontSize(24 * rpx);
                 context.setFillStyle('#fff');
                 context.setTextAlign('center');
-                context.fillText(musice_name, 180, 350);
+                context.fillText(musice_name, 180 * rpx, 350 * rpx);
                 context.stroke();
                 context.draw();
             }
