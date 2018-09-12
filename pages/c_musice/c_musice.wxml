@@ -10,11 +10,11 @@
                 <progress-bar percent="{{percent}}"></progress-bar>
             </view>
             <text class="time time-r">{{duration}}</text>
-        </view> 
+        </view>
         <view class='musice_Lyrics'>
             <swiper class="middle" style="height: 700rpx" bindchange="changeDot">
                 <swiper-item class="middle-r">
-                    <scroll-view class="lyric-wrapper scroll-y" scroll-y scroll-into-view="line{{toLineNum}}" scroll-with-animation >
+                    <scroll-view class="lyric-wrapper" scroll-y scroll-into-view="line{{toLineNum}}" scroll-with-animation>
                         <view v-if="currentLyric">
                             <view ref="lyricLine" id="line{{index}}" class="text {{currentLineNum == index ? 'current': '' }}" wx:for="{{currentLyric.lines}}">{{item.txt}}
                             </view>
@@ -26,16 +26,18 @@
                 </swiper-item>
             </swiper>
         </view>
-        <block wx:if="{{buttonFlag}}">
-          <view class='musice_btn' wx:if ="{{lz_type}}">
-            <image wx:if="{{is_show}}" src='../../images/c_musice/lz.png' bindtap='makeRecord'></image>
-          </view>
-          <view class='musice_btnlist ' wx:else>
-              <image src='../../images/c_musice/cfu.png' bindtap='makeRecord'></image>
-              <image class='center_btn' src='{{b_img}}' bindtap='playRecode'></image>
-              <image src='../../images/c_musice/success.png' bindtap='finishRecode'></image>
-          </view>
-        </block>
+        <view class='musice_btn'>
+            <block wx:if="{{buttonFlag}}">
+                <view wx:if="{{lz_type}}">
+                    <image wx:if="{{is_show}}" src='../../images/c_musice/lz.png' bindtap='makeRecord'></image>
+                </view>
+                <view class='musice_btn musice_btnlist ' wx:else>
+                    <image src='../../images/c_musice/cfu.png' bindtap='makeRecord'></image>
+                    <image class='center_btn' src='{{b_img}}' bindtap='playRecode'></image>
+                    <image src='../../images/c_musice/success.png' bindtap='finishRecode'></image>
+                </view>
+            </block>
+        </view>
         <view class='bottom-logo'>
             <image src="../../images/index/index-logo.png " />
         </view>
