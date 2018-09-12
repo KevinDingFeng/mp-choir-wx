@@ -14,7 +14,7 @@ Page({
     },
     //事件处理函数
     bindViewTap: function () {
-        wx.navigateTo({
+        wx.redirectTo({
             url: '/pages/logs/logs'
         })
     },
@@ -25,7 +25,7 @@ Page({
           //获取用户数据
           app.login();
         }
-        wx.navigateTo({
+        wx.redirectTo({
           url: '/pages/myWriting/myWriting',
         })
       }
@@ -39,7 +39,7 @@ Page({
           //获取用户数据
           app.login();
         }
-        wx.navigateTo({
+        wx.redirectTo({
           url: '/pages/user/user',
         })
       }

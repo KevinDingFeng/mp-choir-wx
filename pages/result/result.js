@@ -118,7 +118,7 @@ Page({
    */
   onShareAppMessage: function() {
     let that = this;
-    wx.navigateTo({
+    wx.redirectTo({
       url: '/pages/result/result?choirId=' + that.data.song.choir.id,
     })
   },

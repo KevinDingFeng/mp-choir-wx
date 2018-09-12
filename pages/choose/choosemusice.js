@@ -145,7 +145,7 @@ Page({
                 //console.log(res.data)
                 let resData = res.data;
                 if (resData && resData.success) {
-                    wx.navigateTo({
+                    wx.redirectTo({
                         url: '/pages/section/sectionmusice?choirId=' + that.data.choirId,
                     })
                 }
@@ -157,7 +157,7 @@ Page({
     },
     goback: function () {
         wx.stopBackgroundAudio();//停止播放
-        wx.navigateTo({
+        wx.redirectTo({
             url: '/pages/user/user',
         })
     },

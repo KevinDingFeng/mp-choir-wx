@@ -186,7 +186,7 @@ Page({
         },
         success: function (res) {
           console.log(res.data);
-          wx.navigateTo({
+          wx.redirectTo({
             url: '/pages/section/sectionmusice?choirId=' + s.data.choirId,
           })
           // var str = res.data;

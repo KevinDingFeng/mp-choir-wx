@@ -92,7 +92,7 @@ Page({
         var  team_name = _this.team_name;//团名
         var team_num = _this.index+1;
         if (_this)
-        wx.navigateTo({
+        wx.redirectTo({
             url: '/pages/choose/choosemusice',
         })
     },
@@ -147,7 +147,7 @@ Page({
           //'choir.albumArtPaht': config.baseUrl + data.albumArtPaht
         })
 
-        wx.navigateTo({
+        wx.redirectTo({
           url: '/pages/choose/choosemusice?choirId=' + data.id,
         })
       },
@@ -185,7 +185,7 @@ Page({
   
   },
   goback: function () {
-    wx.navigateTo({
+    wx.redirectTo({
       url: '/pages/index/index',
     })
   },

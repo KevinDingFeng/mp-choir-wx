@@ -121,13 +121,13 @@ Page({
             })
             return
         }
-        wx.navigateTo({
+        wx.redirectTo({
             url: '/pages/choose/choosemusice?choirId=' + that.data.choirId + '&section=1',
         })
     },
     gohome: function () {
         wx.removeStorageSync("myWriting");
-        wx.navigateTo({
+        wx.redirectTo({
             url: '/pages/index/index',
         })
     },
@@ -251,7 +251,7 @@ Page({
         const population = event.target.dataset.population;
         const sort = event.target.dataset.sort;
         const choirid = event.target.dataset.choirid;
-        wx.navigateTo({
+        wx.redirectTo({
             url: '/pages/c_musice/c_musice?name=' + name + "&population=" + population + "&sort=" + sort + "&id=" + id + "&choirid=" + choirid,
         })
     },
@@ -380,7 +380,7 @@ Page({
                         console.log(res.data)
                         let resData = res.data;
                         if (resData && resData.success) {
-                            wx.navigateTo({
+                            wx.redirectTo({
                                 url: '/pages/result/result?choirId=' + that.data.choirId,
                             })
                         }

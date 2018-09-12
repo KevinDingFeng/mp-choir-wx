@@ -164,7 +164,7 @@ Page({
 
     goResult: function (event) {
         var choirId = event.currentTarget.dataset.choir;
-        wx.navigateTo({
+        wx.redirectTo({
             url: '/pages/result/result?choirId=' + choirId,
         })
     },
@@ -226,7 +226,7 @@ Page({
             // 来自页面内转发按钮
             //console.log(res.target)
             if (res.target.dataset.sharevalue) {
-                wx.navigateTo({
+                wx.redirectTo({
                     url: '/pages/result/result',
                 })
             }
