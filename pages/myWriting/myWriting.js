@@ -157,9 +157,9 @@ Page({
     },
 
     goBack: function () {
-        wx.navigateBack({
-            delta: 1
-        })
+      wx.redirectTo({
+        url: '/pages/index/index',
+      })
     },
 
     goResult: function (event) {
