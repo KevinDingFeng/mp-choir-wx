@@ -352,7 +352,9 @@ Page({
         isRecode: true,
         lz_type: false
       });
-      wx.showToast();
+      if(!that.data.goback){
+        wx.showToast();
+      }
     })
   },
   // 获取歌词
@@ -456,6 +458,9 @@ Page({
 
   goback: function () {
     let that = this;
+    that.setData({
+      goback:true
+    })
     wx.redirectTo({
       url: '/pages/section/sectionmusice?choirId=' + that.data.choirId
     })
