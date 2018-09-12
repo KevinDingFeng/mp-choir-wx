@@ -37,54 +37,60 @@ Page({
               choirId: options.choirId,
               loginUserId: wx.getStorageSync('userId')
             })
-
-            wx.request({
-                url: config.baseUrl + '/song_section/get_section_song', //
-                data: {
-                    choirId: options.choirId
-                },
-                success: function (res) {
-                    console.log(res.data)
-                  let couPeo = false;
-                    let resData = res.data;
-                    if (resData && resData.success) {
-                      if (resData.data.users[0].id == wx.getStorageSync('userId')) {
-                            that.setData({
-                                sponsor: true
-                            })
-                      } else {
-                        that.setData({
-                          renlingzhe: true
-                        })
-                      }
-                        let data = resData.data;
-                        for (var i = 0; i < data.songSection.length; i++) {
-                            data.songSection[i].bf_img = "muscie_f.png";
-                            data.songSection[i].bf_type = "1";
-                            if (data.songSection[i].status == "NO_CLAIM") {
-                                couPeo = true;
-                            }
-                        }
-                        if (couPeo) {
-                            that.setData({
-                                cou_peo: true
-                            })
-                        } else {
-                            that.setData({
-                                cou_peo: false
-                            })
-                        }
-                        that.setData({
-                            result: data
-                        })
-                    }
-                },
-                fail: function (e) {
-                    console.log(e);
-                }
-            })
+          this.getSectionSong();
         }
     },
+  /**
+   * 根据成团id获取分段歌曲，发起者用于点唱
+   */
+  getSectionSong: function () {
+    let that = this;
+    wx.request({
+      url: config.baseUrl + '/song_section/get_section_song', //
+      data: {
+        choirId: that.data.choirId
+      },
+      success: function (res) {
+        console.log(res.data)
+        let couPeo = false;
+        let resData = res.data;
+        if (resData && resData.success) {
+          if (resData.data.users[0].id == wx.getStorageSync('userId')) {
+            that.setData({
+              sponsor: true
+            })
+          } else {
+            that.setData({
+              renlingzhe: true
+            })
+          }
+          let data = resData.data;
+          for (var i = 0; i < data.songSection.length; i++) {
+            data.songSection[i].bf_img = "muscie_f.png";
+            data.songSection[i].bf_type = "1";
+            if (data.songSection[i].status == "NO_CLAIM") {
+              couPeo = true;
+            }
+          }
+          if (couPeo) {
+            that.setData({
+              cou_peo: true
+            })
+          } else {
+            that.setData({
+              cou_peo: false
+            })
+          }
+          that.setData({
+            result: data
+          })
+        }
+      },
+      fail: function (e) {
+        console.log(e);
+      }
+    })
+  },
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
@@ -203,6 +209,17 @@ Page({
               let couPeo = false;
                 let resData = res.data;
                 if (resData && resData.errorCode == 0) {
+                  if (resData.extraMessage) {
+                    wx.showModal({
+                      title: '提示',
+                      content: "歌曲已认领",
+                      showCancel: false,
+                      success: function (res) {
+                        that.getSectionSong();
+                      }
+                    });
+                    return
+                  }
                     var result = that.data.result;
                     var songSections = result.songSection;
 
@@ -287,54 +304,7 @@ Page({
      * 页面相关事件处理函数--监听用户下拉动作
      */
     onPullDownRefresh: function () {
-        let that = this;
-        if (options.choirId) {
-            that.setData({
-                choirId: options.choirId
-            })
-
-            wx.request({
-                url: config.baseUrl + '/song_section/get_section_song', //
-                data: {
-                    choirId: options.choirId
-                },
-                success: function (res) {
-                    console.log(res.data)
-                    let couPeo = false;
-                    let resData = res.data;
-                    if (resData && resData.success) {
-                        if (resData.data.users[0].id == wx.getStorageSync('userId')) {
-                            that.setData({
-                                sponsor: true
-                            })
-                        }
-                        let data = resData.data;
-                        for (var i = 0; i < data.songSection.length; i++) {
-                            data.songSection[i].bf_img = "muscie_f.png";
-                            data.songSection[i].bf_type = "1";
-                            if (data.songSection[i].status == "NO_CLAIM") {
-                                couPeo = true;
-                            }
-                        }
-                        if (couPeo) {
-                            that.setData({
-                                cou_peo: true
-                            })
-                        } else {
-                            that.setData({
-                                cou_peo: false
-                            })
-                        }
-                        that.setData({
-                            result: data
-                        })
-                    }
-                },
-                fail: function (e) {
-                    console.log(e);
-                }
-            })
-        }
+      this.getSectionSong();
     },
 
     /**
