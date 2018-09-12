@@ -82,19 +82,16 @@ Page({
         let countDownNum = 3;//获取倒计时初始值
         //如果将定时器设置在外面，那么用户就看不到countDownNum的数值动态变化，所以要把定时器存进data里面
         that.setData({
+          is_show: false,
+          buttonFlag: false,
             timer: setInterval(function () {//这里把setInterval赋值给变量名为timer的变量
                 //每隔一秒countDownNum就减一，实现同步
                 countDownNum--;
-                //然后把countDownNum存进data，好让用户知道时间在倒计着
-                that.setData({
-                    countDownNum: countDownNum,
-                    is_show:false
-                })
                 wx.showLoading({
                   title: countDownNum + 1 +"",
                 })
                 //在倒计时还未到0时，这中间可以做其他的事情，按项目需求来
-                if (countDownNum == 0) {
+                if (countDownNum <= 0) {
                     //这里特别要注意，计时器是始终一直在走的，如果你的时间为0，那么就要关掉定时器！不然相当耗性能
                     //因为timer是存在data里面的，所以在关掉时，也要在data里取出后再关闭
                     clearInterval(that.data.timer);
@@ -106,7 +103,6 @@ Page({
                     that.getLyricAction(that.data.lyric);
                 }
             }, 1000)
-
         })
     },
     onShow: function () {
@@ -135,13 +131,7 @@ Page({
         this._getPlayUrl(mid)
         this._getLyric(currentSong)
     },
-    //重新录制
-    startRecode: function () {
-        var that = this;
-        that._createAudio(that.data.musicPath);
-        that.getLyricAction(that.data.lyric);
-    },
-
+    
     endRecode: function () { //结束录音 
         recorderManager.stop();
     },
@@ -321,7 +311,9 @@ Page({
         wx.onBackgroundAudioStop(() => {
             //停止录音
           recorderManager.stop();
-
+          that.setData({
+            buttonFlag: true
+          })
             // if (this.data.playMod === SINGLE_CYCLE_MOD) {
             //   this._init()
             //   return
