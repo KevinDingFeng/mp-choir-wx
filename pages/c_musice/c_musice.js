@@ -455,7 +455,10 @@ Page({
   },
 
   goback: function () {
-    wx.navigateBack({ changed: true });
+    let that = this;
+    wx.redirectTo({
+      url: '/pages/section/sectionmusice?choirId=' + that.data.choirId
+    })
   },
   /**
        * 生命周期函数--监听页面隐藏
