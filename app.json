@@ -1,14 +1,14 @@
 {
   "pages":[ 
     "pages/index/index", 
-    "pages/Codeshare/Codeshare",
-    "pages/user/user",
-    "pages/c_musice/c_musice",
-    "pages/choose/choosemusice",
-    "pages/share/share",
-    "pages/result/result",
-    "pages/section/sectionmusice",
     "pages/myWriting/myWriting",
+    "pages/user/user",
+    "pages/choose/choosemusice",
+    "pages/section/sectionmusice",
+    "pages/c_musice/c_musice",
+    "pages/result/result",
+    "pages/share/share",
+    "pages/Codeshare/Codeshare",
     "pages/logs/logs"
   ],
   "window":{
