@@ -19,9 +19,7 @@
                             <view ref="lyricLine" id="line{{index}}" class="text {{currentLineNum == index ? 'current': '' }}" wx:for="{{currentLyric.lines}}">{{item.txt}}
                             </view>
                         </view>
-                        <view wx:if="{{!currentLyric}}">
-                            <view class="text current">暂无歌词</view>
-                        </view>
+                        
                     </scroll-view>
                 </swiper-item>
             </swiper>
