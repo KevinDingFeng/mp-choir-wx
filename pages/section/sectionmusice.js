@@ -52,7 +52,11 @@ Page({
                             that.setData({
                                 sponsor: true
                             })
-                        }
+                      } else {
+                        that.setData({
+                          renlingzhe: true
+                        })
+                      }
                         let data = resData.data;
                         for (var i = 0; i < data.songSection.length; i++) {
                             data.songSection[i].bf_img = "muscie_f.png";
@@ -391,7 +395,8 @@ Page({
                 })
             }
             that.setData({
-                sponsor: false
+              sponsor: false,
+              renlingzhe: true
             })
         } else {
             return {
