@@ -13,10 +13,10 @@
         </view>
         <view class='musice_Lyrics'>
             <swiper class="middle"  bindchange="changeDot"  style="height: 700rpx;top:{{(scale<0.55)? '448rpx':'280rpx'}}">
-                <swiper-item class="middle-r">
+                <swiper-item class="middle-r ">
                     <scroll-view class="lyric-wrapper" scroll-y scroll-into-view="line{{toLineNum}}" scroll-with-animation>
                         <view v-if="currentLyric">
-                            <view ref="lyricLine" id="line{{index}}" class="text {{currentLineNum == index ? 'current': '' }}" wx:for="{{currentLyric.lines}}">{{item.txt}}
+                            <view ref="lyricLine" id="line{{index}}" class="text  scroll-y {{currentLineNum == index ? 'current': '' }}" wx:for="{{currentLyric.lines}}">{{item.txt}}
                             </view>
                         </view>
                         

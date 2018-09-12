@@ -134,8 +134,8 @@
     text-decoration: underline;
     background-color: #FFD985;
     position: absolute;
-    top:197rpx;
-    left:-14rpx;
+    top:163rpx;
+    left:-87rpx;
     z-index: 999;
 }
 .hc_bg{
@@ -174,15 +174,19 @@
 	height: 150rpx;
 }
 .fb_musice{
-    background-color: #FFCE65; 
-    border: none
+    background-color: #FFD16E;
+    border: none;
+    height: 162rpx;
+    width:86%;
+
 }
 button::after{
     border: none
 }
 .bj_hc{
-    width: 100%;
+    width: 80%;
     height: 200rpx;
+    margin-left:83rpx;
     position: relative;
     background-size: 100%;
     background-repeat: no-repeat;
@@ -194,6 +198,6 @@ button::after{
     color: #A8FFDF;
     -webkit-text-stroke: 3px #471D94;
     position: absolute;
-    top: 8rpx;
-    left: 173rpx;
+    top: -20rpx;
+    left: 98rpx;
 }

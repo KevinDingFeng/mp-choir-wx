@@ -21,7 +21,7 @@ Page({
           id: "",
           choirName: "",
           pickerValueText: '选择团人数',
-          albumArtPaht: "../../images/user/team_logo.png",
+          albumArtPaht: "../../images/user/m_r.png",
           albumArtPahtFlag:false
         }
     },

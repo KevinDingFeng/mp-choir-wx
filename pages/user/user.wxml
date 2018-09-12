@@ -30,6 +30,7 @@
         </view>
         <view class='team_logo'>
             <view class='br_logo'>
+                <!-- <text >立即上传</text> -->
                 <image  class='logo_bg' src='{{choir.albumArtPaht}}'  bindtap="uploadAlbumArt"></image>
             </view>
         </view>

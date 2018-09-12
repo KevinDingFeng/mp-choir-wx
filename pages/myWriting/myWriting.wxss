@@ -164,7 +164,7 @@ button::after {
   border: 1px solid #6144d8;
   border-radius: 8px;
   padding: 5rpx 20rpx;
-  margin-left:90rpx;
+  margin-left:77rpx;
   margin-top:-5rpx;
 }
 

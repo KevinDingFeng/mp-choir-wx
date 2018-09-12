@@ -1,6 +1,6 @@
 <view class='myWriting' style="background-image: url( '{{bj_img}}' )">
     <view class="container">
-        <view class="navigation" style="margin-top:{{(scale<0.55)? '-300rpx':'-284rpx'}}">
+        <view class="navigation" style="margin-top:{{(scale<0.55)? '-200rpx':'-284rpx'}}">
             <image class='goback' src="../../images/return.png" style="margin-top:{{(scale<0.55)? '466rpx':'550rpx'}}" bindtap="goBack"></image>
             <image class='header-top' src="{{(ds_type== true)?'../../images/myWriting/my_w.png':'../../images/myWriting/my_ww.png'}}"  
             style="height:{{(scale<0.55)? '564rpx':'650rpx'}};margin-top:{{(ds_type== true)?'0':'-32rpx'}};" bindtap="goMyCreate"></image>
