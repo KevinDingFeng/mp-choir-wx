@@ -34,7 +34,7 @@
         </view>
         <!-- 正在创作 -->
         <view wx:if="{{ds_type == false}}" class='musiclist ds_b' style="height:{{(scale<0.55)? '1000rpx':'800rpx'}}">
-            <view class='music' wx:for="{{sectionList}}">
+            <view class='music music_bor' wx:for="{{sectionList}}">
                 <view class='music_name' data-choirid='{{item.choir.id}}' bindtap='goMusic'>
                     {{item.choir.songName}}
                 </view>

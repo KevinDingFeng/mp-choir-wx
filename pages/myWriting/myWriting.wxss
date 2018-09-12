@@ -59,9 +59,11 @@
   padding: 31rpx 40rpx;
   position: relative;
   font-size: 30rpx;
-  border: 1px solid #6144d8;
+  
 }
-
+.music_bor{
+    border-bottom: 1px solid #6144d8;
+}
 .music > .music_img {
   width: 150rpx;
   height: 150rpx;
