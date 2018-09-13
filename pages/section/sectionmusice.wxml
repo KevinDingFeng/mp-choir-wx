@@ -40,7 +40,9 @@
                     <image src="../../images/section/d_yanc.png" wx:if='{{songSection.userId == loginUserId && songSection.status == "NO_RECORDING"}}' data-id='{{songSection.id}}' data-sort="{{songSection.sort}}" data-name="{{result.songName}}" data-population='{{result.population}}'
                         data-choirid='{{result.id}}' bindtap='sing'></image>
                     <image src="../../images/section/y_wc.png" wx:if='{{songSection.status == "RECORDED"}}'></image>
-                    <image src="../../images/section/d_ren.png" wx:if='{{songSection.status == "NO_CLAIM"}}' data-id="{{songSection.id}}" bindtap='claim'></image>
+                    <button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="claim" wx:if='{{songSection.status == "NO_CLAIM"}}' data-id="{{songSection.id}}">
+                                <image src="../../images/section/d_ren.png"  bindtap='claim'></image>
+        </button>
                 </view>
             </view>
         </view>

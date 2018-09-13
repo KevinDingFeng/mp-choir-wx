@@ -195,64 +195,70 @@ Page({
     claim: function (event) {
         //console.log(event)
         let that = this;
+      if (event.detail.errMsg == "getUserInfo:ok") {
+        if (!app.globalData.userInfo || !wx.getStorageSync('userId')) {
+          //获取用户数据
+          app.login();
+        }
         const id = event.target.dataset.id;
         // wx.stopBackgroundAudio(); //停止播放
         wx.request({
-            url: config.baseUrl + '/song_section/claim', //
-            data: {
-              id: id,
-              userId: wx.getStorageSync('userId'),
-              avatarUrl: app.globalData.userInfo.avatarUrl
-            },
-            success: function (res) {
-                //console.log(res.data)
-              let couPeo = false;
-                let resData = res.data;
-                if (resData && resData.errorCode == 0) {
-                  if (resData.extraMessage) {
-                    wx.showModal({
-                      title: '提示',
-                      content: "歌曲已认领",
-                      showCancel: false,
-                      success: function (res) {
-                        that.getSectionSong();
-                      }
-                    });
-                    return
+          url: config.baseUrl + '/song_section/claim', //
+          data: {
+            id: id,
+            userId: wx.getStorageSync('userId'),
+            avatarUrl: app.globalData.userInfo.avatarUrl
+          },
+          success: function (res) {
+            //console.log(res.data)
+            let couPeo = false;
+            let resData = res.data;
+            if (resData && resData.errorCode == 0) {
+              if (resData.extraMessage) {
+                wx.showModal({
+                  title: '提示',
+                  content: "歌曲已认领",
+                  showCancel: false,
+                  success: function (res) {
+                    that.getSectionSong();
                   }
-                    var result = that.data.result;
-                    var songSections = result.songSection;
+                });
+                return
+              }
+              var result = that.data.result;
+              var songSections = result.songSection;
 
-                    for (var i = 0; i < songSections.length; i++) {
-                        if (songSections[i].id == id) {
-                          songSections[i].userId = wx.getStorageSync('userId');
-                          songSections[i].status = "NO_RECORDING";
-                          songSections[i].avatarUrl = app.globalData.userInfo.avatarUrl;
-                        }
-
-                        if (songSections[i].status == "NO_CLAIM") {
-                            couPeo = true;
-                        }
-                    }
-                    if (couPeo) {
-                        that.setData({
-                            cou_peo: true
-                        })
-                    } else {
-                        that.setData({
-                            cou_peo: false
-                        })
-                    }
-                    that.setData({
-                        result: result
-                    })
-                    console.log(that.data.result)
+              for (var i = 0; i < songSections.length; i++) {
+                if (songSections[i].id == id) {
+                  songSections[i].userId = wx.getStorageSync('userId');
+                  songSections[i].status = "NO_RECORDING";
+                  songSections[i].avatarUrl = app.globalData.userInfo.avatarUrl;
                 }
-            },
-            fail: function (e) {
-                console.log(e);
+
+                if (songSections[i].status == "NO_CLAIM") {
+                  couPeo = true;
+                }
+              }
+              if (couPeo) {
+                that.setData({
+                  cou_peo: true
+                })
+              } else {
+                that.setData({
+                  cou_peo: false
+                })
+              }
+              that.setData({
+                result: result
+              })
+              console.log(that.data.result)
             }
+          },
+          fail: function (e) {
+            console.log(e);
+          }
         })
+      }
     },
     //演唱
     sing: function (event) {

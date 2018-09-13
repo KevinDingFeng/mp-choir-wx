@@ -28,9 +28,8 @@ App({
     // 获取用户信息
     wx.getSetting({
       success: res => {
-        if (res.authSetting['scope.userInfo']) {
+        if (res.authSetting['scope.userInfo']) {//已授权
           //获取用户数据
-          _this.login();
           // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
           wx.getUserInfo({
             success: res => {
@@ -44,6 +43,39 @@ App({
               }
             }
           })
+        }else{//无授权
+          // 登录
+          wx.login({
+            success: res => {
+              // 发送 res.code 到后台换取 openId, sessionKey, unionId
+              console.log(res)
+              _this.unauthorizedLogin(res.code);
+            }
+          })
+        }
+      }
+    })
+  },
+  //无需授权后台保存用户信息：userId openId
+  unauthorizedLogin: function(_code){
+    let _this = this;
+    wx.request({
+      url: config.baseUrl + '/user/unauthorizedLogin',
+      data: {
+        code: _code
+      },
+      success: function (res) {
+        //设置返回的3rdsession
+        if (res.data.success) {
+          _this.globalData.token = res.data.data.accessToken;
+          _this.globalData.userId = res.data.data.userId;
+          try {
+            wx.setStorageSync('accessToken', res.data.data.accessToken);
+            wx.setStorageSync('userId', res.data.data.userId);
+          } catch (e) {
+          }
+        }else{
+          this.unauthorizedLogin(_code);
         }
       }
     })
