@@ -82,6 +82,8 @@ Page({
             for (var i = 0; i < _arr.length; i++) {
                 if (_arr[i].id == _id) {
                     _arr[i].b_show = true;
+                } else {
+                    _arr[i].b_show = false;
                 }
             }
         }
