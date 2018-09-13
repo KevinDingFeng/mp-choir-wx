@@ -24,7 +24,8 @@ Page({
         compound: false, //点击合成后弹出的窗口
         //loginUserId: wx.getStorageSync('userId'),
         bj_img: config.bg_img + "/04bg.png",
-        cou_peo: true  //人数不够点我来凑
+        cou_peo: true,  //人数不够点我来凑
+        ifclaim:false //是否认领标志
     },
 
     /**
@@ -70,6 +71,11 @@ Page({
             data.songSection[i].bf_type = "1";
             if (data.songSection[i].status == "NO_CLAIM") {
               couPeo = true;
+            }
+            if (data.songSection[i].userId == wx.getStorageSync('userId')) {//已经认领过
+              that.setData({
+                ifclaim: true
+              })
             }
           }
           if (couPeo) {
@@ -193,8 +199,18 @@ Page({
     },
     //认领歌曲
     claim: function (event) {
-        //console.log(event)
-        let that = this;
+      //console.log(event)
+      let that = this;
+      if(that.data.ifclaim){
+        wx.showModal({
+          title: '提示',
+          content: "该歌曲您已认领了，赶紧演唱哦",
+          showCancel: false,
+          success: function (res) {
+          }
+        });
+        return
+      }
       if (event.detail.errMsg == "getUserInfo:ok") {
         if (!app.globalData.userInfo || !wx.getStorageSync('userId')) {
           //获取用户数据
