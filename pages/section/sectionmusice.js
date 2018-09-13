@@ -204,7 +204,7 @@ Page({
       if(that.data.ifclaim){
         wx.showModal({
           title: '提示',
-          content: "该歌曲您已认领了，赶紧演唱哦",
+          content: "歌曲已认领赶紧演唱哦",
           showCancel: false,
           success: function (res) {
             that.getSectionSong();
@@ -228,13 +228,12 @@ Page({
           },
           success: function (res) {
             //console.log(res.data)
-            let couPeo = false;
             let resData = res.data;
             if (resData && resData.errorCode == 0) {
               if (resData.extraMessage) {
                 wx.showModal({
                   title: '提示',
-                  content: "歌曲已认领",
+                  content: "歌曲已认领赶紧演唱哦",
                   showCancel: false,
                   success: function (res) {
                     that.getSectionSong();
@@ -242,33 +241,7 @@ Page({
                 });
                 return
               }
-              var result = that.data.result;
-              var songSections = result.songSection;
-
-              for (var i = 0; i < songSections.length; i++) {
-                if (songSections[i].id == id) {
-                  songSections[i].userId = wx.getStorageSync('userId');
-                  songSections[i].status = "NO_RECORDING";
-                  songSections[i].avatarUrl = app.globalData.userInfo.avatarUrl;
-                }
-
-                if (songSections[i].status == "NO_CLAIM") {
-                  couPeo = true;
-                }
-              }
-              if (couPeo) {
-                that.setData({
-                  cou_peo: true
-                })
-              } else {
-                that.setData({
-                  cou_peo: false
-                })
-              }
-              that.setData({
-                result: result
-              })
-              console.log(that.data.result)
+              that.getSectionSong();
             }
           },
           fail: function (e) {
