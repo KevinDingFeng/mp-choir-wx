@@ -182,7 +182,7 @@ progress-bar .bar-inner {
 }
 .scroll-y{
     background:  #FFC04D; 
-    width:100%; 
+    width:93%; 
     height: 100%; 
     display: inline-block;
     margin-top: 10rpx;  
@@ -191,6 +191,6 @@ progress-bar .bar-inner {
     font-size: 30rpx;
     overflow: hidden;
     margin: 0 auto;    
-    line-height: 48rpx;   
+    line-height: 117rpx;   
 
 }
