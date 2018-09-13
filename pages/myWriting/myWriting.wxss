@@ -166,6 +166,8 @@ button::after {
   padding: 5rpx 20rpx;
   margin-left:77rpx;
   margin-top:-5rpx;
+  width:10%;
+  text-align:center;
 }
 
 .music_jd1 {
@@ -173,10 +175,13 @@ button::after {
   border: 1px solid #fff;
   border-radius: 8px;
   padding: 5rpx 20rpx;
-  margin-left:90rpx;
+  margin-left:78rpx;
   margin-top:-5rpx;
+  width:10%;
+  text-align:center;
 }
 
 .music_type {
-  margin: 0 30rpx;
+  width:37%;
+  text-align:center;
 }

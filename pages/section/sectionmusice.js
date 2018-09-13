@@ -207,6 +207,7 @@ Page({
           content: "该歌曲您已认领了，赶紧演唱哦",
           showCancel: false,
           success: function (res) {
+            that.getSectionSong();
           }
         });
         return
