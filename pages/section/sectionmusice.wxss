@@ -102,10 +102,15 @@
     margin-left: 58rpx;
     
 }
-.type_style>image{
+.type_style image{
     width: 182rpx;
 	height: 70rpx;
     z-index: 999;
+}
+.btn_lq{
+    background-color:#FFC152;
+    margin-left:-13px;
+    height:66rpx;
 }
 .btn_fb{
     width: 100%;

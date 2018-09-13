@@ -40,13 +40,13 @@
                     <image src="../../images/section/d_yanc.png" wx:if='{{songSection.userId == loginUserId && songSection.status == "NO_RECORDING"}}' data-id='{{songSection.id}}' data-sort="{{songSection.sort}}" data-name="{{result.songName}}" data-population='{{result.population}}'
                         data-choirid='{{result.id}}' bindtap='sing'></image>
                     <image src="../../images/section/y_wc.png" wx:if='{{songSection.status == "RECORDED"}}'></image>
-                    <button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="claim" wx:if='{{songSection.status == "NO_CLAIM"}}' data-id="{{songSection.id}}">
-                                <image src="../../images/section/d_ren.png"  bindtap='claim'></image>
-        </button>
+                    <button class='btn_lq' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="claim" wx:if='{{songSection.status == "NO_CLAIM"}}' data-id="{{songSection.id}}">
+                        <image src="../../images/section/d_ren.png" bindtap='claim'></image>
+                    </button>
                 </view>
             </view>
         </view>
-        <view style='width:100%'  wx:if="{{sponsor && result.completeNum != result.population}}">
+        <view style='width:100%' wx:if="{{sponsor && result.completeNum != result.population}}">
             <button open-type="share" class='btn_fb fb_musice' wx:if="{{cou_peo}}">
                 <image src="../../images/section/show_f.png"></image>
             </button>
