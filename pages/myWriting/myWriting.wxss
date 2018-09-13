@@ -29,7 +29,7 @@
 }
 
 .header-top {
-  width: 304rpx;
+  width: 300rpx;
   height: 354rpx;
   display: inline-block;
   overflow: hidden;

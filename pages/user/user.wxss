@@ -23,7 +23,7 @@
 }
 
 .header-top{
-    width:560rpx;
+    width:450rpx;
     height:354rpx;
     display:inline-block;
     overflow:hidden;

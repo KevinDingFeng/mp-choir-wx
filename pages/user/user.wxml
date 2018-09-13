@@ -2,7 +2,7 @@
     <view class="container">
         <view class="navigation" style="margin-top:{{(scale<0.55)? '50rpx':'-45rpx'}}">
             <image class='goback' src="../../images/return.png" style="margin-top:{{(scale<0.55)? '158rpx':'240rpx'}}" bindtap="goback"></image>
-            <image class='header-top' src="../../images/user/dj_user.png"  style="margin-top:{{(scale<0.55)? '-66rpx':'16rpx'}}" ></image>
+            <image class='header-top' src="../../images/user/dj_user.png"  style="margin-top:{{(scale<0.55)? '-94rpx':'-10rpx'}};margin-left:{{(scale<0.55)? '50rpx':'40rpx'}}" ></image>
         </view>
         <view class='user_xx' style="margin-top:{{(scale<0.55)? '40rpx':'20rpx'}}" >
             <view class='cd_name'>为自己的组合取个名字吧</view>
