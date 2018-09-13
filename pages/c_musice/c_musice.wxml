@@ -1,7 +1,7 @@
 <view class='c_musice' style="background-image: url( '{{bj_img}}' )">
     <view class="container" style="{{pageStyle}}">
         <view class="navigation" style="margin-top:{{(scale<0.55)? '44rpx':'44rpx'}}">
-            <image class='goback' src="../../images/return.png"  bindtap="goback"></image>
+            <image class='goback' src="../../images/return.png" bindtap="goback"></image>
             <text class='musice_name'>{{team_name}}</text>
         </view>
         <view class="progress-wrapper">
@@ -12,14 +12,14 @@
             <text class="time time-r">{{duration}}</text>
         </view>
         <view class='musice_Lyrics'>
-            <swiper class="middle"  bindchange="changeDot"  style="height: 700rpx;top:{{(scale<0.55)? '448rpx':'280rpx'}}">
+            <swiper class="middle" bindchange="changeDot" style="height: 700rpx;top:{{(scale<0.55)? '448rpx':'280rpx'}}">
                 <swiper-item class="middle-r ">
                     <scroll-view class="lyric-wrapper" scroll-y scroll-into-view="line{{toLineNum}}" scroll-with-animation>
                         <view v-if="currentLyric">
-                            <view ref="lyricLine" id="line{{index}}" class="text  scroll-y {{currentLineNum == index ? 'current': '' }}" wx:for="{{currentLyric.lines}}">{{item.txt}}
+                            <view ref="lyricLine" id="line{{index}}" class="text  scroll-y {{currentLineNum == index ? 'current': '' }}" wx:for="{{currentLyric.lines}}">
+                                {{item.txt}}
                             </view>
                         </view>
-                        
                     </scroll-view>
                 </swiper-item>
             </swiper>

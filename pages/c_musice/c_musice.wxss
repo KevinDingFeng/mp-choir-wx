@@ -23,13 +23,16 @@
     height:64rpx;
     overflow:hidden;
     color: #000;
-    
     margin-right: 40rpx;
 }
 .musice_name{
     font-size: 51rpx;
     color: #514098;
-    margin-left: 190rpx;
+    width:70%;
+    text-align:center;
+}
+.musice_type{
+    width: 30%;
 }
 .musice_Lyrics{
     width: 100%;
