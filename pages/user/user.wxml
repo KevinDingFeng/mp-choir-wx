@@ -34,8 +34,8 @@
                 <image  class='logo_bg' src='{{choir.albumArtPaht}}'  bindtap="uploadAlbumArt"></image>
             </view>
         </view>
-        <view class='create_team' style="margin-top:{{(scale<0.55)? '50rpx':'0rpx'}};" bindtap="formSubmit">
-            <image  src='../../images/user/create_team.png' style="height:{{(scale<0.55)? '200rpx':'130rpx'}};width:{{(scale<0.55)? '440rpx':'400rpx'}}"></image>
+        <view class='create_team' style="margin-top:{{(scale<0.55)? '104rpx':'0rpx'}};" bindtap="formSubmit">
+            <image  src='../../images/user/create_team.png' style="height:{{(scale<0.55)? '160rpx':'130rpx'}};width:{{(scale<0.55)? '440rpx':'434rpx'}};margin-left:{{(scale<0.55)? '-45rpx':'-32rpx'}}"></image>
         </view> 
         <view class='bottom-logo'>
             <image src="../../images/index/index-logo.png "/>

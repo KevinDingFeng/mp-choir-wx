@@ -141,6 +141,7 @@
     border: 1px solid #471d94;
     border-radius:20rpx; 
     padding: 13rpx;
+    padding-left:14rpx;
 }
 
 .logo_bg{
