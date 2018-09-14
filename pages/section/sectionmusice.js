@@ -238,7 +238,7 @@ Page({
             if (resData.extraMessage) {
               wx.showModal({
                 title: '提示',
-                content: "该歌曲已认领赶紧演唱哦",
+                content: "该分段已认领",
                 showCancel: false,
                 success: function (res) {
                   that.getSectionSong();
