@@ -306,6 +306,7 @@ Page({
    */
   onPullDownRefresh: function () {
     this.getSectionSong();
+     wx.stopPullDownRefresh();
   },
 
   /**

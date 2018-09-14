@@ -159,7 +159,7 @@ button::after {
   z-index: 999;
 }
 .music_name{
-    width:44%;
+    width:39%;
 }
 .music_jd {
   background-color: #fff;
@@ -178,10 +178,11 @@ button::after {
 }
 
 .music_type {
-  margin: 0 20rpx;
+   width:18%;
+  margin: 0 25rpx;
   text-align:center;
 }
 
 .music_time{
-    
+    width:14%;
 }

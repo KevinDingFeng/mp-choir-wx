@@ -29,7 +29,7 @@
     /* margin-top: 346rpx; */
     /* margin-bottom:46rpx; */
     border: none;
-    background-color: #FFED57; 
+    background-color:rgb(255,239,104);
     padding-top: 13rpx;
 }
 
@@ -53,7 +53,7 @@
 .btn-my{
     /* margin-bottom: 50rpx; */
     border:none;
-    background-color: #FFED57; 
+    background-color: rgb(255,239,104);
 }
 button::after{
     border:none;
