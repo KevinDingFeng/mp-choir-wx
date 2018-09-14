@@ -209,7 +209,7 @@ Page({
     if (that.data.ifclaim) {
       wx.showModal({
         title: '提示',
-        content: "该歌曲已认领赶紧演唱哦",
+        content: "该歌曲您已认领",
         showCancel: false,
         success: function (res) {
           that.getSectionSong();
@@ -305,8 +305,9 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
+    wx.stopBackgroundAudio();//停止播放
     this.getSectionSong();
-     wx.stopPullDownRefresh();
+    wx.stopPullDownRefresh();
   },
 
   /**

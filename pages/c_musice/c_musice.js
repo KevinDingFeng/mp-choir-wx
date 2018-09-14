@@ -318,7 +318,8 @@ Page({
       //停止录音
       recorderManager.stop();
       that.setData({
-        buttonFlag: true
+        buttonFlag: true,
+        percent: 1
       })
       // if (this.data.playMod === SINGLE_CYCLE_MOD) {
       //   this._init()
