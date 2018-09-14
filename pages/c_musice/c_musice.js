@@ -138,17 +138,32 @@ Page({
 
   playRecode: function () {
     //const innerAudioContext = wx.createInnerAudioContext();
-    innerAudioContext.autoplay = true
+    innerAudioContext.autoplay = true;
+    innerAudioContext.onPlay(() => {
+      console.log('开始播放')
+    })
     innerAudioContext.onError((res) => {
       // 播放音频失败的回调
       console.log(res)
     })
+    innerAudioContext.onTimeUpdate((res) => {
+      console.log('监听播放');
+      const currentTime = innerAudioContext.currentTime;
+      this.setData({
+        currentTime: this._formatTime(currentTime),
+        percent: currentTime / this.data.currentSong.duration
+      })
+      if (this.data.currentLyric) {
+        this.handleLyric(currentTime * 1000)
+      }
+    })
     innerAudioContext.src = this.data.recodePath; // 这里可以是录音的临时路径
     //innerAudioContext.play();
-    innerAudioContext.onEnded(function (){
+    innerAudioContext.onEnded(function () {
       that.setData({
         b_img: "../../images/c_musice/bf.png",
-        b_type: "1"
+        b_type: "1",
+        percent: 1
       })
     })
     let that = this;
@@ -230,7 +245,7 @@ Page({
           wx.hideToast();
         }
       });
-    }, 1000);
+    }, 0);
   },
 
   // 获取背景播放音乐的songmidid
