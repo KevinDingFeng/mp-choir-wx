@@ -91,15 +91,23 @@
     width: 73rpx;
 	height: 73rpx;
 }
+.musice_type1>image{
+    width: 73rpx;
+	height: 73rpx;
+}
 .muscie_time{
     font-size: 32rpx;
-    margin-left: 26rpx;
-    margin-right: 53rpx;
     padding-top: 15rpx;
     width: 30%;
 }
+.musice_type{
+    width: 17%;
+}
+.musice_type1{
+    width: 130rpx;
+}
 .type_style{
-    margin-left: 58rpx;
+   width: 32%;
     
 }
 .type_style image{

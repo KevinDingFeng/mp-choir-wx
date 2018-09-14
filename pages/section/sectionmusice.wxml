@@ -31,7 +31,7 @@
           <image src="{{'../../images/section/'+songSection.bf_img}}" data-path="{{songSection.path}}" data-id='{{songSection.id}}' data-type="{{songSection.bf_type}}" bindtap='createAudio'></image>
         </view>
         <view class='muscie_time'>{{songSection.duration}}</view>
-        <view class='musice_type'>
+        <view class='musice_type1'>
           <image src="{{songSection.avatarUrl}}" wx:if='{{songSection.avatarUrl !=""}}'></image>
           <image src="../../images/section/empty_y.png" wx:else></image>
         </view>
@@ -41,7 +41,6 @@
             <image src="../../images/section/d_yanc.png" wx:else data-id='{{songSection.id}}' data-sort="{{songSection.sort}}" data-name="{{result.songName}}" data-population='{{result.population}}'
               data-choirid='{{result.id}}' bindtap='sing'></image>
           </block>
-
           <image src="../../images/section/y_wc.png" wx:if='{{songSection.status == "RECORDED"}}'></image>
           <button class='btn_lq' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="claim" wx:if='{{songSection.status == "NO_CLAIM"}}' data-id="{{songSection.id}}">
             <image src="../../images/section/d_ren.png" bindtap='claim'></image>

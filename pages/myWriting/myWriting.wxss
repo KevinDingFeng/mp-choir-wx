@@ -159,16 +159,13 @@ button::after {
   z-index: 999;
 }
 .music_name{
-    width:34%;
+    width:44%;
 }
 .music_jd {
   background-color: #fff;
   border: 1px solid #6144d8;
   border-radius: 8px;
-  padding: 5rpx 20rpx;
-  margin-left:77rpx;
-  margin-top:-5rpx;
-  width:10%;
+  width:20%;
   text-align:center;
 }
 
@@ -176,14 +173,15 @@ button::after {
   background-color: #6144d8;
   border: 1px solid #fff;
   border-radius: 8px;
-  padding: 5rpx 20rpx;
-  margin-left:78rpx;
-  margin-top:-5rpx;
-  width:10%;
+  width:20%;
   text-align:center;
 }
 
 .music_type {
-  width:25%;
+  margin: 0 20rpx;
   text-align:center;
+}
+
+.music_time{
+    
 }

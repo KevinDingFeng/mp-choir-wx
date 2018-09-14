@@ -15,7 +15,7 @@
         <view class='team_logo'>
             <image src="{{picPath}}" bindtap='alterPic'></image>
         </view>
-        <view class='musice_star ' style="top:{{(scale<0.55)? '54%':'63%'}}">
+        <view class='musice_star ' style="top:{{(scale<0.55)? '58%':'63%'}}">
             <image src="{{b_img}}" data-type="{{b_type}}" bindtap='createAudio'></image>
         </view>
         <view class="create_hb" style="margin-top:{{(scale<0.55)? '100rpx':'50rpx'}}">
