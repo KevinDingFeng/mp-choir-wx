@@ -36,6 +36,9 @@ function addZero(i) {
 }
 
 function updateTime(oDateEnd) {
+  if(!oDateEnd){
+    return { 'iDay': '', 'iHour': '', 'iMin': '', "iSec": '', "iMs": '' }
+  }
   var pastDate = new Date(oDateEnd)
   var oDateNow = new Date();
   var iRemain = 0;

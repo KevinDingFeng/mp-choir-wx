@@ -56,7 +56,7 @@ Page({
                             }
                             section["iMinute"] = djs.iMin;
                             section["iSec"] = djs.iSec;
-                            section["iMs"] = (djs.iMs + '').substr(0, 2);
+                            //section["iMs"] = (djs.iMs + '').substr(0, 2);
                         }
                         s.setData({
                             sectionList: sectionList
