@@ -126,11 +126,16 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function() {
-    let that = this;
-    wx.redirectTo({
-      url: '/pages/result/result?choirId=' + that.data.song.choir.id,
-    })
+  onShareAppMessage: function(res) {
+      let that = this;
+      if (res.from === 'button') {
+          // 来自页面内转发按钮
+          console.log(res.target)
+      }
+      return {
+          title: '',
+          path: '/pages/result/result?choirId=' + that.data.song.choir.id,
+      }
   },
 
   getHb: function() {
