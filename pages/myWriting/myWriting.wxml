@@ -51,7 +51,7 @@
                     已录制
                 </view>
                 <view class='music_time' wx:if="{{item.status == 'NO_RECORDING'}}">
-                    {{item.iMinute}}:{{item.iSec}}:{{item.iMs}}
+                    {{item.iMinute}}:{{item.iSec}}
                 </view>
             </view>
         </view>
