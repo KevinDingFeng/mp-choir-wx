@@ -2,7 +2,6 @@
     "usingComponents": {
         "progress-bar": "../components/progress/progress"
     },
-    "page":{
-        "disableScroll": true
-    }
+    "enablePullDownRefresh": false,
+    "disableScroll": true
 }
