@@ -145,6 +145,12 @@ Page({
     })
     innerAudioContext.src = this.data.recodePath; // 这里可以是录音的临时路径
     //innerAudioContext.play();
+    innerAudioContext.onEnded(function (){
+      that.setData({
+        b_img: "../../images/c_musice/bf.png",
+        b_type: "1"
+      })
+    })
     let that = this;
     if (that.data.b_type == "1") {
       innerAudioContext.play()
