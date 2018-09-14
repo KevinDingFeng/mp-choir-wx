@@ -92,6 +92,7 @@
     background-color: #FFD16E;
     border: none;
     padding: 0;
+    z-index: 9999;
 }
 button::after{
     border: none;
