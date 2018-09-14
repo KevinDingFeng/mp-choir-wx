@@ -186,7 +186,7 @@
 	height: 150rpx;
 }
 .fb_musice{
-    background-color: rgb(255,200,82);
+    background-color: rgb(255,208,108);
     background-size: 100%;
     background-repeat: no-repeat;
     border: none;

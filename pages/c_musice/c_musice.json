@@ -1,5 +1,8 @@
 {
     "usingComponents": {
         "progress-bar": "../components/progress/progress"
+    },
+    "page":{
+        "disableScroll": true
     }
 }

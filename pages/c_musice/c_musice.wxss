@@ -1,3 +1,6 @@
+page{
+  height: 100%;
+}
 .container {
   height: 100%;
   display: flex;
@@ -6,6 +9,7 @@
   justify-content: center;
   box-sizing: border-box;
   padding: 0 33rpx;
+  overflow: hidden;
 } 
 .navigation{
     margin-top: -50rpx;
