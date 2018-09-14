@@ -25,7 +25,7 @@
         </view>
       </view>
     </view>
-    <view class='musice_list' style="height:{{(scale<0.55)? '780rpx':'668rpx'}}">
+    <view class='musice_list' style="height:{{(scale<0.55)? '780rpx':'624rpx'}}">
       <view class='muscie_yc' wx:for="{{result.songSection}}" wx:key="id" wx:for-item="songSection">
         <view class='musice_type'>
           <image src="{{'../../images/section/'+songSection.bf_img}}" data-path="{{songSection.path}}" data-id='{{songSection.id}}' data-type="{{songSection.bf_type}}" bindtap='createAudio'></image>
