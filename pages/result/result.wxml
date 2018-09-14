@@ -1,6 +1,6 @@
 <view class='result' style="background-image: url( '{{bj_img}}' )">
     <view class='container'   scale="{{scale}}">
-       <view class="navigation" style="margin-top:{{(scale<0.55)? '-42rpx':'-60rpx'}}">
+       <view class="navigation" style="margin-top:{{(scale<0.55)? '-42rpx':'-118rpx'}}">
           <image class='header-top'  src="../../images/home.png"   style="margin-top:{{(scale<0.55)? '216rpx':'216rpx'}}" bindtap="goHome"></image>
           <image class='fq_bg' src="../../images/section/fq_bg.png" style="margin-top:{{(scale<0.55)? '216rpx':'208rpx'}}" bindtap="goHome"></image>
         </view>

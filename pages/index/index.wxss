@@ -1,4 +1,7 @@
 /**index.wxss**/
+page {
+height:100%;
+}
 .container {
   height: 100%;
   display: flex;
@@ -13,7 +16,7 @@
     height: 100%;
     background-repeat: no-repeat;
     background-size: 100%;
-    background-attachment:fixed;
+    
 }
 .header-top{
     margin-top: -62rpx;
