@@ -133,6 +133,9 @@
     border-bottom: 1px solid #efefef;
     padding: 10rpx;
 }
+.up_logo{
+    width:105%;
+}
 .team_logo{
     /* width: 704rpx;
     height: 507rpx; */
@@ -140,17 +143,18 @@
     text-align: center;
     margin-top: 10rpx;	
     position: relative;
+    margin-left:-20rpx;
 }
 .br_logo{
     position: absolute;
     top: 58rpx;
-    left:143rpx;
+    left:137rpx;
     border: 1px solid #471d94;
     border-radius:20rpx; 
 }
 
 .logo_bg{
-    width: 374rpx;
+    width: 100%;
 	height: 379rpx;
     border-radius:20rpx; 
 }
