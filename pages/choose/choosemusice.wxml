@@ -2,7 +2,7 @@
     <view class='container'>
        <view class="navigation" style="margin-top:{{(scale<0.55)? '-226rpx':'-300rpx'}}">
             <image class='goback'  src="../../images/return.png" style="margin-top:{{(scale<0.55)? '552rpx':'522rpx'}}" bindtap="goback"></image>
-            <image class='header-top'  src="../../images/choose/music.png" style="margin-top:{{(scale<0.55)? '178rpx':'148rpx'}};height:{{(scale<0.55)? '500rpx':'500rpx'}}"></image>
+            <image class='header-top'  src="../../images/choose/music.png" style="margin-top:{{(scale<0.55)? '178rpx':'228rpx'}};height:{{(scale<0.55)? '500rpx':'400rpx'}}"></image>
         </view>
         <view class="musiclist">
             <view class='music' wx:for="{{result}}" wx:key="*this" wx:for-item="music">

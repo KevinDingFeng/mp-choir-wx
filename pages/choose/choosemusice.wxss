@@ -21,10 +21,11 @@
 }
 
 .header-top{
-    width:520rpx;
+    width:450rpx;
     height:354rpx;
     display:inline-block;
     overflow:hidden;
+    margin-left: 54rpx;
 }
 .goback{
     width:40rpx;
@@ -38,7 +39,7 @@
     margin-top: 27rpx;
     width: 686rpx;
     height:800rpx;
-    background-color: #FFC25F;
+    background-color: #FFC866;
     border-radius: 20px;
     overflow: auto;
 }

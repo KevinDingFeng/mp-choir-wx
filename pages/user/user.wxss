@@ -53,12 +53,16 @@
     border-radius: 20rpx;
     padding: 26rpx 0;
     font-size: 33rpx;
-    
-    background-color: #471d94;
+   background-image: linear-gradient(
+		#6148dd, 
+		#6148dd), 
+	linear-gradient(
+		#6148dd, 
+		#6148dd);
     margin-top: 24rpx;
 }
 .team_name>input{
-    color: #6148DD;
+    color: rgba(255, 255, 255, 0.4);
 }
 .team_num {
     width: 101%;
@@ -68,7 +72,12 @@
 /* 下拉框 */
 
 .select_box {
-    background-color: #471d94;
+    background-image: linear-gradient(
+		#6148dd, 
+		#6148dd), 
+	linear-gradient(
+		#6148dd, 
+		#6148dd);
     margin-top: 20rpx;
     color: #aba1eb;
     position: relative;

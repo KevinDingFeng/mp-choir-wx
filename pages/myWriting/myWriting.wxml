@@ -11,7 +11,7 @@
         <view wx:if="{{ds_type}}" class='musiclist ds_b'  style="height:{{(scale<0.55)? '954rpx':'800rpx'}};">
               <view class='music' wx:for="{{synSongList}}">
                   <view class="music_img">
-                      <image src="{{pathPrefix}}/f/{{item.choir.albumArtPaht}}" mode='scaleToFill'></image>
+                      <image src="{{pathPrefix}}/f/{{item.choir.albumArtPaht}}" mode='aspectFill'></image>
                       <image class='bimg_sty' src="{{item.b_img}}" data-path="{{item.songPath}}" data-type="{{item.b_type}}" data-id="{{item.id}}" bindtap='t_musice'></image>
                   </view>
                   <view class='music_js'>
