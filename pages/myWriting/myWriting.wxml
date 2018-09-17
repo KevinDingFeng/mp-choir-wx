@@ -8,7 +8,7 @@
             style="height:{{(scale<0.55)? '564rpx':'600rpx'}};margin-top:{{(ds_type== true)?'-32rpx':'0'}};" bindtap="goMyWritting"></image>
         </view>
         <!-- 我的作品 -->
-        <view wx:if="{{ds_type}}" class='musiclist ds_b'  style="height:{{(scale<0.55)? '954rpx':'800rpx'}};">
+        <view wx:if="{{ds_type}}" class='musiclist ds_b'  style="height:{{(scale<0.55)? '954rpx':'800rpx'}};margin-top:{{(scale<0.55)? '45rpx':'25rpx'}};">
           <block wx:if='{{synSongList != null && synSongList.length>0}}'>
               <view class='music' wx:for="{{synSongList}}">
                   <view class="music_img">
@@ -38,7 +38,7 @@
           </block>
         </view>
         <!-- 正在创作 -->
-        <view wx:if="{{ds_type == false}}" class='musiclist ds_b' style="height:{{(scale<0.55)? '954rpx':'800rpx'}}">
+        <view wx:if="{{ds_type == false}}" class='musiclist ds_b' style="height:{{(scale<0.55)? '954rpx':'800rpx'}};margin-top:{{(scale<0.55)? '45rpx':'25rpx'}};">
           <block wx:if='{{sectionList != null && sectionList.length>0}}'>
             <view class='music music_bor' wx:for="{{sectionList}}">
                 <view class='music_name' data-choirid='{{item.choir.id}}' bindtap='goMusic'>
