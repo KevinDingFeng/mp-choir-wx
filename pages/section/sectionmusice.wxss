@@ -174,7 +174,7 @@ page {
     overflow: hidden;
     position: absolute;
     right: 5rpx;
-    bottom: -61rpx;
+    bottom: -129rpx;
 }
 
 .cou_peo {
@@ -244,7 +244,7 @@ button::after {
 
 .bj_hc {
     width: 80%;
-    height: 200rpx;
+    height: 164rpx;
     margin-left: 83rpx;
     position: relative;
     background-size: 100%;
@@ -254,10 +254,11 @@ button::after {
 
 .c_font {
     font-family: 'WenYue XinQingNianTi W8';
-    font-size: 120rpx;
+    font-size: 100rpx;
     color: #a8ffdf;
     -webkit-text-stroke: 3px #471d94;
     position: absolute;
-    top: -20rpx;
-    left: 98rpx;
+    top: 3rpx;
+    left: 133rpx;
+    margin-top:-30rpx;
 }
