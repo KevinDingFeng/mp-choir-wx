@@ -8,18 +8,9 @@
             <view class='cd_name'>为自己的组合取个名字吧</view>
         </view>
         <view class='team_name'>
-            <input placeholder="点击输入团名" placeholder-style='color: #aba1eb' value='{{choir.choirName}}' maxlength='8' bindinput="bindChoirName"></input>
+            <input placeholder="点击输入团名" placeholder-style='color: #aba1eb' value='{{choir.choirName}}' maxlength='7' bindinput="bindChoirName"></input>
         </view>
         <view class='team_num'>
-            <!-- view class='select_box' style="margin-top:{{(scale<0.55)? '32rpx':'20rpx'}};">
-                <view class='select' catchtap='selectTap'>
-                    <input class='select_text'  placeholder='选择团人数'  value="{{selectData[index]}}"></input>
-                    <image class='select_img {{show&&"select_img_rotate"}}' src='../../images/user/gobottom.png'></image>
-                </view>
-                <view class='option_box' style='height:{{show?(selectData.length>5?300:selectData.length*60):0}}rpx;'>
-                    <text class='option' style='{{index==selectData.length-1&&"border:0;"}}' wx:for='{{selectData}}'                            wx:key='this' data-index='{{index}}' catchtap='optionTap'>{{item}}</text>
-                </view>
-            </view -->
             <view >
                 <picker class='select_box' style="margin-top:{{(scale<0.55)? '32rpx':'20rpx'}};" bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
                   <view class="picker pick_tys">

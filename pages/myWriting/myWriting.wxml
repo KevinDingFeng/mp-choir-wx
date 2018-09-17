@@ -9,6 +9,7 @@
         </view>
         <!-- 我的作品 -->
         <view wx:if="{{ds_type}}" class='musiclist ds_b'  style="height:{{(scale<0.55)? '954rpx':'800rpx'}};">
+          <block wx:if='{{synSongList != null && synSongList.length>0}}'>
               <view class='music' wx:for="{{synSongList}}">
                   <view class="music_img">
                       <image src="{{pathPrefix}}/f/{{item.choir.albumArtPaht}}" mode='aspectFill'></image>
@@ -31,9 +32,14 @@
                       </button>
                   </view>
               </view>
+          </block>
+          <block wx:else>
+            <text bindtap='gotoIndex'>你还没有专辑，快去成团出道～</text>
+          </block>
         </view>
         <!-- 正在创作 -->
         <view wx:if="{{ds_type == false}}" class='musiclist ds_b' style="height:{{(scale<0.55)? '954rpx':'800rpx'}}">
+          <block wx:if='{{sectionList != null && sectionList.length>0}}'>
             <view class='music music_bor' wx:for="{{sectionList}}">
                 <view class='music_name' data-choirid='{{item.choir.id}}' bindtap='goMusic'>
                     {{item.choir.songName}}
@@ -54,6 +60,10 @@
                     {{item.iMinute}}:{{item.iSec}}
                 </view>
             </view>
+          </block>
+          <block wx:else>
+            <text bindtap='gotoIndex'>你还没有专辑，快去成团出道～</text>
+          </block>
         </view>
         <view class='bottom-logo '>
             <image src="../../images/index/index-logo.png "/>

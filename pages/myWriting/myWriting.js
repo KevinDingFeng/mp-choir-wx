@@ -209,6 +209,11 @@ Page({
             url: '/pages/section/sectionmusice?choirId=' + event.currentTarget.dataset.choirid,
         })
     },
+  gotoIndex:function (){
+    wx.redirectTo({
+      url: '/pages/index/index',
+    })
+  },
     // 生命周期函数--监听页面显示
     onShow: function () {
         let that =this;
