@@ -69,6 +69,12 @@ Page({
           }
           let data = resData.data;
           for (var i = 0; i < data.songSection.length; i++) {
+            if (data.songSection[i].duration){
+              let duration = data.songSection[i].duration.split(":");
+              if(duration.length && duration.length==3){
+                data.songSection[i].duration = duration[0] + ':' + duration[1] + '.' + duration[2]
+              }
+            }
             data.songSection[i].bf_img = "muscie_f.png";
             data.songSection[i].bf_type = "1";
             if (data.songSection[i].status == "NO_CLAIM") {
@@ -371,10 +377,14 @@ Page({
         sponsor: false,
         renlingzhe: true
       })
+      return {
+        title: "歌已点好，快来与我合唱！",
+        path: '/pages/section/sectionmusice?choirId=' + that.data.choirId
+      }
     }
     
     return {
-      title: "",
+      title: "歌已点好，快来与我合唱！",
       path: '/pages/index/index'
     }
   }
