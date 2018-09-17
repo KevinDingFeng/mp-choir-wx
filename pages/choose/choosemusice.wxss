@@ -10,7 +10,7 @@
 
 .choose {
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: 100% 100%;
     background-attachment:fixed;
     height: 100%;
 }
@@ -33,7 +33,7 @@
     overflow:hidden;
     color: #000;
     margin-top:222rpx;
-    margin-right: 40rpx;
+    margin-left: 53rpx;
 }
 .musiclist{
     margin-top: 27rpx;
@@ -42,6 +42,7 @@
     background-color: #FFC866;
     border-radius: 20px;
     overflow: auto;
+    position: relative;
 }
 .music{
     display: flex;
@@ -61,13 +62,16 @@
 .s_ting{
     width: 25%;
     margin-right: 23rpx;
+    margin-top:15rpx;
+
 }
 .s_ting>image{
     width: 160rpx;
 	height: 70rpx;
 }
 .d_chang{
-    width: 25%
+    width: 25%;
+    margin-top:15rpx;
 }
 .d_chang>image{
     width: 160rpx;
@@ -83,4 +87,13 @@
     height:54rpx;
     display:inline-block;
     overflow:hidden;
+}
+.bot_op{
+   background: linear-gradient(to top, #FFC866, FFC55C);
+   height: 40rpx;
+    width: 100%;
+   position: absolute;
+   top: 746rpx;
+    border-radius: 20px;
+
 }

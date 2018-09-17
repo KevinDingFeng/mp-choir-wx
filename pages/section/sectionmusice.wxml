@@ -6,7 +6,7 @@
       <image class='header-top' src="../../images/home.png" style="margin-top:{{(scale<0.55)? '216rpx':'216rpx'}}" bindtap='gohome'></image>
       <image class='fq_bg' src="../../images/section/fq_bg.png" style="margin-top:{{(scale<0.55)? '216rpx':'208rpx'}}"></image>
     </view>
-    <view class='musice_xx'>
+    <view class='musice_xx' style="margin-top:{{(scale<0.55)? '20rpx':'15rpx'}}">
       <view class="musice_face">
         <image src="{{baseUrl+result.albumArtPaht}}"></image>
       </view>
@@ -25,8 +25,8 @@
         </view>
       </view>
     </view>
-    <view class='musice_list' style="height:{{(scale<0.55)? '780rpx':'624rpx'}}">
-      <view class='muscie_yc' wx:for="{{result.songSection}}" wx:key="id" wx:for-item="songSection">
+    <view class='musice_list' style="height:{{(scale<0.55)? '780rpx':'660rpx'}}">
+      <view class='muscie_yc' wx:for="{{result.songSection}}" wx:key="id" wx:for-item="songSection"  style="height:{{(scale<0.55)? '100rpx':'70rpx'}}">
         <view class='musice_type'>
           <image src="{{'../../images/section/'+songSection.bf_img}}" data-path="{{songSection.path}}" data-id='{{songSection.id}}' data-type="{{songSection.bf_type}}" bindtap='createAudio'></image>
         </view>
@@ -48,10 +48,8 @@
         </view>
       </view>
     </view>
-    <view style='width:100%' wx:if="{{sponsor && result.completeNum != result.population}}">
-      <button open-type="share" class='btn_fb fb_musice' wx:if="{{cou_peo}}">
-        
-      </button>
+    <view style="width:100%" wx:if="{{sponsor && result.completeNum != result.population}}">
+      <button open-type="share" class='btn_fb fb_musice' wx:if="{{cou_peo}}" style="background-color:{{(scale<0.55)? '780rpx':'#FFC852'}}"></button>
       <view class='bj_hc' wx:else>
         <view class='c_font'>{{result.completeNum}}/{{result.population}}合成</view>
         <button open-type="share" class='cou_peo' wx:if="{{cou_peo}}">人数不够，点我来凑！</button>

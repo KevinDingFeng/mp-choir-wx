@@ -29,12 +29,13 @@
             </view>
         </view>
         <view class='team_logo'>
-            <view class='br_logo'>
+            <image class='up_logo' src='../../images/user/logo_bg.png' style="height:{{(scale<0.55)? '528rpx':'400rpx'}};" ></image>
+            <view class='br_logo' style="top:{{(scale<0.55)? '58rpx':'46rpx'}};height:{{(scale<0.55)? '416rpx':'318rpx'}};">
                 <!-- <text >立即上传</text> -->
-                <image  class='logo_bg' src='{{choir.albumArtPaht}}'   bindtap="uploadAlbumArt"></image>
+                <image   class='logo_bg' src='{{choir.albumArtPaht}}'  style="height:{{(scale<0.55)? '416rpx':'318rpx'}};" mode="aspectFill"  bindtap="uploadAlbumArt"></image>
             </view>
         </view>
-        <view class='create_team' style="margin-top:{{(scale<0.55)? '104rpx':'0rpx'}};" bindtap="formSubmit">
+        <view class='create_team' style="margin-top:{{(scale<0.55)? '32rpx':'0rpx'}};" bindtap="formSubmit">
             <image  src='../../images/user/create_team.png' style="height:{{(scale<0.55)? '160rpx':'162rpx'}};width:{{(scale<0.55)? '440rpx':'434rpx'}};margin-left:{{(scale<0.55)? '-45rpx':'-32rpx'}}"></image>
         </view> 
         <view class='bottom-logo'>
