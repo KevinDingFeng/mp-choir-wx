@@ -91,6 +91,19 @@ Page({
             synSongList: _arr
         });
     },
+    //显示/隐藏分享1
+    onChangeShowState1: function (event) {
+        var _this = this;
+        let _id = event.currentTarget.dataset.id;
+        let _type = event.currentTarget.dataset.type;
+        let _arr = _this.data.synSongList;
+        for (var i = 0; i < _arr.length; i++) {
+            _arr[i].b_show = false;
+        }
+        _this.setData({
+            synSongList: _arr
+        });
+    },
     //播放音乐
     t_musice: function (event){
         let that = this;

@@ -98,6 +98,7 @@ page {
 
 .music_nav {
     padding-top: 60rpx;
+    z-index: 999;
 }
 
 .music_nav>image {

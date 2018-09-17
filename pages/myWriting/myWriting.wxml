@@ -10,7 +10,7 @@
         <!-- 我的作品 -->
         <view wx:if="{{ds_type}}" class='musiclist ds_b'  style="height:{{(scale<0.55)? '954rpx':'800rpx'}};margin-top:{{(scale<0.55)? '45rpx':'25rpx'}};">
           <block wx:if='{{synSongList != null && synSongList.length>0}}'>
-              <view class='music' wx:for="{{synSongList}}">
+              <view class='music' wx:for="{{synSongList}}" bindtap="onChangeShowState1" data-type="{{item.b_show}}" data-id="{{item.id}}">
                   <view class="music_img">
                       <image src="{{pathPrefix}}/f/{{item.choir.albumArtPaht}}" mode='aspectFill'></image>
                       <image class='bimg_sty' src="{{item.b_img}}" data-path="{{item.songPath}}" data-type="{{item.b_type}}" data-id="{{item.id}}" bindtap='t_musice'></image>
@@ -22,7 +22,7 @@
                           <text class="music_peo">{{item.choir.choirName}}</text>
                       </view>
                   </view>
-                  <view class="music_nav " bindtap="onChangeShowState" data-type="{{item.b_show}}" data-id="{{item.id}}">
+                  <view class="music_nav " catchtap="onChangeShowState" data-type="{{item.b_show}}" data-id="{{item.id}}">
                       <image  src="../../images/myWriting/icon_nav.png"></image>
                   </view>
                   <view class="music_navlist hide{{item.b_show?'show':''}}" >
