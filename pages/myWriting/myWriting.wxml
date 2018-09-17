@@ -34,7 +34,7 @@
               </view>
           </block>
           <block wx:else>
-            <text bindtap='gotoIndex'>你还没有专辑，快去成团出道～</text>
+            <view class='zj_create' bindtap='gotoIndex'>你还没有专辑，快去成团出道～</view>
           </block>
         </view>
         <!-- 正在创作 -->
@@ -62,7 +62,7 @@
             </view>
           </block>
           <block wx:else>
-            <text bindtap='gotoIndex'>你还没有专辑，快去成团出道～</text>
+            <view class='zj_create' bindtap='gotoIndex'>你还没有专辑，快去成团出道～</view>
           </block>
         </view>
         <view class='bottom-logo '>

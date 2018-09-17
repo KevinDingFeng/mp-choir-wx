@@ -196,3 +196,9 @@ button::after {
 .music_time {
     width: 14%;
 }
+.zj_create{
+    text-align:center;
+    margin-top:50%;
+    color:#471d94;
+    font-size:34rpx;
+}
