@@ -19,7 +19,7 @@ page{
 .c_musice{
     height: 100%;
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: 100% 100%;
     background-attachment:fixed;
 }
 .goback{
@@ -60,10 +60,13 @@ page{
     margin-top: 15rpx;
 }
 .bottom-logo>image {
-    width:159rpx;
-    height:54rpx;
-    display:inline-block;
-    overflow:hidden;
+    width: 159rpx;
+    height: 120rpx;
+    display: inline-block;
+    overflow: hidden;
+    position: absolute;
+    right:43rpx;
+    bottom:14rpx;
 }
 .Lyrics_text{
     text-align: center;

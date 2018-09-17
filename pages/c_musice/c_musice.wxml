@@ -1,6 +1,6 @@
 <view class='c_musice' style="background-image: url( '{{bj_img}}' )">
     <view class="container" style="{{pageStyle}}">
-        <view class="navigation" style="margin-top:{{(scale<0.55)? '44rpx':'44rpx'}}">
+        <view class="navigation" style="margin-top:{{(scale<0.55)? '-66rpx':'44rpx'}}">
             <image class='goback' src="../../images/return.png" bindtap="goback"></image>
             <text class='musice_name'>{{team_name}}</text>
         </view>
@@ -37,7 +37,7 @@
             </block>
         </view>
         <view class='bottom-logo'>
-            <image src="../../images/index/index-logo.png " />
+            <image mode="widthFix" src="../../images/index/index-logo.png " style="bottom:{{(scale<0.55)? '92rpx':'28rpx'}}"/>
         </view>
     </view>
 </view>
