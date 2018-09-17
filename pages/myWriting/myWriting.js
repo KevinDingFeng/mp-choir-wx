@@ -209,7 +209,29 @@ Page({
             url: '/pages/section/sectionmusice?choirId=' + event.currentTarget.dataset.choirid,
         })
     },
-
+    // 生命周期函数--监听页面显示
+    onShow: function () {
+        let that =this;
+        var sectionList = that.data.sectionList;
+        if (sectionList) {
+            timer = setInterval(function () {
+                for (var i = 0; i < sectionList.length; i++) {
+                    var section = sectionList[i];
+                    //console.log(section)
+                    var djs = util.updateTime(section.pastTime);
+                    if (djs == 0) {
+                        sectionList.splice(section, 1);
+                    }
+                    section["iMinute"] = djs.iMin;
+                    section["iSec"] = djs.iSec;
+                    //section["iMs"] = (djs.iMs + '').substr(0, 2);
+                }
+                that.setData({
+                    sectionList: sectionList
+                });
+            }, 1000);
+        }
+    },
     onHide: function () {
         clearInterval(timer);
     },
