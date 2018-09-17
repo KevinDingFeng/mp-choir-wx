@@ -329,7 +329,6 @@ Page({
   onShareAppMessage: function (res) {
     let that = this;
     let title_ = config.onShareAppMessageTitle[Math.floor(Math.random() * config.onShareAppMessageTitle.length)];
-
     if (res.from === 'button') {
       let array = that.data.result;
       for (var i = 0; i < array.songSection.length; i++) {
@@ -345,44 +344,43 @@ Page({
       // 来自页面内转发按钮
       //console.log(res.target)
       if (res.target.dataset.sharevalue) {
-        // let array = that.data.result;
-        // for (var i = 0; i < array.songSection.length; i++) {
-        //   // if (array.songSection[i].id == currId) {
-        //   array.songSection[i].bf_img = "muscie_f.png";
-        //   array.songSection[i].bf_type = "1";
-        //   // }
-        // }
-        // that.setData({
-        //   result: array
-        // })
-        // wx.stopBackgroundAudio();//停止播放
-        wx.request({
-          url: config.baseUrl + '/syn_songs/compound', //
-          data: {
-            choirId: that.data.choirId
-          },
+        return {
+          title: title_,
+          path: '/pages/section/sectionmusice?choirId=' + that.data.choirId,
           success: function (res) {
-            console.log(res.data)
-            let resData = res.data;
-            if (resData && resData.success) {
-              wx.redirectTo({
-                url: '/pages/result/result?choirId=' + that.data.choirId,
-              })
-            }
+            wx.request({
+              url: config.baseUrl + '/syn_songs/compound', //
+              data: {
+                choirId: that.data.choirId
+              },
+              success: function (res) {
+                console.log(res.data)
+                let resData = res.data;
+                if (resData && resData.success) {
+                  wx.redirectTo({
+                    url: '/pages/result/result?choirId=' + that.data.choirId,
+                  })
+                }
+              },
+              fail: function (e) {
+                console.log(e);
+              }
+            })
           },
-          fail: function (e) {
-            console.log(e);
+          fail: function (res) {
+            // 转发失败
           }
-        })
+        };
+      }else{
+        return {
+          title: title_,
+          path: '/pages/section/sectionmusice?choirId=' + that.data.choirId
+        }
       }
       that.setData({
         sponsor: false,
         renlingzhe: true
       })
-      return {
-        title: title_,
-        path: '/pages/section/sectionmusice?choirId=' + that.data.choirId
-      }
     }
     
     return {
