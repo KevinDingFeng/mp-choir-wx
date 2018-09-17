@@ -259,7 +259,7 @@ Page({
             })
         }
         return {
-            title: "",
+          title: config.onShareAppMessageTitle[Math.floor(Math.random() * config.onShareAppMessageTitle.length)],
             path: '/pages/section/sectionmusice?choirId=' + that.data.choirId
         }
     }

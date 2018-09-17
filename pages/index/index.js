@@ -81,5 +81,20 @@ Page({
             userInfo: e.detail.userInfo,
             hasUserInfo: true
         })
+    },
+  /**
+ * 用户点击右上角分享
+ */
+  onShareAppMessage: function (res) {
+    let that = this;
+    let title_ = config.onShareAppMessageTitle[Math.floor(Math.random() * config.onShareAppMessageTitle.length)];
+    if (res.from === 'button') {
+      // 来自页面内转发按钮
+      console.log(res.target)
     }
+    return {
+      title: title_,
+      path: '/pages/index/index',
+    }
+  },
 })

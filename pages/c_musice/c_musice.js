@@ -508,4 +508,13 @@ Page({
     onPullDownRefresh: function () {
         wx.stopPullDownRefresh();
     },
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+    return {
+      title: config.onShareAppMessageTitle[Math.floor(Math.random() * config.onShareAppMessageTitle.length)],
+      path: '/pages/index/index',
+    }
+  }
 })

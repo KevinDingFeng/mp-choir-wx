@@ -328,6 +328,8 @@ Page({
    */
   onShareAppMessage: function (res) {
     let that = this;
+    let title_ = config.onShareAppMessageTitle[Math.floor(Math.random() * config.onShareAppMessageTitle.length)];
+
     if (res.from === 'button') {
       let array = that.data.result;
       for (var i = 0; i < array.songSection.length; i++) {
@@ -378,13 +380,13 @@ Page({
         renlingzhe: true
       })
       return {
-        title: "歌已点好，快来与我合唱！",
+        title: title_,
         path: '/pages/section/sectionmusice?choirId=' + that.data.choirId
       }
     }
     
     return {
-      title: "歌已点好，快来与我合唱！",
+      title: title_,
       path: '/pages/index/index'
     }
   }

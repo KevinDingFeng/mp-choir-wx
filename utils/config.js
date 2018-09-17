@@ -11,7 +11,8 @@ var config = {
   host,
   baseUrl: `${host}`,
 //   图片背景
-  bg_img: `${host}/f/backgroundimage`
+  bg_img: `${host}/f/backgroundimage`,
+  onShareAppMessageTitle :["我歌技了得，敢不敢一起合唱！", "歌已点好，快来与我合唱！"],
 };
 
 module.exports = config

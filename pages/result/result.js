@@ -128,12 +128,13 @@ Page({
    */
   onShareAppMessage: function(res) {
       let that = this;
+    let title_ = config.onShareAppMessageTitle[Math.floor(Math.random() * config.onShareAppMessageTitle.length)];
       if (res.from === 'button') {
           // 来自页面内转发按钮
           console.log(res.target)
       }
       return {
-          title: '',
+        title: title_,
           path: '/pages/result/result?choirId=' + that.data.song.choir.id,
       }
   },
