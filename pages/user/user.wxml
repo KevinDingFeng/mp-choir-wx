@@ -31,7 +31,7 @@
         <view class='team_logo'>
             <view class='br_logo'>
                 <!-- <text >立即上传</text> -->
-                <image  class='logo_bg' src='{{choir.albumArtPaht}}' mode='aspectFill'  bindtap="uploadAlbumArt"></image>
+                <image  class='logo_bg' src='{{choir.albumArtPaht}}'   bindtap="uploadAlbumArt"></image>
             </view>
         </view>
         <view class='create_team' style="margin-top:{{(scale<0.55)? '104rpx':'0rpx'}};" bindtap="formSubmit">

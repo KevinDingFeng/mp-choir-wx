@@ -64,14 +64,14 @@
 }
 .s_ting>image{
     width: 160rpx;
-	height: 80rpx;
+	height: 70rpx;
 }
 .d_chang{
     width: 25%
 }
 .d_chang>image{
     width: 160rpx;
-	height: 80rpx;
+	height: 70rpx;
 }
 .bottom-logo{
     margin-top: 30rpx;
