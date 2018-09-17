@@ -11,7 +11,7 @@
             <image src="../../images/index/index-my.png "/>
         </button>
         <view class='bottom-logo' >
-            <image src="../../images/index/index-logo.png "/>
+            <image mode="widthFix" src="../../images/index/index-logo.png "/>
         </view>
     </view>
 </view>

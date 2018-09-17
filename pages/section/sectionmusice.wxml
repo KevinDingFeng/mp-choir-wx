@@ -26,16 +26,16 @@
       </view>
     </view>
     <view class='musice_list' style="height:{{(scale<0.55)? '780rpx':'660rpx'}}">
-      <view class='muscie_yc' wx:for="{{result.songSection}}" wx:key="id" wx:for-item="songSection"  style="height:{{(scale<0.55)? '100rpx':'70rpx'}}">
-        <view class='musice_type'>
+      <view class='muscie_yc' wx:for="{{result.songSection}}" wx:key="id" wx:for-item="songSection"  style="height:{{(scale<0.55)? '100rpx':'70rpx'}};padding:{{(scale<0.55)? '15rpx 45rpx 10rpx 55rpx':'10rpx 45rpx 10rpx 55rpx'}}">
+        <view class='musice_type' style="padding-top:{{(scale<0.55)? '12rpx':'0rpx'}}">
           <image src="{{'../../images/section/'+songSection.bf_img}}" data-path="{{songSection.path}}" data-id='{{songSection.id}}' data-type="{{songSection.bf_type}}" bindtap='createAudio'></image>
         </view>
-        <view class='muscie_time'>{{songSection.duration}}</view>
-        <view class='musice_type1'>
+        <view class='muscie_time' style="padding-top:{{(scale<0.55)? '26rpx':'14rpx'}}">{{songSection.duration}}</view>
+        <view class='musice_type1' style="padding-top:{{(scale<0.55)? '12rpx':'2rpx'}}">
           <image src="{{songSection.avatarUrl}}" wx:if='{{songSection.avatarUrl !=""}}'></image>
           <image src="../../images/section/empty_y.png" wx:else></image>
         </view>
-        <view class="type_style">
+        <view class="type_style" style="padding-top:{{(scale<0.55)? '12rpx':'0rpx'}}">
           <block wx:if='{{songSection.status == "NO_RECORDING"}}'>
             <image src="../../images/section/d_yanc.png" wx:if='{{songSection.userId != loginUserId}}'></image>
             <image src="../../images/section/d_yanc.png" wx:else data-id='{{songSection.id}}' data-sort="{{songSection.sort}}" data-name="{{result.songName}}" data-population='{{result.population}}'

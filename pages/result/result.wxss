@@ -89,7 +89,7 @@ height:100%;
     width: 80%;
     text-align: center;
     margin-top: 20rpx;
-    background-color: #FFD16E;
+    background-color: #FFCF69;
     border: none;
     padding: 0;
 }
@@ -107,10 +107,13 @@ button::after{
     margin-top:18rpx;
 }
 .bottom-logo>image {
-    width:159rpx;
-    height:54rpx;
-    display:inline-block;
-    overflow:hidden;
+    width: 159rpx;
+    height: 100rpx;
+    display: inline-block;
+    overflow: hidden;
+    position: absolute;
+    right:43rpx;
+    bottom:14rpx;
 }
 .cc_sty{
     width: 100%;

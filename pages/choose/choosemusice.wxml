@@ -20,7 +20,7 @@
            
         </view>
          <view class='bottom-logo' style="margin-top:{{(scale<0.55)? '90rpx':'60rpx'}}">
-            <image src="../../images/index/index-logo.png "/>
+            <image mode="widthFix" src="../../images/index/index-logo.png "/>
         </view>
     </view>
 </view>
