@@ -51,14 +51,14 @@
     text-align: center;
     border: 1px solid #471d94;
     border-radius: 20rpx;
-    padding: 10rpx 0;
+    padding: 26rpx 0;
     font-size: 33rpx;
     
     background-color: #471d94;
     margin-top: 24rpx;
 }
 .team_name>input{
-    color: #aba1eb;
+    color: #6148DD;
 }
 .team_num {
     width: 101%;
@@ -173,5 +173,5 @@
 }
 .pick_tys{
     font-size:33rpx;
-    padding:5rpx 0;
+    padding:26rpx 0;
 }

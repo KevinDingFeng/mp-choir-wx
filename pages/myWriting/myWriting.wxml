@@ -1,17 +1,17 @@
 <view class='myWriting' style="background-image: url( '{{bj_img}}' )">
     <view class="container">
         <view class="navigation" style="margin-top:{{(scale<0.55)? '-200rpx':'-284rpx'}}">
-            <image class='goback' src="../../images/return.png" style="margin-top:{{(scale<0.55)? '466rpx':'550rpx'}}" bindtap="goBack"></image>
+            <image class='goback' src="../../images/return.png" style="margin-top:{{(scale<0.55)? '466rpx':'500rpx'}}" bindtap="goBack"></image>
             <image class='header-top' src="{{(ds_type== true)?'../../images/myWriting/my_w.png':'../../images/myWriting/my_ww.png'}}"  
-            style="height:{{(scale<0.55)? '564rpx':'650rpx'}};margin-top:{{(ds_type== true)?'0':'-32rpx'}};" bindtap="goMyCreate"></image>
+            style="height:{{(scale<0.55)? '564rpx':'600rpx'}};margin-top:{{(ds_type== true)?'0':'-32rpx'}};" bindtap="goMyCreate"></image>
             <image class='header-top' src="{{(ds_type== false)?'../../images/myWriting/my_cc.png':'../../images/myWriting/my_c.png'}}" 
-            style="height:{{(scale<0.55)? '564rpx':'650rpx'}};margin-top:{{(ds_type== true)?'-32rpx':'0'}};" bindtap="goMyWritting"></image>
+            style="height:{{(scale<0.55)? '564rpx':'600rpx'}};margin-top:{{(ds_type== true)?'-32rpx':'0'}};" bindtap="goMyWritting"></image>
         </view>
         <!-- 我的作品 -->
         <view wx:if="{{ds_type}}" class='musiclist ds_b'  style="height:{{(scale<0.55)? '954rpx':'800rpx'}};">
               <view class='music' wx:for="{{synSongList}}">
                   <view class="music_img">
-                      <image src="{{pathPrefix}}/f/{{item.choir.albumArtPaht}}"></image>
+                      <image src="{{pathPrefix}}/f/{{item.choir.albumArtPaht}}" mode='scaleToFill'></image>
                       <image class='bimg_sty' src="{{item.b_img}}" data-path="{{item.songPath}}" data-type="{{item.b_type}}" data-id="{{item.id}}" bindtap='t_musice'></image>
                   </view>
                   <view class='music_js'>

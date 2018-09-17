@@ -68,16 +68,16 @@ page{
     border-bottom: 1px solid #6144d8;
 }
 .music > .music_img {
-  width: 150rpx;
-  height: 150rpx;
+  width: 140rpx;
+  height: 140rpx;
   border: solid 3px #471d94;
   border-radius: 10px;
   position: relative;
 }
 
 .music_img>image {
-  width: 150rpx;
-  height: 150rpx;
+  width: 140rpx;
+  height: 140rpx;
   border-radius: 5px;
 }
 
@@ -91,7 +91,7 @@ page{
 }
 
 .music_js> view {
-  margin-top: 20rpx;
+  margin-top: 10rpx;
 }
 
 .music_nav {
@@ -157,8 +157,8 @@ button::after {
   position: absolute;
   width: 50rpx !important;
   height: 50rpx !important;
-  top: 90rpx;
-  left: 94rpx;
+  top: 84rpx;
+  left: 84rpx;
   z-index: 999;
 }
 .music_name{
