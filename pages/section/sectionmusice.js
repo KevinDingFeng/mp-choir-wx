@@ -56,6 +56,11 @@ Page({
         let couPeo = false;
         let resData = res.data;
         if (resData && resData.success) {
+          if (!that.data.loginUserId){
+            that.setData({
+              loginUserId: wx.getStorageSync('userId')
+            })
+          }
           if (resData.data.users[0].id == wx.getStorageSync('userId')) {
             if (!that.data.renlingzhe) {
               that.setData({
