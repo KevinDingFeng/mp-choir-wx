@@ -13,7 +13,7 @@
             <view class='text_style'>分享好友助力出道～～</view>
         </view>
         <view class='team_logo'>
-            <image src="{{picPath}}" bindtap='alterPic' mode="aspectFit"></image>
+            <image src="{{picPath}}" bindtap='alterPic' mode="aspectFill"></image>
         </view>
         <view class='musice_star ' style="top:{{(scale<0.55)? '58%':'60%'}}">
             <image src="{{b_img}}" data-type="{{b_type}}" bindtap='createAudio'></image>

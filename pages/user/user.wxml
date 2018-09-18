@@ -23,7 +23,7 @@
             <image class='up_logo' src='../../images/user/logo_bg.png' style="height:{{(scale<0.55)? '528rpx':'400rpx'}};" ></image>
             <view class='br_logo' style="top:{{(scale<0.55)? '58rpx':'46rpx'}};height:{{(scale<0.55)? '424rpx':'318rpx'}};width:{{(scale<0.55)? '61%':'61%'}};">
                 <!-- <text >立即上传</text> -->
-                <image   class='logo_bg' src='{{choir.albumArtPaht}}'  style="height:{{(scale<0.55)? '416rpx':'318rpx'}};" mode="aspectFit"  bindtap="uploadAlbumArt"></image>
+                <image   class='logo_bg' src='{{choir.albumArtPaht}}'  style="height:{{(scale<0.55)? '416rpx':'318rpx'}};" mode="aspectFill"  bindtap="uploadAlbumArt"></image>
             </view>
         </view>
         <view class='create_team' style="margin-top:{{(scale<0.55)? '32rpx':'0rpx'}};" bindtap="formSubmit">
