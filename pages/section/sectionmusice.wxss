@@ -65,13 +65,13 @@ page {
     border-radius: 20rpx;
     background: #fff;
     margin-right: 35rpx;
-    height: 157rpx;
+    height: 158rpx;
 }
 
 .musice_face>image {
-    width: 157rpx;
-    height: 157rpx;
-    border-radius: 19rpx;
+    width: 158rpx;
+    height: 158rpx;
+    border-radius: 16rpx;
 }
 
 .musice_name {
