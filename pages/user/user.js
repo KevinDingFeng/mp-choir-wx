@@ -124,7 +124,7 @@ Page({
       warn = "请输入你们的团名~";
     } else if (!population) {
       warn = "请选择你们的团人数~";
-    } else if (!albumArtPahtFlag) {
+    } else if (!albumArtPahtFlag && !_this.data.choir.id) {
       warn = "请上传你们的专辑封面~";
     } else {
       flag = false;
@@ -138,42 +138,75 @@ Page({
       })
       return;
     }
-    wx.uploadFile({
-      url: config.baseUrl + '/choir/create',
-      filePath: _this.data.choir.albumArtPaht,
-      name: 'albumArtFile',
-      formData: {
-        'id': _this.data.choir.id,
-        'choirName': _this.data.choir.choirName,
-        'population': _this.data.choir.pickerValue,
-        'userId': wx.getStorageSync('userId')
-      },
-      success: function (res) {
-        var resData = JSON.parse(res.data);
-        var data = resData.data;
-        // console.log(data)
-        _this.setData({
-          'choir.id': data.id,
-          // 'choir.choirName': data.choirName,
-          // 'choir.pickerValue': data.population,
-          //'choir.albumArtPaht': config.baseUrl + data.albumArtPaht
-        })
 
-        wx.redirectTo({
-          url: '/pages/choose/choosemusice?choirId=' + data.id,
-        })
-      },
-      fail: function (e) {
-        console.log(e);
-      },
-    })
+    if (albumArtPahtFlag){//带文件
+      wx.uploadFile({
+        url: config.baseUrl + '/choir/create',
+        filePath: _this.data.choir.albumArtPaht,
+        name: 'albumArtFile',
+        formData: {
+          'id': _this.data.choir.id,
+          'choirName': _this.data.choir.choirName,
+          'population': _this.data.choir.pickerValue,
+          'userId': wx.getStorageSync('userId')
+        },
+        success: function (res) {
+          var resData = JSON.parse(res.data);
+          var data = resData.data;
+          // console.log(data)
+          _this.setData({
+            'choir.id': data.id,
+            // 'choir.choirName': data.choirName,
+            // 'choir.pickerValue': data.population,
+            //'choir.albumArtPaht': config.baseUrl + data.albumArtPaht
+          })
+
+          wx.redirectTo({
+            url: '/pages/choose/choosemusice?choirId=' + data.id,
+          })
+        },
+        fail: function (e) {
+          console.log(e);
+        },
+      })
+    }else{//不带文件图片
+      wx.request({
+        url: config.baseUrl + '/choir/updateChoirInfo',
+        data:{
+          'id': _this.data.choir.id,
+          'choirName': _this.data.choir.choirName,
+          'population': _this.data.choir.pickerValue,
+        },
+        success: function (res) {
+          let _data = res.data.data;
+          wx.redirectTo({
+            url: '/pages/choose/choosemusice?choirId=' + _data.id,
+          })
+        }
+      });
+    }
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let that = this;
+    if (options.choirId) {
+      wx.request({
+        url: config.baseUrl + '/choir/getChoirInfo?choirId=' + options.choirId,
+        success: function (res) {
+          let _data = res.data.data;
+          that.setData({
+            'choir.id': _data.id,
+            'choir.choirName': _data.choirName,
+            'choir.pickerValueText': _data.population,
+            'choir.pickerValue': _data.population,
+            'choir.albumArtPaht': config.baseUrl + "/f/"+ _data.albumArtPaht
+          })
+        }
+      });
+    }
   },
 
   /**

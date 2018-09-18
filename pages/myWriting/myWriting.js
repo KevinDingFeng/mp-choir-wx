@@ -264,21 +264,9 @@ Page({
      */
     onShareAppMessage: function (res) {
         let that = this;
-        if (res.from === 'button') {
-            // 来自页面内转发按钮
-            //console.log(res.target)
-            if (res.target.dataset.sharevalue) {
-                wx.redirectTo({
-                    url: '/pages/result/result',
-                })
-            }
-            that.setData({
-                sponsor: false
-            })
-        }
         return {
           title: config.onShareAppMessageTitle[Math.floor(Math.random() * config.onShareAppMessageTitle.length)],
-            path: '/pages/section/sectionmusice?choirId=' + that.data.choirId
+            path: '/pages/index/index'
         }
     }
 })

@@ -156,9 +156,10 @@ Page({
         })
     },
     goback: function () {
+      let that = this;
         wx.stopBackgroundAudio();//停止播放
         wx.redirectTo({
-            url: '/pages/user/user',
+          url: '/pages/user/user?choirId=' + that.data.choirId,
         })
     },
     /**

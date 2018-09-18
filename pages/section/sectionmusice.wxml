@@ -1,5 +1,5 @@
 <!--pages/section/sectionmusice.wxml-->
-<view class='choose' style="background-image: url( '{{bj_img}}' )">
+<view class='choose' style="background-image: url( '{{bj_img}}' )" >
   <view class='container' scale="{{scale}}">
     <view class="navigation" style="margin-top:{{(scale<0.55)? '-42rpx':'-110rpx'}}">
       <image class='goback' src="../../images/return.png" bindtap="goback"></image>
@@ -67,7 +67,7 @@
     </view>
 
     <!-- 合成 -->
-    <view class='hc_bg' wx:if="{{compound}}">
+    <view class='hc_bg' wx:if="{{compound}}" bindtap='hideCompound'>
       <view class='tc_bg'>
         <view class='text_zi'>
           需要转发一个新群

@@ -295,6 +295,13 @@ Page({
       compound: true
     })
   },
+  //点击空白隐藏合成
+  hideCompound: function(){
+    let that = this;
+    that.setData({
+      compound: false
+    })
+  },
   zt_musice: function () {
     wx.pauseBackgroundAudio()
   },
