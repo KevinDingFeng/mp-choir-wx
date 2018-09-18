@@ -8,7 +8,7 @@
     </view>
     <view class='musice_xx' style="margin-top:{{(scale<0.55)? '20rpx':'15rpx'}}">
       <view class="musice_face">
-        <image src="{{baseUrl+result.albumArtPaht}}"></image>
+        <image src="{{baseUrl+result.albumArtPaht}}" mode="aspectFill"></image>
       </view>
       <view class='musice_name'>
         <view class='musice_top'>
