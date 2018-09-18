@@ -176,7 +176,7 @@ button::after {
     background-color: #fff;
     border: 1px solid #6144d8;
     border-radius: 8px;
-    width: 20%;
+    width: 115rpx;
     text-align: center;
     overflow: hidden;
 }
@@ -190,13 +190,13 @@ button::after {
 }
 
 .music_type {
-    width: 18%;
+    width: 100rpx;
     margin: 0 25rpx;
     text-align: center;
 }
 
 .music_time {
-    width: 14%;
+    width: 100rpx;
 }
 .zj_create{
     text-align:center;

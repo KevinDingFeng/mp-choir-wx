@@ -57,7 +57,7 @@
                     已录制
                 </view>
                 <view class='music_time'>
-                    {{item.iMinute}}:{{item.iSec}}
+                    {{item.iMinute + ":" + item.iSec}}
                 </view>
             </view>
           </block>
