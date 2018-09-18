@@ -190,13 +190,13 @@ Page({
                             context.drawImage(path3, 240 * rpx, 410 * rpx, 90 * rpx, 80 * rpx);
                             context.drawImage(res.tempFilePath, 260 * rpx, 415 * rpx, 60 * rpx, 65 * rpx);
                             //绘制名字
-                            context.setFontSize(24 * rpx);
+                            context.setFontSize(22 * rpx);
                             context.setFillStyle('#fff');
                             context.setTextAlign('center');
-                            context.fillText(name, 170 * rpx, 270 * rpx);
+                            context.fillText(name, 165 * rpx, 270 * rpx);
                             context.stroke();
                             //绘制歌名
-                            context.setFontSize(24 * rpx);
+                            context.setFontSize(22 * rpx);
                             context.setFillStyle('#fff');
                             context.setTextAlign('center');
                             context.fillText(musice_name, 190 * rpx, 350 * rpx);
