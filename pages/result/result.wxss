@@ -9,6 +9,7 @@ height:100%;
   justify-content: column;
   box-sizing: border-box;
   padding: 0 72rpx;
+  overflow: hidden;
 } 
 .result{
     background-repeat: no-repeat;
@@ -108,7 +109,7 @@ button::after{
 }
 .bottom-logo>image {
     width: 159rpx;
-    height: 100rpx;
+    height: 120rpx;
     display: inline-block;
     overflow: hidden;
     position: absolute;

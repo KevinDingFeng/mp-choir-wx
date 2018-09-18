@@ -1,5 +1,5 @@
 <view class='myWriting' style="background-image: url( '{{bj_img}}' )">
-    <view class="container">
+    <view class="container"  bindtap="onChangeShowState1">
         <view class="navigation" style="margin-top:{{(scale<0.55)? '-200rpx':'-264rpx'}}">
             <image class='goback' src="../../images/return.png" style="margin-top:{{(scale<0.55)? '466rpx':'500rpx'}}" bindtap="goBack"></image>
             <image class='header-top' src="{{(ds_type== true)?'../../images/myWriting/my_w.png':'../../images/myWriting/my_ww.png'}}"  

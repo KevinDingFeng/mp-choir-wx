@@ -178,6 +178,7 @@ button::after {
     border-radius: 8px;
     width: 20%;
     text-align: center;
+    overflow: hidden;
 }
 
 .music_jd1 {
