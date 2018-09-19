@@ -25,7 +25,8 @@ Page({
     //loginUserId: wx.getStorageSync('userId'),
     bj_img: config.bg_img + "/04bg.png",
     cou_peo: true,  //人数不够点我来凑
-    ifclaim: false //是否认领标志
+    ifclaim: false, //是否认领标志
+    publishTask: false //是否显示发布任务
   },
 
   /**
@@ -61,10 +62,10 @@ Page({
               loginUserId: wx.getStorageSync('userId')
             })
           }
-          if (resData.data.users[0].id == wx.getStorageSync('userId')) {
+          if (resData.data.users[0].id == wx.getStorageSync('userId') && !resData.data.publishTask) {//发起者
             if (!that.data.renlingzhe) {
               that.setData({
-                sponsor: true
+                publishTask: true
               })
             }
           } else {
@@ -383,6 +384,31 @@ Page({
             // 转发失败
           }
         };
+      } else if (res.target.dataset.publish){
+        that.setData({
+          publishTask:false
+        })
+        return {
+          title: title_,
+          path: '/pages/section/sectionmusice?choirId=' + that.data.choirId,
+          success: function (res) {
+            wx.request({
+              url: config.baseUrl + '/choir/updateChoirPublishTask', //
+              data: {
+                choirId: that.data.choirId
+              },
+              success: function (res) {
+                console.log(res.data)
+              },
+              fail: function (e) {
+                console.log(e);
+              }
+            })
+          },
+          fail: function (res) {
+            // 转发失败
+          }
+        }
       }else{
         return {
           title: title_,
