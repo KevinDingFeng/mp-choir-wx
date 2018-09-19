@@ -144,6 +144,7 @@ Page({
 
     playRecode: function () {
         //const innerAudioContext = wx.createInnerAudioContext();
+        let that = this;
         innerAudioContext.autoplay = true;
         innerAudioContext.onPlay(() => {
             console.log('开始播放')
@@ -153,7 +154,7 @@ Page({
             console.log(res)
         })
         innerAudioContext.onTimeUpdate((res) => {
-            console.log('监听播放');
+            //console.log('监听播放');
             const currentTime = innerAudioContext.currentTime;
             this.setData({
                 currentTime: this._formatTime(currentTime),
@@ -163,20 +164,32 @@ Page({
                 this.handleLyric(currentTime * 1000)
             }
         })
-        innerAudioContext.onEnded(function () {
-            console.log("播放完成");
-            let _cc = "0." + this.data.currentSong.duration;
-            this.setData({
-                b_img: "../../images/c_musice/bf.png",
-                b_type: "1",
-                percent: _cc,
-                currentTime:_cc
-            })
-        })
+      innerAudioContext.onEnded(function () {
+        console.log("innerAudioContext播放完成");
+        let _cc = "0." + that.data.currentSong.duration;
+        if (app.globalData.sysinfo.platform == "ios"){
+          that.setData({
+            b_img: "../../images/c_musice/bf.png",
+            b_type: "1",
+            percent: _cc,
+            currentTime: '0:' + that.data.currentSong.duration
+          })
+        }else{
+          console.log(app.globalData.sysinfo.platform)
+          that.setData({
+            b_img: "../../images/c_musice/bf.png",
+            b_type: "1",
+            percent: 1,
+            currentTime: '0:' + that.data.currentSong.duration
+          })
+        }
+        
+        console.log("innerAudioContext percent"+_cc)
+      })
+      
         innerAudioContext.src = this.data.recodePath; // 这里可以是录音的临时路径
         //innerAudioContext.play();
         
-        let that = this;
         if (that.data.b_type == "1") {
             innerAudioContext.play()
             that.setData({
@@ -340,6 +353,7 @@ Page({
         })
         // 监听音乐停止。
         wx.onBackgroundAudioStop(() => {
+          console.log("监听音乐停止")
             //停止录音
             recorderManager.stop();
             that.setData({
@@ -370,7 +384,7 @@ Page({
             this.setData({
                 b_img: "../../images/c_musice/bf.png",
                 b_type: "1",
-                currentTime:_cc,
+              currentTime: '0:' + this.data.currentSong.duration,
                 percent: _cc
             })
             console.log(this.data.percent);
