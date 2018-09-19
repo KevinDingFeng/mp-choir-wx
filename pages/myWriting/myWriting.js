@@ -30,14 +30,16 @@ Page({
             url: config.baseUrl + '/syn_songs/my_songs?userId=' + wx.getStorageSync('userId'),
             success: function (res) {
                 let _data = res.data.data;
-                for (var i = 0; i < _data.length;i++){
-                    _data[i].b_img ="../../images/section/muscie_f.png",
-                    _data[i].b_type = "1",
-                    _data[i].b_show = false
-                }
-                s.setData({
+                if(_data){
+                  for (var i = 0; i < _data.length; i++) {
+                    _data[i].b_img = "../../images/section/muscie_f.png",
+                      _data[i].b_type = "1",
+                      _data[i].b_show = false
+                  }
+                  s.setData({
                     synSongList: _data
-                });
+                  });
+                }
             }
         });
         wx.request({
@@ -94,15 +96,17 @@ Page({
     //显示/隐藏分享1
     onChangeShowState1: function (event) {
         var _this = this;
-        let _id = event.currentTarget.dataset.id;
-        let _type = event.currentTarget.dataset.type;
+        // let _id = event.currentTarget.dataset.id;
+        // let _type = event.currentTarget.dataset.type;
         let _arr = _this.data.synSongList;
-        for (var i = 0; i < _arr.length; i++) {
+        if(_arr){
+          for (var i = 0; i < _arr.length; i++) {
             _arr[i].b_show = false;
-        }
-        _this.setData({
+          }
+          _this.setData({
             synSongList: _arr
-        });
+          });
+        } 
     },
     //播放音乐
     t_musice: function (event){
