@@ -112,15 +112,16 @@ page {
     background-color: rgba(80, 55, 230, 0.9);
     border-radius: 20px;
     border: solid 5px rgba(71, 29, 148, 0.9);
-    padding: 17rpx 42rpx;
+    padding: 17rpx 0;
     top: 128rpx;
     right: 35rpx;
+    width: 241rpx;
+    text-align: center;
 }
 
 .music_navlist image {
     width: 60rpx;
     height: 73rpx;
-    margin-right: 56rpx;
 }
 
 .music_navlist>image:nth-child(2) {
@@ -134,10 +135,10 @@ page {
 }
 
 .bottom-logo>image {
-    width:159rpx;
-    height:50rpx;
-    display:inline-block;
-    overflow:hidden;
+    width: 159rpx;
+    height: 50rpx;
+    display: inline-block;
+    overflow: hidden;
 }
 
 .btn_sty {
@@ -150,6 +151,7 @@ page {
     line-height: 0;
     text-align: right;
     width: 60rpx;
+    margin-left: 56rpx;
 }
 
 button::after {
@@ -180,7 +182,7 @@ button::after {
 
 .music_jd1 {
     background-color: #6144d8;
-    border: 1px solid  #fff;
+    border: 1px solid #fff;
     border-radius: 8px;
     width: 115rpx;
     text-align: center;
@@ -196,9 +198,10 @@ button::after {
 .music_time {
     width: 100rpx;
 }
-.zj_create{
-    text-align:center;
-    margin-top:50%;
-    color:#471d94;
-    font-size:34rpx;
+
+.zj_create {
+    text-align: center;
+    margin-top: 50%;
+    color: #471d94;
+    font-size: 34rpx;
 }
