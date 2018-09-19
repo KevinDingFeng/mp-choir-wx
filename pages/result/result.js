@@ -185,7 +185,11 @@ Page({
                             var path3 = "../../images/er_code.png";
                             context.drawImage(path, 0, 0, 300 * rpx, 500 * rpx);
                             context.drawImage(path1, 15 * rpx, 40 * rpx, 330 * rpx, 200 * rpx);
-                            context.drawImage(_this.data.touPicPath, 108 * rpx, 60 * rpx, 150 * rpx, 120 * rpx);
+                            
+                           
+                            // context.drawImage(_this.data.touPicPath, 108 * rpx, 60 * rpx, 150 * rpx, 120 * rpx);
+
+
                             context.drawImage(path2, 80 * rpx, 215 * rpx, 200 * rpx, 250 * rpx);
                             context.drawImage(path3, 240 * rpx, 410 * rpx, 90 * rpx, 80 * rpx);
                             context.drawImage(res.tempFilePath, 260 * rpx, 415 * rpx, 60 * rpx, 65 * rpx);
@@ -201,12 +205,53 @@ Page({
                             context.setTextAlign('center');
                             context.fillText(musice_name, 190 * rpx, 350 * rpx);
                             context.stroke();
+                            _this.circleImg(context, _this.data.touPicPath, 110 * rpx, 60 * rpx, 145 * rpx, 125 * rpx, 8* rpx);
                             context.draw();
                         }
                     }
                 })
             }
         });
+    },
+    circleImg: function (ctx, img ,x, y, w, h, r) {//canvs
+        ctx.beginPath()
+        // 因为边缘描边存在锯齿，最好指定使用 transparent 填充
+        // 这里是使用 fill 还是 stroke都可以，二选一即可
+        ctx.setFillStyle('#000')
+        // ctx.setStrokeStyle('transparent')
+        // 左上角
+        ctx.arc(x + r, y + r, r, Math.PI, Math.PI * 1.5)
+
+        // border-top
+        ctx.moveTo(x + r, y)
+        ctx.lineTo(x + w - r, y)
+        ctx.lineTo(x + w, y + r)
+        // 右上角
+        ctx.arc(x + w - r, y + r, r, Math.PI * 1.5, Math.PI * 2)
+
+        // border-right
+        ctx.lineTo(x + w, y + h - r)
+        ctx.lineTo(x + w - r, y + h)
+        // 右下角
+        ctx.arc(x + w - r, y + h - r, r, 0, Math.PI * 0.5)
+
+        // border-bottom
+        ctx.lineTo(x + r, y + h)
+        ctx.lineTo(x, y + h - r)
+        // 左下角
+        ctx.arc(x + r, y + h - r, r, Math.PI * 0.5, Math.PI)
+
+        // border-left
+        ctx.lineTo(x, y + r)
+        ctx.lineTo(x + r, y)
+
+        // 这里是使用 fill 还是 stroke都可以，二选一即可，但是需要与上面对应
+        ctx.fill()
+        // ctx.stroke()
+        ctx.closePath()
+        // 剪切
+        ctx.clip();
+        ctx.drawImage(img, x, y, w, h, r);
     },
     save_phone: function () { //保存手机图片
         var that = this
