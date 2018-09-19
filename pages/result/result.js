@@ -183,7 +183,7 @@ Page({
                             var path1 = "../../images/c_bor.png";
                             var path2 = "../../images/share_text.png";
                             var path3 = "../../images/er_code.png";
-                            context.drawImage(path, 0, 0, 330 * rpx, 500 * rpx);
+                            context.drawImage(path, -20*rpx, 0, 400 * rpx, 500 * rpx);
                             context.drawImage(path1, 15 * rpx, 40 * rpx, 330 * rpx, 200 * rpx);
                             
                            
@@ -191,8 +191,8 @@ Page({
 
 
                             context.drawImage(path2, 60 * rpx, 215 * rpx, 200 * rpx, 250 * rpx);
-                            context.drawImage(path3, 240 * rpx, 410 * rpx, 90 * rpx, 80 * rpx);
-                            context.drawImage(res.tempFilePath, 260 * rpx, 415 * rpx, 60 * rpx, 65 * rpx);
+                            context.drawImage(path3, 240 * rpx, 395 * rpx,120 * rpx, 100 * rpx);
+                            context.drawImage(res.tempFilePath, 260 * rpx, 400 * rpx, 90 * rpx,85 * rpx);
                             //绘制名字
                             context.setFontSize(22 * rpx);
                             context.setFillStyle('#fff');

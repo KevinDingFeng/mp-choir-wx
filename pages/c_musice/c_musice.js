@@ -166,6 +166,7 @@ Page({
         innerAudioContext.onEnded(function () {
             console.log("播放完成");
             let _cc = "0." + this.data.currentSong.duration;
+            debugger
             this.setData({
                 b_img: "../../images/c_musice/bf.png",
                 b_type: "1",
