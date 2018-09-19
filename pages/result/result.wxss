@@ -122,12 +122,13 @@ button::after{
     top:0;
     left: -5%;
     margin: 0 5%;
-    background:rgba(0,0,0,0.4);overflow: hidden;
+    background:#fff;
+    overflow: hidden;
 }
 .canvs_sty{
     margin-left:20px;
     margin-top: 138rpx;
-    width: 90%!important;
+    width: 100%!important;
     height: 74%!important;
 }
 .cc_but{

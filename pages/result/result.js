@@ -183,27 +183,27 @@ Page({
                             var path1 = "../../images/c_bor.png";
                             var path2 = "../../images/share_text.png";
                             var path3 = "../../images/er_code.png";
-                            context.drawImage(path, 0, 0, 300 * rpx, 500 * rpx);
+                            context.drawImage(path, 0, 0, 330 * rpx, 500 * rpx);
                             context.drawImage(path1, 15 * rpx, 40 * rpx, 330 * rpx, 200 * rpx);
                             
                            
                             // context.drawImage(_this.data.touPicPath, 108 * rpx, 60 * rpx, 150 * rpx, 120 * rpx);
 
 
-                            context.drawImage(path2, 80 * rpx, 215 * rpx, 200 * rpx, 250 * rpx);
+                            context.drawImage(path2, 60 * rpx, 215 * rpx, 200 * rpx, 250 * rpx);
                             context.drawImage(path3, 240 * rpx, 410 * rpx, 90 * rpx, 80 * rpx);
                             context.drawImage(res.tempFilePath, 260 * rpx, 415 * rpx, 60 * rpx, 65 * rpx);
                             //绘制名字
                             context.setFontSize(22 * rpx);
                             context.setFillStyle('#fff');
                             context.setTextAlign('center');
-                            context.fillText(name, 165 * rpx, 270 * rpx);
+                            context.fillText(name, 145 * rpx, 270 * rpx);
                             context.stroke();
                             //绘制歌名
                             context.setFontSize(22 * rpx);
                             context.setFillStyle('#fff');
                             context.setTextAlign('center');
-                            context.fillText(musice_name, 190 * rpx, 350 * rpx);
+                            context.fillText(musice_name, 170 * rpx, 350 * rpx);
                             context.stroke();
                             _this.circleImg(context, _this.data.touPicPath, 110 * rpx, 60 * rpx, 145 * rpx, 125 * rpx, 8* rpx);
                             context.draw();
@@ -272,7 +272,6 @@ Page({
                                 confirmText: '好的',
                                 confirmColor: '#333',
                                 success: function (res) {
-                                    debugger
                                     if (res.confirm) {
                                         console.log('用户点击确定');
                                         /* 该隐藏的隐藏 */
