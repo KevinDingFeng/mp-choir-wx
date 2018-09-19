@@ -108,13 +108,10 @@ button::after{
     margin-top:18rpx;
 }
 .bottom-logo>image {
-    width: 159rpx;
-    height: 120rpx;
-    display: inline-block;
-    overflow: hidden;
-    position: absolute;
-    right:43rpx;
-    bottom:14rpx;
+    width:159rpx;
+    height:50rpx;
+    display:inline-block;
+    overflow:hidden;
 }
 .cc_sty{
     width: 100%;
