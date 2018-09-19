@@ -255,7 +255,7 @@ button::after {
     color: #a8ffdf;
     -webkit-text-stroke: 3px #471d94;
     position: absolute;
-    top: 3rpx;
+    top: 37rpx;
     left: 133rpx;
     margin-top:-30rpx;
 }
