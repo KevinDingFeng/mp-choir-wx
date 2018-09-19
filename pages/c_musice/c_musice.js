@@ -57,7 +57,13 @@ Page({
       })
     }
     wx.request({
-      url: config.baseUrl + '/background_music/get_background_music?name=' + options.name + '&population=' + options.population + '&sort=' + options.sort,
+      url: config.baseUrl + '/background_music/get_background_music',
+      method:'GET',
+      data:{
+        name: options.name,
+        population: options.population,
+        sort: options.sort
+      },
       success: function (res) {
         let currentSong = {
           "duration": res.data.data.uration
