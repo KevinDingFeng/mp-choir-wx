@@ -155,29 +155,36 @@ Page({
         })
         innerAudioContext.onTimeUpdate((res) => {
             const currentTime = innerAudioContext.currentTime;
-            this.setData({
-                currentTime: this._formatTime(currentTime),
-                percent: currentTime / this.data.currentSong.duration
-            })
-            console.log(currentTime / this.data.currentSong.duration);
-            if (this.data.currentLyric) {
-                this.handleLyric(currentTime * 1000)
+            if (currentTime == 0) {
+                this.setData({
+                    currentTime: this.data.duration,
+                    percent: 105
+                })
+            } else {
+                this.setData({
+                    currentTime: this._formatTime(currentTime),
+                    percent: currentTime / this.data.currentSong.duration
+                })
+                console.log(currentTime / this.data.currentSong.duration);
+                if (this.data.currentLyric) {
+                    this.handleLyric(currentTime * 1000)
+                }
             }
         })
 
         innerAudioContext.onEnded((res) => {
             console.log("innerAudioContext播放完成");
-            debugger
+            var _cc = this.data.duration;
             this.setData({
                 b_img: "../../images/c_musice/bf.png",
                 b_type: "1",
-                percent: this.data.duration,
-                currentTime: this.data.duration
+                percent: _cc,
+                currentTime: _cc
             })
             console.log("innerAudioContext currentTime" + that.data.percent)
             console.log(that.data.currentTime);
         })
-
+        
         innerAudioContext.src = this.data.recodePath; // 这里可以是录音的临时路径
         //innerAudioContext.play();
 
