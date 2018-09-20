@@ -206,3 +206,6 @@ button::after {
     color: #471d94;
     font-size: 34rpx;
 }
+.text_d{
+    text-decoration: underline;
+}
