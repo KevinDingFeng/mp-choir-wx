@@ -164,27 +164,17 @@ Page({
                 this.handleLyric(currentTime * 1000)
             }
         })
-      innerAudioContext.onEnded(function () {
+      innerAudioContext.onEnded((res) =>{
         console.log("innerAudioContext播放完成");
-        let _cc = "0." + that.data.currentSong.duration;
-        if (app.globalData.sysinfo.platform == "ios"){
-          that.setData({
+        this.setData({
             b_img: "../../images/c_musice/bf.png",
             b_type: "1",
-            percent: _cc,
-            currentTime: '0:' + that.data.currentSong.duration
+          currentTime: this.data.duration,
+            percent: 1
+            
           })
-        }else{
-          console.log(app.globalData.sysinfo.platform)
-          that.setData({
-            b_img: "../../images/c_musice/bf.png",
-            b_type: "1",
-            percent: 1,
-            currentTime: '0:' + that.data.currentSong.duration
-          })
-        }
         
-        console.log("innerAudioContext percent"+_cc)
+        console.log("innerAudioContext currentTime" + that.data.duration)
       })
       
         innerAudioContext.src = this.data.recodePath; // 这里可以是录音的临时路径
@@ -339,14 +329,14 @@ Page({
         })
         // 监听音乐播放。
         wx.onBackgroundAudioPlay(() => {
-            this.setData({
+          this.setData({
                 playIcon: 'icon-pause',
                 cdCls: 'play'
             })
         })
         // 监听音乐暂停。
         wx.onBackgroundAudioPause(() => {
-            this.setData({
+          this.setData({
                 playIcon: 'icon-play',
                 cdCls: 'pause'
             })
@@ -356,8 +346,9 @@ Page({
           console.log("监听音乐停止")
             //停止录音
             recorderManager.stop();
-            that.setData({
+          that.setData({
                 buttonFlag: true,
+            currentTime: this.data.duration,
                 percent: 1
             })
             // if (this.data.playMod === SINGLE_CYCLE_MOD) {
@@ -370,24 +361,23 @@ Page({
         const manage = wx.getBackgroundAudioManager()
         manage.onTimeUpdate(() => {
             const currentTime = manage.currentTime
-            this.setData({
-                currentTime: this._formatTime(currentTime),
-                percent: currentTime / this.data.currentSong.duration
+          this.setData({
+            currentTime: this._formatTime(currentTime),
+            percent: currentTime / this.data.currentSong.duration
             })
-            if (this.data.currentLyric) {
-                this.handleLyric(currentTime * 1000)
+          if (this.data.currentLyric) {
+            this.handleLyric(currentTime * 1000)
             }
         })
         manage.onEnded(() => {
             console.log("播放完成")
-            let _cc ="0."+ this.data.currentSong.duration;
-            this.setData({
+          this.setData({
                 b_img: "../../images/c_musice/bf.png",
                 b_type: "1",
-              currentTime: '0:' + this.data.currentSong.duration,
-                percent: _cc
+            currentTime: this.data.duration,
+                percent: 1
             })
-            console.log(this.data.percent);
+          console.log(this.data.percent);
         })
 
         //开始录音
