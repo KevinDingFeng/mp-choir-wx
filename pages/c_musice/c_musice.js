@@ -159,7 +159,7 @@ Page({
             if (currentTime == 0) {
                 this.setData({
                     currentTime: this.data.duration,
-                    percent: 105
+                    percent: 100
                 })
             } else {
                 this.setData({
