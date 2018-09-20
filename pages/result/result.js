@@ -300,9 +300,20 @@ Page({
             count: 1,
             success: function (res) {
                 console.log(res);
-                s.setData({
-                    picPath: res.tempFilePaths[0]
-                });
+              s.setData({
+                picPath: res.tempFilePaths[0],
+                touPicPath: res.tempFilePaths[0]
+              });
+              // wx.downloadFile({
+              //   url: res.tempFilePaths[0], //头像图片
+              //   success(res) {
+              //     if (res.statusCode === 200) {
+              //       s.setData({
+              //         touPicPath: res.tempFilePath
+              //       });
+              //     }
+              //   }
+              // })
             },
         })
     },
