@@ -72,11 +72,18 @@ Page({
       count: 1,
       success: function (res) {
         var tempFilePaths = res.tempFilePaths;
-        _this.setData({
-          'choir.albumArtPaht': tempFilePaths[0],
-          'choir.albumArtPahtFlag': true,
-        })
-
+        if (!/\.(jpg|jpeg|png|JPG|PNG)$/.test(tempFilePaths)){
+          wx.showModal({
+            title: '提示',
+            content: "图片类型必须是.jpeg,jpg,png中的一种",
+            showCancel: false
+          })
+        }else{
+          _this.setData({
+            'choir.albumArtPaht': tempFilePaths[0],
+            'choir.albumArtPahtFlag': true,
+          })
+        }
       }
     })
   },
