@@ -26,7 +26,8 @@ Page({
     bj_img: config.bg_img + "/04bg.png",
     cou_peo: true,  //人数不够点我来凑
     ifclaim: false, //是否认领标志
-    publishTask: false //是否显示发布任务
+    publishTask: false, //是否显示发布任务
+    participant: false   //是否是参与者
   },
 
   /**
@@ -88,7 +89,8 @@ Page({
             }
             if (data.songSection[i].userId == wx.getStorageSync('userId')) {//已经认领过
               that.setData({
-                ifclaim: true
+                ifclaim: true,
+                participant:true
               })
             }
           }

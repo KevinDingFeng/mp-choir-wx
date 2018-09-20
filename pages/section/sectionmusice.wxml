@@ -58,7 +58,7 @@
         <view class='c_font'>{{result.completeNum}}/{{result.population}}合成</view>
         <button open-type="share" class='cou_peo' wx:if="{{cou_peo}}">人数不够，点我来凑！</button>
       </view>
-      <view class='bj_hc' bindtap='compound' wx:if="{{result.completeNum == result.population}}">
+      <view class='bj_hc' bindtap='compound' wx:if="{{result.completeNum == result.population && participant}}">
         <view class='c_font'>{{result.completeNum}}/{{result.population}}合成</view>
       </view>
     </block>
