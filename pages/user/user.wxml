@@ -20,8 +20,8 @@
             </view>
         </view>
         <view class='team_logo'>
-            <image class='up_logo' src='../../images/user/logo_bg.png' style="height:{{(scale<0.55)? '528rpx':'400rpx'}};" ></image>
-            <view class='br_logo' style="top:{{(scale<0.55)? '58rpx':'46rpx'}};height:{{(scale<0.55)? '424rpx':'318rpx'}};width:{{(scale<0.55)? '61.5%':'61.5%'}};">
+            <image class='up_logo' src='../../images/user/logo_bg.png' style="height:{{(scale<0.55)? '528rpx':'400rpx'}};"  mode="aspectFit"></image>
+            <view class='br_logo' style="top:{{(scale<0.55)? '58rpx':'46rpx'}};height:{{(scale<0.55)? '424rpx':'318rpx'}};width:{{(scale<0.55)? '61.5%':'48.5%'}};">
                 <!-- <text >立即上传</text> -->
                 <image   class='logo_bg' src='{{choir.albumArtPaht}}'  style="height:{{(scale<0.55)? '424rpx':'318rpx'}};" mode="aspectFill"  bindtap="uploadAlbumArt"></image>
             </view>
