@@ -121,6 +121,7 @@ button::after{
     margin: 0 5%;
     background:#fff;
     overflow: hidden;
+    height:100%;
 }
 .canvs_sty{
     margin-top: 115rpx;
