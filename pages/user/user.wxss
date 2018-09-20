@@ -148,7 +148,7 @@
 .br_logo{
     position: absolute;
     top: 58rpx;
-    left:179rpx;
+    left:135rpx;
     border: 1px solid #471d94;
     border-radius:20rpx; 
 }
