@@ -177,27 +177,27 @@ Page({
                     success(res) {
                         // 只要服务器有响应数据，就会把响应内容写入文件并进入 success 回调，业务需要自行判断是否下载到了想要的内容
                         if (res.statusCode === 200) {
-                            const context = wx.createCanvasContext('resultCanvas');
+                        	const context = wx.createCanvasContext('resultCanvas');
                             context.setFillStyle("#fff");
                             var path = "../../images/cc.png";
                             var path1 = "../../images/c_bor.png";
                             var path2 = "../../images/share_text.png";
                             var path3 = "../../images/er_code.png";
                             context.drawImage(path, -20*rpx, 0, 400 * rpx, 500 * rpx);
-                            context.drawImage(path1, 15 * rpx, 40 * rpx, 330 * rpx, 200 * rpx);
+                            context.drawImage(path1, 15 * rpx, 40 * rpx, 350 * rpx, 200 * rpx);
                             
                            
                             // context.drawImage(_this.data.touPicPath, 108 * rpx, 60 * rpx, 150 * rpx, 120 * rpx);
 
 
-                            context.drawImage(path2, 60 * rpx, 215 * rpx, 200 * rpx, 250 * rpx);
+                            context.drawImage(path2, 60 * rpx, 208 * rpx, 225 * rpx, 270 * rpx);
                             context.drawImage(path3, 240 * rpx, 395 * rpx,120 * rpx, 100 * rpx);
                             context.drawImage(res.tempFilePath, 260 * rpx, 400 * rpx, 90 * rpx,85 * rpx);
                             //绘制名字
                             context.setFontSize(22 * rpx);
                             context.setFillStyle('#fff');
                             context.setTextAlign('center');
-                            context.fillText(name, 145 * rpx, 270 * rpx);
+                            context.fillText(name, 150 * rpx, 265 * rpx);
                             context.stroke();
                             //绘制歌名
                             context.setFontSize(22 * rpx);
@@ -205,7 +205,7 @@ Page({
                             context.setTextAlign('center');
                             context.fillText(musice_name, 170 * rpx, 350 * rpx);
                             context.stroke();
-                            _this.circleImg(context, _this.data.touPicPath, 110 * rpx, 60 * rpx, 145 * rpx, 125 * rpx, 8* rpx);
+                            _this.circleImg(context, _this.data.touPicPath, 115 * rpx, 60 * rpx, 153* rpx, 125 * rpx, 8* rpx);
                             context.draw();
                         }
                     }
