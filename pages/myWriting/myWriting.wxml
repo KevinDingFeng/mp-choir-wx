@@ -1,5 +1,5 @@
 <view class='myWriting' style="background-image: url( '{{bj_img}}' )">
-    <view class="container"  bindtap="onChangeShowState1">
+    <view class="container">
         <view class="navigation" style="margin-top:{{(scale<0.55)? '-200rpx':'-264rpx'}}">
             <image class='goback' src="../../images/return.png" style="margin-top:{{(scale<0.55)? '466rpx':'500rpx'}}" bindtap="goBack"></image>
             <image class='header-top' src="{{(ds_type== true)?'../../images/myWriting/my_w.png':'../../images/myWriting/my_ww.png'}}"  
@@ -8,7 +8,7 @@
             style="height:{{(scale<0.55)? '564rpx':'600rpx'}};margin-top:{{(ds_type== true)?'-32rpx':'0'}};" bindtap="goMyWritting"></image>
         </view>
         <!-- 我的作品 -->
-        <view wx:if="{{ds_type}}" class='musiclist ds_b'  style="height:{{(scale<0.55)? '954rpx':'800rpx'}};margin-top:{{(scale<0.55)? '45rpx':'25rpx'}};">
+        <view wx:if="{{ds_type}}" class='musiclist ds_b'  style="height:{{(scale<0.55)? '954rpx':'800rpx'}};margin-top:{{(scale<0.55)? '45rpx':'25rpx'}};" bindtap="onChangeShowState1">
           <block wx:if='{{synSongList != null && synSongList.length>0}}'>
               <view class='music' wx:for="{{synSongList}}" bindtap="onChangeShowState1" data-type="{{item.b_show}}" data-id="{{item.id}}">
                   <view class="music_img">
@@ -34,7 +34,7 @@
               </view>
           </block>
           <block wx:else>
-            <view class='zj_create' bindtap='gotoIndex'>你还没有专辑，快去成团出道～</view>
+            <view class='zj_create' bindtap='gotoIndex'>你还没有专辑，快去成团出道～”，点击［成团出道］</view>
           </block>
         </view>
         <!-- 正在创作 -->
@@ -62,7 +62,7 @@
             </view>
           </block>
           <block wx:else>
-            <view class='zj_create' bindtap='gotoIndex'>你还没有专辑，快去成团出道～</view>
+            <view class='zj_create' bindtap='gotoIndex'>你还没有专辑，快去成团出道～”，点击［成团出道］</view>
           </block>
         </view>
         <view class='bottom-logo '>

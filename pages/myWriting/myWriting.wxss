@@ -117,6 +117,7 @@ page {
     right: 35rpx;
     width: 241rpx;
     text-align: center;
+    z-index: 1000;
 }
 
 .music_navlist image {
