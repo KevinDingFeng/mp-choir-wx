@@ -40,31 +40,32 @@ Page({
                     synSongList: _data
                   });
                 }
-            }
-        });
-        wx.request({
-            url: config.baseUrl + '/song_section/my_song_section?userId=' + wx.getStorageSync('userId'),
-            success: function (res) {
-                var sectionList = res.data.data;
-                //console.log(sectionList)
-                if (sectionList) {
+
+              wx.request({//正在创作
+                url: config.baseUrl + '/song_section/my_song_section?userId=' + wx.getStorageSync('userId'),
+                success: function (res) {
+                  var sectionList = res.data.data;
+                  //console.log(sectionList)
+                  if (sectionList) {
                     timer = setInterval(function () {
-                        for (var i = 0; i < sectionList.length; i++) {
-                            var section = sectionList[i];
-                            //console.log(section)
-                            var djs = util.updateTime(section.pastTime);
-                            if (djs == 0) {
-                                sectionList.splice(section, 1);
-                            }
-                            section["iMinute"] = djs.iMin;
-                            section["iSec"] = djs.iSec;
-                            //section["iMs"] = (djs.iMs + '').substr(0, 2);
+                      for (var i = 0; i < sectionList.length; i++) {
+                        var section = sectionList[i];
+                        //console.log(section)
+                        var djs = util.updateTime(section.pastTime);
+                        if (djs == 0) {
+                          sectionList.splice(section, 1);
                         }
-                        s.setData({
-                            sectionList: sectionList
-                        });
+                        section["iMinute"] = djs.iMin;
+                        section["iSec"] = djs.iSec;
+                        //section["iMs"] = (djs.iMs + '').substr(0, 2);
+                      }
+                      s.setData({
+                        sectionList: sectionList
+                      });
                     }, 1000);
+                  }
                 }
+              });
             }
         });
     },
