@@ -146,6 +146,7 @@ Page({
         //const innerAudioContext = wx.createInnerAudioContext();
         let that = this;
         innerAudioContext.autoplay = true;
+        innerAudioContext.autoplay = false;
         innerAudioContext.onPlay(() => {
             console.log('开始播放')
         })
