@@ -15,8 +15,8 @@
                       <image src="{{pathPrefix}}/f/{{item.choir.albumArtPaht}}" mode='aspectFill'></image>
                       <image class='bimg_sty' src="{{item.b_img}}" data-path="{{item.songPath}}" data-type="{{item.b_type}}" data-id="{{item.id}}" bindtap='t_musice'></image>
                   </view>
-                  <view class='music_js'>
-                      <text data-choir='{{item.choir.id}}' bindtap='goResult'>{{item.choir.songName}}</text>
+                  <view class='music_js' data-choir='{{item.choir.id}}' bindtap='goResult'>
+                      <text>{{item.choir.songName}}</text>
                       <view>
                           <text>来自:</text>
                           <text class="music_peo">{{item.choir.choirName}}</text>
