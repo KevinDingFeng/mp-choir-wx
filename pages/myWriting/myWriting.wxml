@@ -12,7 +12,7 @@
           <block wx:if='{{synSongList != null && synSongList.length>0}}'>
               <view class='music' wx:for="{{synSongList}}" bindtap="onChangeShowState1" data-type="{{item.b_show}}" data-id="{{item.id}}">
                   <view class="music_img">
-                      <image src="{{pathPrefix}}/f/{{item.choir.albumArtPaht}}" mode='aspectFit'></image>
+                      <image src="{{pathPrefix}}/f/{{item.choir.albumArtPaht}}" mode='aspectFill'></image>
                       <image class='bimg_sty' src="{{item.b_img}}" data-path="{{item.songPath}}" data-type="{{item.b_type}}" data-id="{{item.id}}" bindtap='t_musice'></image>
                   </view>
                   <view class='music_js'>

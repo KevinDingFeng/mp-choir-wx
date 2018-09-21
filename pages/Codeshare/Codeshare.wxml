@@ -1,9 +1,9 @@
 <view class='result' style="background-image: url( '{{bj_img}}' )">
     <view class='container'   scale="{{scale}}">
-         <view class='team_logo'  style="margin-top:{{(scale<0.55)? '284rpx':'190rpx'}}">
-            <image src="../../images/picker.png"></image>
+         <view class='team_logo'  style="margin-top:{{(scale<0.55)? '230rpx':'152rpx'}}">
+            <image src="../../images/picker.png" mode='aspectFill'></image>
         </view>
-        <view class='musice_star ' style="top:{{(scale<0.55)? '38%':'40%'}};left:{{(scale<0.55)? '68%':'68%'}}">
+        <view class='musice_star ' style="top:{{(scale<0.55)? '32%':'33%'}};left:{{(scale<0.55)? '62%':'62%'}}">
             <image src="../../images/section/muscie_f.png"></image>
         </view>
        <view class='fx_text '>
