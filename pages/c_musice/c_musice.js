@@ -332,7 +332,7 @@ Page({
         innerAudioContext.stop();//停止播放录音
         let that = this;
         wx.playBackgroundAudio({
-            dataUrl: config.baseUrl + "/f/" + playUrl + "?t=1",
+            dataUrl: config.baseUrl + "/f/" + playUrl + "?version=1",
             // title: this.data.currentSong.name,
             // coverImgUrl: this.data.currentSong.image
         })
