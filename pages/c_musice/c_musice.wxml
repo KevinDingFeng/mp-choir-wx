@@ -1,8 +1,8 @@
 <view class='c_musice' style="background-image: url( '{{bj_img}}' )">
     <view class="container" style="{{pageStyle}}">
         <view class="navigation" style="margin-top:{{(scale<0.55)? '-66rpx':'44rpx'}}">
-            <view class="width_click">
-                <image class='goback' src="../../images/return.png" bindtap="goback"></image>
+            <view class="width_click" bindtap="goback">
+                <image class='goback' src="../../images/return.png" ></image>
             </view>
             <text class='musice_name'>{{team_name}}</text>
         </view>
