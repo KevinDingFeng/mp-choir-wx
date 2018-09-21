@@ -184,3 +184,6 @@
     font-size:33rpx;
     padding:26rpx 0;
 }
+.width_click{
+    width: 17%;
+}

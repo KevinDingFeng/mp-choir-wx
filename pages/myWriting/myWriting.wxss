@@ -45,7 +45,6 @@ page {
     overflow: hidden;
     color: #000;
     margin-top: 222rpx;
-    margin-right: 40rpx;
 }
 
 .musiclist {
@@ -208,4 +207,7 @@ button::after {
 }
 .text_d{
     text-decoration: underline;
+}
+.width_click{
+    width: 15%;
 }

@@ -27,7 +27,6 @@ page{
     height:64rpx;
     overflow:hidden;
     color: #000;
-    margin-right: 40rpx;
 }
 .musice_name{
     font-size: 51rpx;
@@ -202,5 +201,7 @@ progress-bar .bar-inner {
     overflow: hidden;
     margin: 0 auto;    
     line-height: 117rpx;   
-
+}
+.width_click{
+    width: 15%;
 }

@@ -42,7 +42,6 @@ page {
     overflow: hidden;
     color: #000;
     margin-top: 222rpx;
-    margin-right: 66rpx;
 }
 
 .fq_bg {
@@ -181,7 +180,7 @@ page {
     text-decoration: underline;
     background-color: #ffd985;
     position: absolute;
-    top: 178rpx;
+    top: 168rpx;
     left: -87rpx;
     z-index: 999;
 }
@@ -258,4 +257,7 @@ button::after {
     top: 37rpx;
     left: 133rpx;
     margin-top:-30rpx;
+}
+.width_click{
+    width: 15%;
 }

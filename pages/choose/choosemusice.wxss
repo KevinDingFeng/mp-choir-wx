@@ -25,7 +25,7 @@
     height:354rpx;
     display:inline-block;
     overflow:hidden;
-    margin-left: 54rpx;
+    margin-left: 54rpx
 }
 .goback{
     width:40rpx;
@@ -33,7 +33,6 @@
     overflow:hidden;
     color: #000;
     margin-top:222rpx;
-    margin-left: 53rpx;
 }
 .musiclist{
     margin-top: 27rpx;
@@ -96,4 +95,8 @@
    top: 746rpx;
     border-radius: 20px;
 
+}
+.width_click{
+    width: 15%;
+    text-align:center;
 }
