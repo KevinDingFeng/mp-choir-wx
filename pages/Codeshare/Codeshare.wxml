@@ -3,7 +3,7 @@
          <view class='team_logo'  style="margin-top:{{(scale<0.55)? '230rpx':'152rpx'}}">
             <image src="{{picPath}}" mode='aspectFill'></image>
             <view class='musice_star ' style="top:{{(scale<0.55)? '32%':'33%'}};left:{{(scale<0.55)? '62%':'62%'}}">
-                <image src="../../images/section/muscie_f.png" data-type="{{b_type}}" bindtap='createAudio'></image>
+                <image src="{{b_img}}" data-type="{{b_type}}" bindtap='createAudio'></image>
             </view>
         </view>
        <view class='fx_text '>
