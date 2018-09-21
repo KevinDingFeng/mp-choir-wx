@@ -387,13 +387,13 @@ Page({
           }
         };
       } else if (res.target.dataset.publish){
-        that.setData({
-          publishTask:false
-        })
         return {
           title: title_,
           path: '/pages/section/sectionmusice?choirId=' + that.data.choirId,
           success: function (res) {
+            that.setData({
+              publishTask: false
+            })
             wx.request({
               url: config.baseUrl + '/choir/updateChoirPublishTask', //
               data: {
