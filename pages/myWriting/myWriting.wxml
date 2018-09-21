@@ -62,7 +62,7 @@
             </view>
           </block>
           <block wx:else>
-            <view class='zj_create' >你还没有专辑，快去 <text class="text_d" bindtap='gotoIndex'>成团出道～</text></view>
+            <view class='zj_create' >当前没有演唱任务， <text class="text_d" bindtap='gotoIndex'>快去发起合唱！</text></view>
           </block>
         </view>
         <view class='bottom-logo '>
