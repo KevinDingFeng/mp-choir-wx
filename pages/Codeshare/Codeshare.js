@@ -16,7 +16,57 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    var s = this;
+    console.log(options);
+    wx.request({
+      url: config.baseUrl + '/syn_songs/' + options.choirId + '/detail_by_choir',
+      success: function (res) {
+        s.setData({
+          song: res.data.data,
+          picPath: config.baseUrl + "/f/" + res.data.data.choir.albumArtPaht,
+        });
+        wx.downloadFile({
+          url: config.baseUrl + "/f/" + res.data.data.choir.albumArtPaht, //头像图片
+          success(res) {
+            // 只要服务器有响应数据，就会把响应内容写入文件并进入 success 回调，业务需要自行判断是否下载到了想要的内容
+            if (res.statusCode === 200) {
+              s.setData({
+                touPicPath: res.tempFilePath
+              });
+            }
+          }
+        })
+      }
+    });
+  },
+  /**
+     * 听取合唱作品
+     */
+  createAudio: function (event) {
+    let that = this;
+    let _type = event.currentTarget.dataset.type;
+    if (_type == "1") {
+      wx.playBackgroundAudio({
+        dataUrl: config.baseUrl + "/f/" + that.data.song.syntheticSong.songPath,
+        title: "111"
+      })
+      wx.onBackgroundAudioStop(() => {
+        //停止录音
+        that.setData({
+          b_img: "../../images/section/muscie_f.png"
+        })
+      })
+      that.setData({
+        b_img: "../../images/section/muscie_t.png",
+        b_type: "2",
+      })
+    } else {
+      wx.pauseBackgroundAudio();
+      that.setData({
+        b_img: "../../images/section/muscie_f.png",
+        b_type: "1",
+      })
+    }
   },
 
   /**
