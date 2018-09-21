@@ -13,7 +13,7 @@
             <view class='text_style mar_bar'>新歌首发，多帮分享扩散，</view>
             <view class='text_style'>出道请你吃饭！～</view>
         </view>
-        <view class="create_hb" style="margin-top:{{(scale<0.55)? '100rpx':'30rpx'}}">
+        <view class="create_hb" bindtap='goHome' style="margin-top:{{(scale<0.55)? '100rpx':'30rpx'}}">
             <image src="../../images/fq_hc.png"></image>
         </view>
         <button class="create_fx" style="margin-top:{{(scale<0.55)? '60rpx':'0rpx'}}" open-type="share">

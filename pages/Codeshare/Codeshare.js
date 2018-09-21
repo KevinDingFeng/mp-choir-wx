@@ -116,7 +116,21 @@ Page({
     /**
      * 用户点击右上角分享
      */
-    onShareAppMessage: function () {
-
+  onShareAppMessage: function (res) {
+    let that = this;
+    let title_ = config.onShareAppMessageTitle[Math.floor(Math.random() * config.onShareAppMessageTitle.length)];
+    if (res.from === 'button') {
+      // 来自页面内转发按钮
+      console.log(res.target)
     }
+    return {
+      title: title_,
+      path: '/pages/Codeshare/Codeshare?choirId=' + that.data.song.choir.id,
+    }
+  },
+  goHome: function () {
+    wx.redirectTo({
+      url: '/pages/index/index',
+    })
+  }
 })
