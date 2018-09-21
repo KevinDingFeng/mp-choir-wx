@@ -32,8 +32,12 @@ Page({
                 if (resData && resData.errorCode == 0) {
                     let data = resData.data;
                     for (var i = 0; i < data.length; i++) {
+                      if(data[i]){
                         data[i].bf_img = "s_ting.png";
                         data[i].bf_type = "1";
+                      }else{
+                        data.splice(i,1);
+                      }
                     }
                     that.setData({
                         result: data
