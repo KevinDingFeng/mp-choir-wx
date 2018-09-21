@@ -36,11 +36,11 @@ page {
 }
 
 .team_logo>image {
-    width: 423rpx;
-    height: 422rpx;
-    margin-left: 258rpx;
-    margin-top: 9rpx;
-    border-radius: 16rpx;
+    width:387rpx;
+    height:390rpx;
+    margin-left:237rpx;
+    margin-top:4rpx;
+    border-radius:16rpx;
 }
 
 .team_name {
@@ -53,8 +53,9 @@ page {
 
 .musice_star {
     position: absolute;
-    top: 64%;
+    top: 63%;
     left: 60%;
+    z-index: 9999;
 }
 
 .fx_text {
@@ -75,6 +76,7 @@ page {
 .musice_star>image {
     width: 73rpx;
     height: 73rpx;
+    z-index: 9999;
 }
 
 .create_hb {
@@ -90,11 +92,14 @@ page {
 }
 
 .create_fx {
-    width: 100%;
+    width: 67%;
     text-align: center;
     margin-top: 20rpx;
+    background-color: #FFCD63;
 }
-
+button::after {
+    border: none;
+}
 .create_fx>image {
     width: 400rpx;
     height: 100rpx;

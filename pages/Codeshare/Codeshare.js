@@ -9,7 +9,7 @@ Page({
   data: {
     pageStyle: `width:${app.globalData.width};height:${app.globalData.height}`,
     scale: app.globalData.windowWidth / app.globalData.windowHeight,
-    bj_img: config.bg_img + "/04bg.png"
+    bj_img: config.bg_img + "/04bg.png",
   },
 
   /**

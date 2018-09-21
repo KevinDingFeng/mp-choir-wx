@@ -2,9 +2,9 @@
     <view class='container'   scale="{{scale}}">
          <view class='team_logo'  style="margin-top:{{(scale<0.55)? '230rpx':'152rpx'}}">
             <image src="{{picPath}}" mode='aspectFill'></image>
-        </view>
-        <view class='musice_star ' style="top:{{(scale<0.55)? '32%':'33%'}};left:{{(scale<0.55)? '62%':'62%'}}">
-            <image src="{{b_img}}" data-type="{{b_type}}" bindtap='createAudio'></image>
+            <view class='musice_star ' style="top:{{(scale<0.55)? '32%':'33%'}};left:{{(scale<0.55)? '62%':'62%'}}">
+                <image src="../../images/section/muscie_f.png" data-type="{{b_type}}" bindtap='createAudio'></image>
+            </view>
         </view>
        <view class='fx_text '>
             <view class='text_style'>
@@ -16,10 +16,10 @@
         <view class="create_hb" style="margin-top:{{(scale<0.55)? '100rpx':'30rpx'}}">
             <image src="../../images/fq_hc.png"></image>
         </view>
-        <view class="create_fx" style="margin-top:{{(scale<0.55)? '60rpx':'20rpx'}}">
-           <image src="../../images/create_fx.png"></image>
-        </view>
-         <view class='bottom-logo' style="margin-top:{{(scale<0.55)? '50rpx':'20rpx'}}">
+        <button class="create_fx" style="margin-top:{{(scale<0.55)? '60rpx':'0rpx'}}" open-type="share">
+            <image src="../../images/create_fx.png"></image>
+        </button>
+        <view  class='bottom-logo' style="margin-top:{{(scale<0.55)? '50rpx':'20rpx'}}">
             <image src="../../images/index/index-logo.png "/>
         </view>
     </view>
