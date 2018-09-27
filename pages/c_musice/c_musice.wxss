@@ -174,8 +174,8 @@ progress-bar .bar-inner {
 .musice_btnlist{
     width: 100%;
     text-align: center;
-    margin-top: 35rpx;
-    margin-left:-40rpx;
+    margin-left:-44%;
+    margin-top:-6%;
 }
 .musice_btnlist>image{
     width: 90rpx;

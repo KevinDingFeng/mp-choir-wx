@@ -31,7 +31,7 @@
                 <view wx:if="{{lz_type}}">
                     <image wx:if="{{is_show}}" src='../../images/c_musice/lz.png' bindtap='makeRecord'></image>
                 </view>
-                <view class='musice_btn musice_btnlist ' wx:else>
+                <view class='musice_btnlist' style="margin-left:{{(scale<0.55)? '-40%':'-44%'}}" wx:else>
                     <image src='../../images/c_musice/cfu.png' bindtap='makeRecord'></image>
                     <image class='center_btn' src='{{b_img}}' bindtap='playRecode'></image>
                     <image src='../../images/c_musice/success.png' bindtap='finishRecode'></image>
