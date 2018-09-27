@@ -149,6 +149,7 @@ Page({
                 //console.log(res.data)
                 let resData = res.data;
                 if (resData && resData.success) {
+                  wx.removeStorageSync("scene");
                     wx.redirectTo({
                         url: '/pages/section/sectionmusice?choirId=' + that.data.choirId,
                     })
