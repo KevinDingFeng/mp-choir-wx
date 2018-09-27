@@ -64,7 +64,7 @@
         <view class='c_font'>{{result.completeNum}}/{{result.population}}合成</view>
       </view>
     </block>
-    <view class='bottom-logo' style="margin-top:{{(scale<0.55)? '54rpx':'0rpx'}}">
+    <view class='bottom-logo' style="margin-top:{{(scale<0.55)? '54rpx':'8rpx'}}">
       <image src="../../images/index/index-logo.png " />
     </view>
 
