@@ -44,9 +44,9 @@ page{
     min-height: 750rpx;
 }
 .musice_btn{
-    width: 100%;
-    text-align: center;
-    margin-top: 35rpx;
+    position: absolute;
+    top:70%;
+    left:20%;
     height: 160rpx;
 }
 .musice_btn image{
