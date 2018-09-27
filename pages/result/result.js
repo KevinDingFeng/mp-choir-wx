@@ -199,13 +199,13 @@ Page({
                                 context.setFontSize(24 * rpx);
                                 context.setFillStyle('#fff');
                                 context.setTextAlign('center');
-                                context.fillText(name, 175* rpx, 325 * rpx);
+                                context.fillText(name, 180* rpx, 325 * rpx);
                                 context.stroke();
                                 //绘制歌名
                                 context.setFontSize(24 * rpx);
                                 context.setFillStyle('#fff');
                                 context.setTextAlign('center');
-                                context.fillText(musice_name, 190 * rpx, 415 * rpx);
+                                context.fillText(musice_name, 200 * rpx, 418 * rpx);
                                 context.stroke();
                                 _this.circleImg(context, _this.data.touPicPath, 116 * rpx, 70 * rpx, 150 * rpx, 160 * rpx, 8 * rpx);
                                 context.draw();
@@ -227,13 +227,13 @@ Page({
                                 context.setFontSize(22 * rpx);
                                 context.setFillStyle('#fff');
                                 context.setTextAlign('center');
-                                context.fillText(name, 150 * rpx, 280 * rpx);
+                                context.fillText(name, 170 * rpx, 280 * rpx);
                                 context.stroke();
                                 //绘制歌名
                                 context.setFontSize(22 * rpx);
                                 context.setFillStyle('#fff');
                                 context.setTextAlign('center');
-                                context.fillText(musice_name, 170 * rpx, 362 * rpx);
+                                context.fillText(musice_name, 190 * rpx, 362 * rpx);
                                 context.stroke();
                                 _this.circleImg(context, _this.data.touPicPath, 116 * rpx, 47 * rpx, 150 * rpx, 160* rpx, 8 * rpx);
                                 context.draw();

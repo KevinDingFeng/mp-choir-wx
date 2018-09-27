@@ -43,6 +43,9 @@
     overflow: auto;
     position: relative;
 }
+.musiclist::-webkit-scrollbar{
+    display: none;
+}
 .music{
     display: flex;
     flex-direction: row;

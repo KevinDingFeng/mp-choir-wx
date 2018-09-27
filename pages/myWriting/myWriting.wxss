@@ -55,7 +55,9 @@ page {
     border-radius: 20px;
     overflow: auto;
 }
-
+.musiclist::-webkit-scrollbar{
+    display: none;
+}
 .music {
     display: flex;
     flex-direction: row;
