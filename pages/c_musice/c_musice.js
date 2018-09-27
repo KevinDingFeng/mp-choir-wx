@@ -179,9 +179,12 @@ Page({
             this.setData({
                 b_img: "../../images/c_musice/bf.png",
                 b_type: "1",
-                percent: _cc,
+                percent: 1,
                 currentTime: _cc
             })
+          this.setData({
+            percent: 0
+          })
             console.log("innerAudioContext currentTime" + that.data.percent)
             console.log(that.data.currentTime);
         })
@@ -332,7 +335,7 @@ Page({
         innerAudioContext.stop();//停止播放录音
         let that = this;
         wx.playBackgroundAudio({
-            dataUrl: config.baseUrl + "/f/" + playUrl + "?version=0921",
+            dataUrl: config.baseUrl + "/f/" + playUrl + "?version=0925",
             // title: this.data.currentSong.name,
             // coverImgUrl: this.data.currentSong.image
         })

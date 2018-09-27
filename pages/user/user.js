@@ -71,6 +71,14 @@ Page({
     wx.chooseImage({
       count: 1,
       success: function (res) {
+        let size = res.tempFiles[0].size;
+        if (size>10*1024*1024){
+          wx.showModal({
+            title: '提示',
+            content: "图片最大为10MB",
+            showCancel: false
+          })
+        }
         var tempFilePaths = res.tempFilePaths;
         if (!/\.(jpg|jpeg|png|JPG|PNG)$/.test(tempFilePaths)){
           wx.showModal({
