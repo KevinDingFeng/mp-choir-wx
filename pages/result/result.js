@@ -185,57 +185,57 @@ Page({
                             var path3 = "../../images/er_code.png";
 
                             if (_this.data.scale < 0.55){
-                                context.drawImage(path, -20 * rpx, 0, 400 * rpx, 580 * rpx);
-                                context.drawImage(path1, 15 * rpx, 40 * rpx, 350 * rpx, 230 * rpx);
+                                context.drawImage(path, -20 * rpx, 0, 400 * rpx, 630 * rpx);
+                                context.drawImage(path1, 17 * rpx, 45 * rpx, 345 * rpx, 260 * rpx);
 
 
                                 // context.drawImage(_this.data.touPicPath, 108 * rpx, 60 * rpx, 150 * rpx, 120 * rpx);
 
 
-                                context.drawImage(path2, 85 * rpx, 220 * rpx, 225 * rpx, 300 * rpx);
-                                context.drawImage(path3, 240 * rpx, 480 * rpx, 120 * rpx, 100 * rpx);
-                                context.drawImage(res.tempFilePath, 260 * rpx, 485 * rpx, 90 * rpx, 85 * rpx);
+                                context.drawImage(path2, 80 * rpx, 260 * rpx, 225 * rpx, 300 * rpx);
+                                context.drawImage(path3, 240 * rpx, 520 * rpx, 120 * rpx, 100 * rpx);
+                                context.drawImage(res.tempFilePath, 260 * rpx, 525 * rpx, 90 * rpx, 85 * rpx);
                                 //绘制名字
                                 context.setFontSize(24 * rpx);
                                 context.setFillStyle('#fff');
                                 context.setTextAlign('center');
-                                context.fillText(name, 175* rpx, 283 * rpx);
+                                context.fillText(name, 175* rpx, 325 * rpx);
                                 context.stroke();
                                 //绘制歌名
                                 context.setFontSize(24 * rpx);
                                 context.setFillStyle('#fff');
                                 context.setTextAlign('center');
-                                context.fillText(musice_name, 190 * rpx, 380 * rpx);
+                                context.fillText(musice_name, 190 * rpx, 415 * rpx);
                                 context.stroke();
-                                _this.circleImg(context, _this.data.touPicPath, 115 * rpx, 60 * rpx, 153 * rpx, 145 * rpx, 8 * rpx);
+                                _this.circleImg(context, _this.data.touPicPath, 116 * rpx, 70 * rpx, 150 * rpx, 160 * rpx, 8 * rpx);
                                 context.draw();
 
 
 
                             }else{
-                                context.drawImage(path, -20 * rpx, 0, 400 * rpx, 500 * rpx);
-                                context.drawImage(path1, 15 * rpx, 40 * rpx, 350 * rpx, 200 * rpx);
+                                context.drawImage(path, -20 * rpx, 0, 400 * rpx, 520 * rpx);
+                                context.drawImage(path1, 17 * rpx, 22* rpx, 345 * rpx, 260 * rpx);
 
 
                                 // context.drawImage(_this.data.touPicPath, 108 * rpx, 60 * rpx, 150 * rpx, 120 * rpx);
 
 
-                                context.drawImage(path2, 60 * rpx, 208 * rpx, 225 * rpx, 270 * rpx);
-                                context.drawImage(path3, 240 * rpx, 395 * rpx, 120 * rpx, 100 * rpx);
-                                context.drawImage(res.tempFilePath, 260 * rpx, 400 * rpx, 90 * rpx, 85 * rpx);
+                                context.drawImage(path2, 70 * rpx, 225 * rpx, 225 * rpx, 260 * rpx);
+                                context.drawImage(path3, 240 * rpx, 420 * rpx, 120 * rpx, 100 * rpx);
+                                context.drawImage(res.tempFilePath, 260 * rpx, 425 * rpx, 90 * rpx, 85 * rpx);
                                 //绘制名字
                                 context.setFontSize(22 * rpx);
                                 context.setFillStyle('#fff');
                                 context.setTextAlign('center');
-                                context.fillText(name, 150 * rpx, 265 * rpx);
+                                context.fillText(name, 150 * rpx, 280 * rpx);
                                 context.stroke();
                                 //绘制歌名
                                 context.setFontSize(22 * rpx);
                                 context.setFillStyle('#fff');
                                 context.setTextAlign('center');
-                                context.fillText(musice_name, 170 * rpx, 350 * rpx);
+                                context.fillText(musice_name, 170 * rpx, 362 * rpx);
                                 context.stroke();
-                                _this.circleImg(context, _this.data.touPicPath, 115 * rpx, 60 * rpx, 153 * rpx, 125 * rpx, 8 * rpx);
+                                _this.circleImg(context, _this.data.touPicPath, 116 * rpx, 47 * rpx, 150 * rpx, 160* rpx, 8 * rpx);
                                 context.draw();
                             }
                         }

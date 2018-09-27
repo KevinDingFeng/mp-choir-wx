@@ -127,9 +127,9 @@ button::after{
     margin-top: 115rpx;
     width: 100%!important;
     height: 78%!important;
+    margin-bottom: 50rpx;
 }
 .cc_but{
-    margin-top: 50rpx;
     width: 40%;
     background-color: #FFCA58;
     color: #fff;
