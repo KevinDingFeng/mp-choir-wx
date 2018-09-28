@@ -124,16 +124,15 @@ button::after{
     height:100%;
 }
 .canvs_sty{
-    margin-top: 70rpx;
+    margin-top: 127rpx;
     width: 100%!important;
-    height: 90%!important;
+    height: 85%!important;
     overflow: auto;
 }
 .cc_but{
     width: 40%;
     background-color: #FFCA58;
     color: #fff;
-    line-height: 1.5!important;
 }
 .but_sty1{
     display: flex;

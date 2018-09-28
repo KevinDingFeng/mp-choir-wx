@@ -1,6 +1,6 @@
 <view class='result' style="background-image: url( '{{bj_img}}' )">
     <view class='container'   scale="{{scale}}">
-       <view class="navigation" style="margin-top:{{(scale<0.55)? '-42rpx':'-150rpx'}}">
+       <view class="navigation" style="margin-top:{{(scale<0.55)? '-42rpx':'-88rpx'}}">
           <image class='header-top'  src="../../images/home.png"   style="margin-top:{{(scale<0.55)? '216rpx':'216rpx'}}" bindtap="goHome"></image>
           <image class='fq_bg' src="../../images/section/fq_bg.png" style="margin-top:{{(scale<0.55)? '216rpx':'208rpx'}}" bindtap="goHome"></image>
         </view>
@@ -30,12 +30,12 @@
             <image src="../../images/index/index-logo.png "/>
         </view>
     </view>
-    <view class='cc_sty' hidden='{{canvasHidden}}'  style='{{pageStyle}}'>
-        <canvas class='canvs_sty' canvas-id='resultCanvas' style='{{pageStyle}}'></canvas>
-        <view class='but_sty1'>
+    <view class='cc_sty' hidden='{{canvasHidden}}'>
+        <canvas class='canvs_sty' canvas-id='resultCanvas' style="{{pageStyle}};margin-top:{{(scale<0.55)? '80rpx':'127rpx'}}"></canvas>
+        <cover-view class='but_sty1' style="bottom:{{(scale<0.55)? '45rpx':'21rpx'}}">
             <button class='cc_but' bindtap='save_phone'>保存到手机</button>
             <button class='cc_but' bindtap='fh_back'>返回</button>
-        </view>
+        </cover-view>
         
     </view>
 </view>
