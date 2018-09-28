@@ -124,9 +124,8 @@ button::after{
     height:100%;
 }
 .canvs_sty{
-    margin-top: 127rpx;
     width: 100%!important;
-    height: 85%!important;
+    height: 100%!important;
     overflow: auto;
 }
 .cc_but{
