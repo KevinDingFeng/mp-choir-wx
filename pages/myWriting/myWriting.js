@@ -185,7 +185,7 @@ Page({
     goResult: function (event) {
         var choirId = event.currentTarget.dataset.choir;
         wx.redirectTo({
-            url: '/pages/result/result?choirId=' + choirId,
+          url: '/pages/Codeshare/Codeshare?choirId=' + choirId,
         })
     },
 

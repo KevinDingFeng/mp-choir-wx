@@ -9,7 +9,7 @@ Page({
     /**
      * 页面的初始数据
      */
-    data: {
+    data: { 
         pageStyle: `width:${app.globalData.width};height:${app.globalData.height}`,
         scale: app.globalData.windowWidth / app.globalData.windowHeight,
         hbImagePath: null,
