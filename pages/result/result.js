@@ -213,7 +213,7 @@ Page({
 
 
                             }else{
-                                context.drawImage(path, -20 * rpx, 0, 400 * rpx, 520 * rpx);
+                                context.drawImage(path, -20 * rpx, 0*rpx, 400 * rpx, 520 * rpx);
                                 context.drawImage(path1, 17 * rpx, 22* rpx, 345 * rpx, 260 * rpx);
 
 

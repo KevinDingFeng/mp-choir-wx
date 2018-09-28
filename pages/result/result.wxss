@@ -124,10 +124,10 @@ button::after{
     height:100%;
 }
 .canvs_sty{
-    margin-top: 115rpx;
+    margin-top: 70rpx;
     width: 100%!important;
     height: 78%!important;
-    margin-bottom: 50rpx;
+    margin-bottom: 30rpx;
 }
 .cc_but{
     width: 40%;
