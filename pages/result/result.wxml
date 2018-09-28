@@ -30,9 +30,9 @@
             <image src="../../images/index/index-logo.png "/>
         </view>
     </view>
-    <view class='cc_sty' hidden="{{canvasHidden}};" style="padding-top:{{(scale<0.55)? '80rpx':'127rpx'}}">
+    <view class='cc_sty' hidden="{{canvasHidden}}" style="padding-top:{{(scale<0.55)? '114rpx':'100rpx'}}">
         <canvas class='canvs_sty' canvas-id='resultCanvas' style="{{pageStyle}};"></canvas>
-        <cover-view class='but_sty1' style="bottom:{{(scale<0.55)? '45rpx':'21rpx'}}">
+        <cover-view class='but_sty1' style="bottom:{{(scale<0.55)? '200rpx':'160rpx'}}">
             <button class='cc_but' bindtap='save_phone'>保存到手机</button>
             <button class='cc_but' bindtap='fh_back'>返回</button>
         </cover-view>
