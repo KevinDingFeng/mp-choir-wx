@@ -32,7 +32,7 @@
     </view>
     <view class='cc_sty' hidden="{{canvasHidden}}" >
         <canvas class='canvs_sty' canvas-id='resultCanvas' style="{{pageStyle}};margin-top:{{(scale<0.55)? '114rpx':'100rpx'}}"></canvas>
-        <cover-view class='but_sty1' style="bottom:{{(scale<0.55)? '10rpx':'36rpx'}}">
+        <cover-view class='but_sty1' style="bottom:{{(coverViewBottom==0)? '10rpx':coverViewBottom+'px'}}">
             <button class='cc_but' bindtap='save_phone'>保存到手机</button>
             <button class='cc_but' bindtap='fh_back'>返回</button>
         </cover-view>
